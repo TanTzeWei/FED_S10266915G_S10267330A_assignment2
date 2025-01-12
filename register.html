@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MokeSell Registration</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://assg2fed-fbbe.restdb.io/rest/_jsapi.js"></script>
+</head>
+<body>
+  <div class="registration-container">
+    <div class="registration-left-section"></div>
+    <div class="registration-right-section">
+      <h1 class="registration-title">Welcome to MokeSell!</h1>
+      <p class="registration-subtitle">Register your account</p>
+      <form class="registration-form">
+        <label for="registration-username" class="registration-label">Username</label>
+        <input type="text" id="registration-username" name="username" class="registration-input" placeholder="Enter your username" required>
+        
+        <label for="registration-email" class="registration-label">Email</label>
+        <input type="email" id="registration-email" name="email" class="registration-input" placeholder="Enter your email" required>
+        
+        <label for="registration-password" class="registration-label">Password</label>
+        <input type="password" id="registration-password" name="password" class="registration-input" placeholder="Enter your password" required>
+        
+        <button type="submit" class="registration-signup-btn">Sign Up</button>
+      </form>
+      <p class="registration-login-link">Already have an account? <a href="#" class="login-link">Log in</a></p>
+    </div>
+  </div>
+  <script src = "javaScripts/register.js"></script>
+</body>
+</html>
