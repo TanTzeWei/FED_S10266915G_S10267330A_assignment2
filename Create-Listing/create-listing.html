@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Listing</title>
+    <link rel="stylesheet" href="create-listing.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Create Listing</h1>
+        </header>
+        <form class="listing-form">
+            <div class="photo-upload">
+                <label for="photo">Select Photo</label>
+                <input type="file" id="photo" name="photo">
+            </div>
+
+            <div class="operating-system">
+                <label for="os">Operating System</label>
+                <input type="text" id="os" name="os">
+            </div>
+
+            <div class="condition">
+                <label>Condition</label>
+                <div>
+                    <label><input type="radio" name="condition" value="brand-new"> Brand new</label>
+                    <label><input type="radio" name="condition" value="like-new"> Like new</label>
+                    <label><input type="radio" name="condition" value="lightly-used"> Lightly used</label>
+                    <label><input type="radio" name="condition" value="well-used"> Well used</label>
+                    <label><input type="radio" name="condition" value="heavily-used"> Heavily used</label>
+                </div>
+            </div>
+
+            <div class="item-details">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+
+                <label>Local / International Set</label>
+                <div>
+                    <label><input type="radio" name="set-type" value="local"> Local</label>
+                    <label><input type="radio" name="set-type" value="international"> International</label>
+                </div>
+
+                <label>Manufacturing Warranty</label>
+                <div>
+                    <label><input type="radio" name="warranty" value="yes"> Yes</label>
+                    <label><input type="radio" name="warranty" value="no"> No</label>
+                </div>
+
+                <label for="description">Description</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+            </div>
+
+            <div class="deal-methods">
+                <label>Deal Methods</label>
+                <div>
+                    <label><input type="checkbox" name="meetup"> Meet-up</label>
+                    <input type="text" name="meetup-address" placeholder="Address">
+                </div>
+                <div>
+                    <label><input type="checkbox" name="delivery"> Delivery</label>
+                    <input type="text" name="delivery-address" placeholder="Address">
+                </div>
+            </div>
+
+            <div class="price-section">
+                <label>Price</label>
+                <div>
+                    <label><input type="radio" name="price-type" value="for-sale"> For Sale</label>
+                    <label><input type="radio" name="price-type" value="free"> Free</label>
+                </div>
+                <input type="text" name="price" placeholder="Price of Listing">
+            </div>
+
+            <button type="submit" class="submit-button">List now</button>
+        </form>
+    </div>
+</body>
+</html>
