@@ -1,4 +1,4 @@
-const apiKey = "677fd9b27b07b237dac82c50";
+const apiKey = "6784db79cea8d35416e3d912";
 const cyrb53 = (str, seed = 0) => {
     let h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
     for(let i = 0, ch; i < str.length; i++) {
@@ -85,6 +85,7 @@ async function createAccount(u,p,e){
 
 
 document.addEventListener("DOMContentLoaded", function(e) {
+  validateUsername("w");
   const signupForm = document.querySelector(".registration-form");
   const username = document.querySelector("#registration-username");
   const email = document.querySelector("#registration-email");
