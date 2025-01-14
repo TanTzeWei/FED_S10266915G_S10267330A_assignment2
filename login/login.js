@@ -40,12 +40,19 @@ async function validatelogin(target,target2) {
       if (JSON.stringify(data) == "[]") {
         return false; 
       } else {
+        console.log(data[0].username);
+        addToLocalStore(data[0].id,data[0].premium,data[0].staff);
         return true;
       }
     } catch (error) {
       console.error("Error validating login:", error);
       return false; 
     }
+  }
+  function addToLocalStore(id,premium,staff){
+    localStorage.setItem("id",id);
+    localStorage.setItem("premium",premium);
+    localStorage.setItem("staff",staff);
   }
 
 document.addEventListener("DOMContentLoaded",function(){
@@ -63,6 +70,7 @@ document.addEventListener("DOMContentLoaded",function(){
             console.log("Can login");
             loginButton.style.backgroundColor = "#28a745";
             loginButton.disabled = false;
+            window.location.href = "../index.html"
         }else{
             console.log("cannot login");
             loginButton.style.backgroundColor = "#28a745";
