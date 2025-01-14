@@ -177,4 +177,32 @@
   .forgot-password-link:hover {
     text-decoration: underline;
   }
+  .notification {
+    position: fixed;
+    top: -100px; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d90909;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    z-index: 1000;
+    opacity: 0;
+    transition: top 0.5s ease, opacity 0.5s ease;
+  }
+  
+  /* Visible state */
+  .notification.visible {
+    top: 20px; /* Visible position */
+    opacity: 1;
+  }
+  
+  /* Hidden state */
+  .notification.hidden {
+    top: -100px; /* Hidden position */
+    opacity: 0;
+  }
+  
   
