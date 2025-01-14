@@ -171,11 +171,11 @@ signupForm.addEventListener("submit", async function(event) {
       singupButton.style.background = "#ff4d4d";
       singupButton.disabled = false;
     }else{
-      createAccount(username.value,password.value,email.value)
+      await createAccount(username.value,password.value,email.value)
       singupButton.textContent = "Signup";
       singupButton.style.background = "#ff4d4d";
       singupButton.disabled = false;
-      window.location.href = "login/login.html"
+      window.location.href = "..//login/login.html"
     }
     
   }   
