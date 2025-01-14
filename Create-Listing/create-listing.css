@@ -25,7 +25,7 @@ header h1 {
     gap: 20px;
 }
 
-.photo-upload, .operating-system, .condition, .item-details, .deal-methods, .price-section {
+.photo-upload, .operating-system, .condition, .item-details, .deal-methods, .price-section, .set-type, .warranty {
     display: flex;
     flex-direction: column;
 }
@@ -36,7 +36,7 @@ label {
     color: #555;
 }
 
-input[type="text"], textarea, input[type="file"] {
+input[type="text"], textarea, input[type="file"], select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -47,11 +47,11 @@ textarea {
     resize: none;
 }
 
-input[type="radio"], input[type="checkbox"] {
+input[type="checkbox"] {
     margin-right: 10px;
 }
 
-.deal-methods div, .condition div, .item-details div, .price-section div {
+.deal-methods div {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
