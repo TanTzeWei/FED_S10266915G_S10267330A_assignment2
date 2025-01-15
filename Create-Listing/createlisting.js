@@ -15,14 +15,6 @@ function hideNotification() {
 }
 
 async function createListing(name,desc,cover,o,cond,meet,addr,del,pri){
-  const currentDate = new Date();
-
-  const day = String(currentDate.getDate()).padStart(2, '0'); 
-  const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
-  const year = currentDate.getFullYear(); 
-
-  const formattedDate = `${day}-${month}-${year}`;
-  console.log(formattedDate)
   const apiKey = "6784db79cea8d35416e3d912";
     
     let add = {
@@ -36,7 +28,8 @@ async function createListing(name,desc,cover,o,cond,meet,addr,del,pri){
         meetup:Boolean(meet.value),
         address:addr.value,
         delivery:Boolean(del.value),
-        price:pri.value
+        price:pri.value,
+        datecreated:new Date()
       }
       const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/listing";
       console.log(add)
