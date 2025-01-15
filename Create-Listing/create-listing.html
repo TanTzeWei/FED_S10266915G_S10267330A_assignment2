@@ -28,37 +28,40 @@
             <div class="operating-system">
                 <label for="os">Operating System</label>
                 <select id="os" name="os">
-                    <option value="android">Android</option>
-                    <option value="ios">iOS</option>
-                    <option value="others">Others</option>
+                    <option value="Android">Android</option>
+                    <option value="iOS">iOS</option>
+                    <option value="Others">Others</option>
                 </select>
             </div>
 
             <div class="condition">
                 <label for="condition">Condition</label>
                 <select id="condition" name="condition">
-                    <option value="brand-new">Brand new</option>
-                    <option value="like-new">Like new</option>
-                    <option value="lightly-used">Lightly used</option>
-                    <option value="well-used">Well used</option>
-                    <option value="heavily-used">Heavily used</option>
+                    <option value="Brand New">Brand new</option>
+                    <option value="Like New">Like new</option>
+                    <option value="Lightly Used">Lightly used</option>
+                    <option value="Well Used">Well used</option>
+                    <option value="Heavily Used">Heavily used</option>
                 </select>
             </div>
+            <div id="notification" class="notification hidden">
+                <p id="notification-message">This is a notification message.</p>
+              </div>
 
             <div class="deal-methods">
                 <label>Deal Methods</label>
                 <div>
-                    <label><input type="checkbox" name="deal-method" value="meetup"> Meet-up</label>
-                    <input type="text" name="meetup-address" placeholder="Address">
+                    <label><input type="checkbox" name="deal-method" value="meetup" id="meetup" class="dealMethod"> Meet-up</label>
+                    <input type="text" name="meetup-address" placeholder="Address" id ="address">
                 </div>
                 <div>
-                    <label><input type="checkbox" name="deal-method" value="delivery"> Delivery</label>
+                    <label><input type="checkbox" name="deal-method" value="delivery" id="delivery" class="dealMethod"> Delivery</label>
                 </div>
             </div>
 
             <div class="price-section">
                 <label for="price">Price</label>
-                <input type="text" id="price" name="price" placeholder="Price of Listing">
+                <input type="number" id="price" name="price" placeholder="Price of Listing" >
             </div>
 
             <button type="submit" class="submit-button">List now</button>
