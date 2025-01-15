@@ -78,17 +78,24 @@ document.addEventListener("DOMContentLoaded",function(){
     form.addEventListener("submit", async function(event){  
         event.preventDefault();
         if(name.value == ""){
+          name.style.borderColor = "red";
           showNotification("Invalid name!");
         }else if(description.value == ""){
           showNotification("Please add a description!");
+          description.style.borderColor = "red";
         }else if(photo.value == ""){
           showNotification("Please add a Cover photo!")
+          photo.style.borderColor = "red";
         }else if(meetup.checked == true && address.value == ""){
           showNotification("Add an address to meetup!")
+          address.style.borderColor = "red";
         }else if(meetup.checked == false && delivery.checked == false){
           showNotification("Please choose at least 1 deal method!")
+          meetup.style.borderColor = "red";
+          delivery.style.borderColor = "red";
         }else if(price.value<0 || price.value == ""){
           showNotification("Please add a valid price!")
+          price.style.borderColor = "red";
         }else{
           createListing(name,description,photo,os,condition,meetup,address,delivery,price);
         }
