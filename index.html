@@ -3,88 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MokeSell</title>
+    <title>Carousell Clone</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <!-- Header -->
+    <header class="header">
         <div class="logo">MokeSell</div>
-        <div class="nav-left">
-            <div class="category-box">
-                Electronics
-                <div class="dropdown">
-                    <a href="#">Phones</a>
-                    <a href="#">Laptops</a>
-                    <a href="#">Cameras</a>
-                </div>
-            </div>
-            <div class="category-box">
-                Fashion
-                <div class="dropdown">
-                    <a href="#">Men</a>
-                    <a href="#">Women</a>
-                    <a href="#">Kids</a>
-                </div>
-            </div>
-            <div class="category-box">
-                Home
-                <div class="dropdown">
-                    <a href="#">Furniture</a>
-                    <a href="#">Kitchen</a>
-                    <a href="#">Decor</a>
-                </div>
-            </div>
-            <div class="category-box">
-                Sports
-                <div class="dropdown">
-                    <a href="#">Outdoor</a>
-                    <a href="#">Gym</a>
-                    <a href="#">Accessories</a>
-                </div>
-            </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for items...">
+            <button>Search</button>
         </div>
-        <div class="nav-right">
-            <div class="icons">
-                <div class="user-profile">U</div>
-                <div class="icon">❤</div>
-                <div class="icon">🛒</div>
-                <div class="icon">🔔</div>
-                <div class="icon">💬</div>
-            </div>
+        <div class="user-actions">
+            <button>Register</button>
+            <button>Login</button>
             <button class="sell-btn">Sell</button>
         </div>
     </header>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Search for products, brands, and more...">
-    </div>
+    <!-- Categories Navigation -->
+    <nav class="categories">
+        <a href="#">Electronics</a>
+        <a href="#">Fashion</a>
+        <a href="#">Luxury</a>
+        <a href="#">Services</a>
+        <a href="#">Cars</a>
+        <a href="#">Property</a>
+        <a href="#">All Categories</a>
+    </nav>
 
-    <div class="promotion-banner">
-        Promotion Banner
-    </div>
-
-    <div class="categories-grid">
-        <div class="category-item">Cat 1</div>
-        <div class="category-item">Cat 2</div>
-        <div class="category-item">Cat 3</div>
-        <div class="category-item">Cat 4</div>
-        <div class="category-item">Cat 5</div>
-        <div class="category-item">Cat 6</div>
-    </div>
-
-    <div class="grid">
-        <div class="grid-item">
-            <img alt="Product 1">
-            <h3>Product 1</h3>
-            <p>Short description of Product 1.</p>
-            <button>Buy Now</button>
+    <!-- Product Grid -->
+    <div class="product-grid">
+        <div class="product-card">
+            <img src="iphone.jpg" alt="Product 1">
+            <div class="description">
+                <h3>Local stock - Foldable Bicycle</h3>
+                <p>S$140</p>
+                <span>Brand New</span>
+            </div>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+                </svg>
+            </button>
         </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <div class="description">
+                <h3>Local stock - Foldable Bicycle</h3>
+                <p>S$140</p>
+                <span>Brand New</span>
+            </div>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <div class="description">
+                <h3>Local stock - Foldable Bicycle</h3>
+                <p>S$140</p>
+                <span>Brand New</span>
+            </div>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <div class="description">
+                <h3>Local stock - Foldable Bicycle</h3>
+                <p>S$140</p>
+                <span>Brand New</span>
+            </div>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150" alt="Product 1">
+            <div class="description">
+                <h3>Local stock - Foldable Bicycle</h3>
+                <p>S$140</p>
+                <span>Brand New</span>
+            </div>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        <div class="product-card">
+            <img src="image.png" alt="Product 1">
+            <div class="description">
+                <h3>Local stock - Foldable Bicycle</h3>
+                <p>S$140</p>
+                <span>Brand New</span>
+            </div>
+            <button class="like-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+        <!-- Repeat product cards here -->
     </div>
 
-    <footer>
-        &copy; 2025 MokeSell. All rights reserved.
+    <!-- Footer -->
+    <footer class="footer">
+        &copy; 2025 Carousell Clone. All rights reserved.
     </footer>
 </body>
 </html>
+
 
 
