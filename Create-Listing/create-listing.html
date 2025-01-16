@@ -36,36 +36,40 @@
                 <h2>Specifications</h2>
                 <label for="os">Operating System</label>
                 <select id="os" name="os">
-                    <option value="android">Android</option>
-                    <option value="ios">iOS</option>
-                    <option value="others">Others</option>
+                    <option value="Android">Android</option>
+                    <option value="iOS">iOS</option>
+                    <option value="Others">Others</option>
                 </select>
 
                 <label for="condition">Condition</label>
                 <select id="condition" name="condition">
-                    <option value="brand-new">Brand New</option>
-                    <option value="like-new">Like New</option>
-                    <option value="lightly-used">Lightly Used</option>
-                    <option value="well-used">Well Used</option>
-                    <option value="heavily-used">Heavily Used</option>
+                    <option value="brand-new">Brand new</option>
+                    <option value="like-new">Like new</option>
+                    <option value="lightly-used">Lightly used</option>
+                    <option value="well-used">Well used</option>
+                    <option value="heavily-used">Heavily used</option>
                 </select>
             </div>
+            <div id="notification" class="notification hidden">
+                <p id="notification-message">This is a notification message.</p>
+              </div>
 
-            <!-- Deal Methods -->
-            <div class="section">
-                <h2>Deal Methods</h2>
-                <div class="deal-options">
+            <div class="deal-methods">
+                <label>Deal Methods</label>
+                <div>
                     <label><input type="radio" name="deal-method" value="meetup"> Meet-up</label>
-                    <input type="text" name="meetup-address" placeholder="Enter meet-up address">
+                    <input type="text" name="meetup-address" placeholder="Address">
                 </div>
-                <label><input type="radio" name="deal-method" value="delivery"> Delivery</label>
+                <div>
+                    <label><input type="radio" name="deal-method" value="delivery"> Delivery</label>
+                </div>
             </div>
 
             <!-- Price Section -->
             <div class="section">
                 <h2>Price</h2>
                 <label for="price">Price</label>
-                <input type="text" id="price" name="price" placeholder="Enter the price">
+                <input type="text" id="price" name="price" placeholder="Price of Listing">
             </div>
 
             <button type="submit" class="submit-button">List Now</button>

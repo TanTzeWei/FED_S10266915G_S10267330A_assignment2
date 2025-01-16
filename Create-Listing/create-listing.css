@@ -150,11 +150,3 @@ button.submit-button {
 button.submit-button:hover {
     background-color: #218838;
 }
-
-.deal-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-
