@@ -12,108 +12,133 @@
   }
   
   /* Header */
-  header {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px 30px;
     background-color: #fff;
     border-bottom: 1px solid #ccc;
-  }
-  
-  .logo {
-    font-size: 24px;
+}
+
+.logo {
+    font-size: 32px; /* Increased font size */
     font-weight: bold;
-  }
-  
-  .nav-left {
+    color: #ff5a5f;
+}
+
+.search-bar {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  .category-box {
-    position: relative;
-    padding: 10px 15px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .category-box:hover .dropdown {
-    display: block;
-  }
-  
-  .dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
+    margin: 0 30px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
     border: 1px solid #ccc;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-  }
-  
-  .dropdown a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-  }
-  
-  .dropdown a:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .nav-right {
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.search-bar button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    background-color: #ff5a5f;
+    color: #fff;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.user-actions button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.user-actions .sell-btn {
+    background-color: #ff5a5f;
+}
+
+.user-actions button:hover {
+    opacity: 0.9;
+}
+.nav-bar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
-  }
-  
-  .icons {
+    background-color: #f8f8f8;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 20px;
     display: flex;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 15px;
     align-items: center;
-    gap: 10px;
-  }
-  
-  .icons .icon {
+}
+
+.nav-icons svg {
     width: 24px;
     height: 24px;
-    background-color: #ddd;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
-  }
-  
-  .user-profile {
-    width: 32px;
-    height: 32px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.auth-buttons button {
+    padding: 5px 10px;
     background-color: #007bff;
     color: white;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .sell-btn {
-    background-color: #007bff;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-  }
-  
-  .sell-btn:hover {
+    font-size: 0.9em;
+}
+
+.auth-buttons button:hover {
     background-color: #0056b3;
-  }
+}
+
+.user-icon {
+    display: none; /* Initially hidden */
+    cursor: pointer;
+    margin-left: 20px; /* Add spacing between cart and user icon */
+}
+
+.user-icon svg {
+    width: 30px;
+    height: 30px;
+}
   
   /* Edit Profile Container */
   .edit-profile-container {
