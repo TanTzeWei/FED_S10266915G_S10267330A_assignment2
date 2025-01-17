@@ -41,7 +41,7 @@ async function validatelogin(target,target2) {
         return false; 
       } else {
         console.log(data[0].username);
-        addToLocalStore(data[0].id,data[0].premium,data[0].staff);
+        addToLocalStore(data[0].id,data[0].premium,data[0].staff,data[0].username);
         return true;
       }
     } catch (error) {
@@ -49,8 +49,9 @@ async function validatelogin(target,target2) {
       return false; 
     }
   }
-  function addToLocalStore(id,premium,staff){
+  function addToLocalStore(id,premium,staff,username){
     localStorage.setItem("id",id);
+    localStorage.setItem("username",username)
     localStorage.setItem("premium",premium);
     localStorage.setItem("staff",staff);
   }
