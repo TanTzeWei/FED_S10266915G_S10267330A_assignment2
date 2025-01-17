@@ -29,7 +29,8 @@ async function createListing(name,desc,cover,o,cond,meet,addr,del,pri){
         address:addr.value,
         delivery:Boolean(del.value),
         price:pri.value,
-        datecreated:new Date()
+        datecreated:new Date(),
+        ownername:localStorage.getItem("username")
       }
       const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/listing";
       console.log(add)
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded",function(){
     const price = document.querySelector("#price");
     const meetup = document.querySelector("#meetup");
     const delivery = document.querySelector("#delivery");
+    console.log(meetup);
 
     form.addEventListener("submit", async function(event){  
         event.preventDefault();
