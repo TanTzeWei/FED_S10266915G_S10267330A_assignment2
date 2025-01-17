@@ -37,9 +37,23 @@ function loadForYou(data){
         let name = description.querySelector("h3");
         let price = description.querySelector("p");
         let condition = description.querySelector("span");
+        let likeButton = clone.querySelector(".like-btn");
+        let likeCount = likeButton.querySelector(".like-count");
+        let userInfo = clone.querySelector(".user-info");
+        let username = userInfo.querySelector(".username");
+        let postTime = userInfo.querySelector(".post-time");
+        let dayPosted = new Date(selected.datecreated);
+        let currentDate = new Date()
+        let dateDiff = currentDate.getDate()-dayPosted.getDate();
 
         name.textContent = selected.listingname
         price.textContent = "S$"+selected.price;
+        name.textContent = selected.username;
+        condition.textContent = selected.condition;
+        likeCount.textContent = selected.likecount;
+        username.textContent = selected.ownername;
+        postTime.textContent = dateDiff+" days ago";
+        clone.style.visibility = "visible";
         forYou.appendChild(clone);
     }
 }

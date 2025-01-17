@@ -113,6 +113,7 @@ body {
 
 
 .product-card {
+    visibility:hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

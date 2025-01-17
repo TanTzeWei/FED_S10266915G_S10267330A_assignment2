@@ -30,7 +30,8 @@ async function createListing(name,desc,cover,o,cond,meet,addr,del,pri){
         delivery:Boolean(del.value),
         price:pri.value,
         datecreated:new Date(),
-        ownername:localStorage.getItem("username")
+        ownername:localStorage.getItem("username"),
+        likecount:0
       }
       const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/listing";
       console.log(add)
