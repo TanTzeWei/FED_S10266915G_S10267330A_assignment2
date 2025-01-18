@@ -150,3 +150,33 @@ button.submit-button {
 button.submit-button:hover {
     background-color: #218838;
 }
+/* Base notification styles */
+.notification {
+    position: fixed;
+    top: 20px; /* Adjusts distance from the top of the screen */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Perfect horizontal centering */
+    background-color: #ff5a5f; /* Notification background color */
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center; /* Center the text */
+    z-index: 1000; /* Ensure it appears above other content */
+  }
+  
+  /* Hidden state */
+  .notification.hidden {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px); /* Slightly move up for animation */
+    pointer-events: none; /* Prevent interaction when hidden */
+  }
+  
+  /* Visible state */
+  .notification.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* Back to its original position */
+    pointer-events: auto; /* Allow interaction */
+  }
+  
