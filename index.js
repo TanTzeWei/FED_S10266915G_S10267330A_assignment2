@@ -15,19 +15,24 @@ async function fetchListingsData(){
         }
     
         const data = await response.json();
-        console.log(JSON.stringify(data));
         return JSON.stringify(data); 
       } catch (error) {
         console.error("Error fetching data:", error);
       }
 }
 function loadTrending(data){
+    let oldData = JSON.parse(data);
+    let newData = oldData.sort((a, b) => b.likecount - a.likecount);
+    console.log(newData);
+    let dataDict = {}
+    for(let i = 0;i<25;i++){
+        let current = newData[i];
+    }
 
 }
 function loadForYou(data){
-    for(let i = 0; i<5;i++){
+    for(let i = 0; i<5;i++){//first 5//
         let newData = JSON.parse(data);
-        console.log(newData)
         const forYou = document.querySelector("#forYouList");
         let productExample = document.querySelector("#example");
         let randomInt = Math.floor(Math.random()*newData.length);
@@ -46,13 +51,14 @@ function loadForYou(data){
         let currentDate = new Date()
         let dateDiff = currentDate.getDate()-dayPosted.getDate();
 
-        name.textContent = selected.listingname
+        
         price.textContent = "S$"+selected.price;
         name.textContent = selected.username;
         condition.textContent = selected.condition;
         likeCount.textContent = selected.likecount;
         username.textContent = selected.ownername;
         postTime.textContent = dateDiff+" days ago";
+        name.textContent = selected.listingname;
         clone.style.visibility = "visible";
         forYou.appendChild(clone);
     }
@@ -62,7 +68,11 @@ document.addEventListener("DOMContentLoaded",async function(){
     let data = (await fetchListingsData());
     const trending = document.querySelector("#trendingList");
     const latest = document.querySelector("#latestList");
+    const forYou = document.querySelector("#forYouList");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
     
     
-    loadForYou(data)
+    loadForYou(data);
+    loadTrending(data);
 })
