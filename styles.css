@@ -242,6 +242,32 @@ body {
     width: 20px;
     height: 20px;
 }
+.nav-icons {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the icons */
+    gap: 15px; /* Space between icons */
+}
+
+.nav-icons svg {
+    width: 24px; /* Set a fixed width for the icons */
+    height: 24px; /* Set a fixed height for the icons */
+    fill: none; /* Keep the icons transparent unless styled otherwise */
+    stroke: #555; /* Match your original stroke color */
+    stroke-width: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.nav-icons svg:hover {
+    transform: scale(1.2); /* Slight enlargement on hover */
+}
+/* Heading for products*/
+.section-header {
+    margin: 20px 40px; /* Add spacing above the grid */
+    font-size: 24px; /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Text color */
+}
 
 /* Footer */
 .footer {
