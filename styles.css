@@ -113,9 +113,8 @@ body {
 
 
 .product-card {
-    visibility:hidden;
     position:relative;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 220px;

@@ -20,15 +20,46 @@ async function fetchListingsData(){
         console.error("Error fetching data:", error);
       }
 }
-function loadTrending(data){
+function loadTrending(data,page){
     let oldData = JSON.parse(data);
     let newData = oldData.sort((a, b) => b.likecount - a.likecount);
-    console.log(newData);
-    let dataDict = {}
-    for(let i = 0;i<25;i++){
-        let current = newData[i];
+    const trending = document.querySelector("#trendingList");
+    let dataDict = {1:[newData[0],newData[1],newData[2],newData[3],newData[4]],
+      2:[newData[5],newData[6],newData[7],newData[8],newData[9]],
+      3:[newData[10],newData[11],newData[12],newData[13],newData[14]],
+      4:[newData[15],newData[16],newData[17],newData[18],newData[19]],
+      5:[newData[20],newData[21],newData[22],newData[23],newData[24]]
     }
+    dataDict[page].forEach(function(selected){
+        let productExample = document.querySelector("#example");
+        let clone = productExample.cloneNode(true);
+        let description = clone.querySelector(".description");
+        let name = description.querySelector("h3");
+        let price = description.querySelector("p");
+        let condition = description.querySelector("span");
+        let likeButton = clone.querySelector(".like-btn");
+        let likeCount = likeButton.querySelector(".like-count");
+        let userInfo = clone.querySelector(".user-info");
+        let username = userInfo.querySelector(".username");
+        let postTime = userInfo.querySelector(".post-time");
+        let dayPosted = new Date(selected.datecreated);
+        let currentDate = new Date()
+        let dateDiff = currentDate.getDate()-dayPosted.getDate();
 
+        
+        price.textContent = "S$"+selected.price;
+        name.textContent = selected.username;
+        condition.textContent = selected.condition;
+        likeCount.textContent = selected.likecount;
+        username.textContent = selected.ownername;
+        postTime.textContent = dateDiff+" days ago";
+        name.textContent = selected.listingname;
+        clone.style.display = "flex";
+        
+        clone.setAttribute("productId",selected.listingid);
+        clone.setAttribute("ownerId",selected.ownerid)
+        trending.appendChild(clone);
+    })
 }
 function loadForYou(data){
     for(let i = 0; i<5;i++){//first 5//
@@ -59,7 +90,7 @@ function loadForYou(data){
         username.textContent = selected.ownername;
         postTime.textContent = dateDiff+" days ago";
         name.textContent = selected.listingname;
-        clone.style.visibility = "visible";
+        clone.style.display = "flex";
         
         clone.setAttribute("productId",selected.listingid);
         clone.setAttribute("ownerId",selected.ownerid)
@@ -88,15 +119,14 @@ function clickOption(e){
 }
 
 document.addEventListener("DOMContentLoaded",async function(){
-  localStorage.setItem("id",1)
     let data = (await fetchListingsData());
     const trending = document.querySelector("#trendingList");
-    const latest = document.querySelector("#latestList");
+    trending.setAttribute("page",1);
+
     const forYou = document.querySelector("#forYouList");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     
-    
     loadForYou(data);
-    loadTrending(data);
+    loadTrending(data,trending.getAttribute("page"));
 })
