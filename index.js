@@ -321,8 +321,8 @@ document.addEventListener("DOMContentLoaded",async function(){
     sponsored.setAttribute("page",1);
     const forYou = document.querySelector("#forYouList");
     forYou.setAttribute("page",1);
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
+    
+
     let sponsoredDict = {
       1:"",
       2:"",
@@ -339,8 +339,72 @@ document.addEventListener("DOMContentLoaded",async function(){
     }
     loadSponsoredDict(data,sponsoredDict);
     loadForYouDict(data,forYouDict);
-    console.log(forYouDict);
+
     loadForYou(forYouDict,forYou.getAttribute("page"));
     loadSponsored(sponsoredDict,sponsored.getAttribute("page"));
     loadTrending(data,trending.getAttribute("page"));
+
+
+    const prevBtnTrend = document.getElementById("prevBtnTrend");
+    prevBtnTrend.addEventListener(function(){
+      let page = trending.getAttribute("page")
+      if(page==1){
+
+      }else{
+        trending.setAttribute("page",page-1);
+        loadTrending(data,trending.getAttribute("page"));
+      }
+    })
+    const nextBtnTrend = document.getElementById("nextBtnTrend");
+    nextBtnTrend.addEventListener(function(){
+      let page = trending.getAttribute("page")
+      if(page==5){
+
+      }else{
+        trending.setAttribute("page",page+1);
+        loadTrending(data,trending.getAttribute("page"));
+      }
+    })
+
+    const prevBtnSpons = document.getElementById("prevBtnSpons");
+    prevBtnSpons.addEventListener(function(){
+      let page = sponsored.getAttribute("page")
+      if(page==1){
+
+      }else{
+        sponsored.setAttribute("page",page-1);
+        loadTrending(data,sponsored.getAttribute("page"));
+      }
+    })
+    const nextBtnSpons = document.getElementById("nextBtnSpons");
+    nextBtnSpons.addEventListener(function(){
+      let page = sponsored.getAttribute("page")
+      if(page==5){
+
+      }else{
+        sponsored.setAttribute("page",page+1);
+        loadTrending(data,sponsored.getAttribute("page"));
+      }
+    })
+    const prevBtnForYou = document.getElementById("prevBtnForYou");
+    prevBtnForYou.addEventListener(function(){
+      let page = forYou.getAttribute("page")
+      if(page==1){
+
+      }else{
+        forYou.setAttribute("page",page-1);
+        loadTrending(data,forYou.getAttribute("page"));
+      }
+    })
+    const nextBtnForYou = document.getElementById("nextBtnForYou");
+    nextBtnForYou.addEventListener(function(){
+      let page = forYou.getAttribute("page")
+      if(page==5){
+
+      }else{
+        forYou.setAttribute("page",page+1);
+        loadTrending(data,forYou.getAttribute("page"));
+      }
+    })
+
 })
