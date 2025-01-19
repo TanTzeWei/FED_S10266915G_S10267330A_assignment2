@@ -114,6 +114,7 @@ body {
 
 .product-card {
     visibility:hidden;
+    position:relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -275,4 +276,60 @@ body {
     padding: 20px;
     background-color: #fff;
     border-top: 1px solid #ccc;
+}
+.menu-dots-product {
+    position: absolute;
+    top: 8px; 
+    left: 90%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 24px;
+    
+}
+.menu-dots-product span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#menu-example{
+    display:none;
+}
+.menu-options {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.menu-options a {
+    display: none;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-options a:hover {
+    background-color: #f4f4f4;
+}
+
+#menu-example a:hover{
+    cursor:pointer;
+}
+#menu-example #delete{
+    display: none;
+    color:red;
+}
+#menu-example #edit{
+    display:none;
 }

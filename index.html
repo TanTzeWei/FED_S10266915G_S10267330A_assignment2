@@ -70,6 +70,16 @@
                     <span class="username">JohnDoe</span>  
                     <span class="post-time">2 days ago</span>
                 </div>
+                <div class="menu-dots-product" >
+                    <span onclick="clickOption(event)"></span>
+                    <span onclick="clickOption(event)"></span>
+                    <span onclick="clickOption(event)"></span>
+                </div>
+                <div class="menu-options" id="menu-example">
+                    <a id="report">Report Listing</a>
+                    <a id="edit">Edit Listing</a>
+                    <a id="delete">Delete Listing</a>
+                </div>
                 <img src="https://via.placeholder.com/150" alt="Product 1">
                 <div class="description">
                     <h3>Local stock - Foldable Bicycle</h3>
@@ -90,9 +100,9 @@
         <!-- Repeat product cards here -->
     </div>
     <div class="product-grid-container">
-        <h2 class="section-header">Latest</h2>
+        <h2 class="section-header">Sponsored</h2>
         <button class="nav-btn left-btn" id="prevBtn">&#8249;</button> <!-- Left Button -->
-        <div class="product-grid" id="trendingList">
+        <div class="product-grid" id="sponsoredList">
             <!-- Repeat more product cards as needed -->
         </div>
         <button class="nav-btn right-btn" id="nextBtn">&#8250;</button> <!-- Right Button -->
