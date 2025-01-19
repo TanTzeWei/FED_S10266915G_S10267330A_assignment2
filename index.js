@@ -63,7 +63,43 @@ function loadTrending(data,page){
         trending.appendChild(clone);
     })
 }
+function loadSponsored(dict,page){
+  let currentDict = dict[page]
+  for(let i = 0; i<5;i++){//first 5//
+    const sponsored = document.querySelector("#sponsoredList");
+    let productExample = document.querySelector("#example");
+    let selected = currentDict[i];
+    if(selected != null){
+      let clone = productExample.cloneNode(true);
+      let description = clone.querySelector(".description");
+      let name = description.querySelector("h3");
+      let price = description.querySelector("p");
+      let condition = description.querySelector("span");
+      let likeButton = clone.querySelector(".like-btn");
+      let likeCount = likeButton.querySelector(".like-count");
+      let userInfo = clone.querySelector(".user-info");
+      let username = userInfo.querySelector(".username");
+      let postTime = userInfo.querySelector(".post-time");
+      let dayPosted = new Date(selected.datecreated);
+      let currentDate = new Date()
+      let dateDiff = currentDate.getDate()-dayPosted.getDate();
 
+      
+      price.textContent = "S$"+selected.price;
+      name.textContent = selected.username;
+      condition.textContent = selected.condition;
+      likeCount.textContent = selected.likecount;
+      username.textContent = selected.ownername;
+      postTime.textContent = dateDiff+" days ago";
+      name.textContent = selected.listingname;
+      clone.style.display = "flex";
+      
+      clone.setAttribute("productId",selected.listingid);
+      clone.setAttribute("ownerId",selected.ownerid)
+      sponsored.appendChild(clone);
+    } 
+}
+}
 
 
 function loadForYou(data){
@@ -73,7 +109,6 @@ function loadForYou(data){
         let productExample = document.querySelector("#example");
         let randomInt = Math.floor(Math.random()*newData.length);
         let selected = newData[randomInt];
-        console.log(selected.status)
         if(selected.status == "Sponsored" || selected.status == "Active"){
           let clone = productExample.cloneNode(true);
           let description = clone.querySelector(".description");
@@ -107,8 +142,48 @@ function loadForYou(data){
 }
 function loadSponsoredDict(data,Dict){
   let oldData = JSON.parse(data);
-  let newData = oldData.filter(item => item.sponsored == true)
-  console.log(newData);
+  let newData = oldData.filter(item => item.status =="Sponsored");
+  let first = [];
+  let second = [];
+  let third = [];
+  let fourth = [];
+  let fifth = [];
+
+  for(let i = 0;i <5;i++){
+    let randomInt = Math.floor(Math.random()*newData.length)
+    let selected  = newData[randomInt];
+    first.push(selected);
+    delete newData[randomInt];
+  }
+  for(let i = 0;i <5;i++){
+    let randomInt = Math.floor(Math.random()*newData.length)
+    let selected  = newData[randomInt];
+    second.push(selected);
+    delete newData[randomInt];
+  }
+  for(let i = 0;i <5;i++){
+    let randomInt = Math.floor(Math.random()*newData.length)
+    let selected  = newData[randomInt];
+    third.push(selected);
+    delete newData[randomInt];
+  }
+  for(let i = 0;i <5;i++){
+    let randomInt = Math.floor(Math.random()*newData.length)
+    let selected  = newData[randomInt];
+    fourth.push(selected);
+    delete newData[randomInt];
+  }
+  for(let i = 0;i <5;i++){
+    let randomInt = Math.floor(Math.random()*newData.length)
+    let selected  = newData[randomInt];
+    fifth.push(selected);
+    delete newData[randomInt];
+  }
+  Dict[1] = first;
+  Dict[2] = second;
+  Dict[3] = third;
+  Dict[4] = fourth;
+  Dict[5] = fifth;
 }
 
 function clickOption(e){
@@ -136,7 +211,8 @@ document.addEventListener("DOMContentLoaded",async function(){
     let data = (await fetchListingsData());
     const trending = document.querySelector("#trendingList");
     trending.setAttribute("page",1);
-
+    const sponsored = document.querySelector("#sponsoredList");
+    sponsored.setAttribute("page",1)
     const forYou = document.querySelector("#forYouList");
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
@@ -150,5 +226,6 @@ document.addEventListener("DOMContentLoaded",async function(){
     loadSponsoredDict(data,sponsoredDict);
 
     loadForYou(data);
+    loadSponsored(sponsoredDict,sponsored.getAttribute("page"));
     loadTrending(data,trending.getAttribute("page"));
 })
