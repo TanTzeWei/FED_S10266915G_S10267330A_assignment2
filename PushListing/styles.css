@@ -1,0 +1,174 @@
+/* General Reset */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  /* Header Styles */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff5a5f;
+  }
+  
+  .search-bar {
+    flex: 1;
+    display: flex;
+    margin: 0 30px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+  }
+  
+  .search-bar button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    background-color: #ff5a5f;
+    color: #fff;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #e04e53;
+  }
+  
+  .nav-icons svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-actions button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .user-actions .sell-btn {
+    background-color: #ff5a5f;
+  }
+  
+  .user-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Main Section */
+  .main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .listings {
+    width: 48%;
+  }
+  
+  .listing-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+  }
+  
+  .listing-image {
+    width: 60px;
+    height: 60px;
+    background-color: #eee;
+    margin-right: 15px;
+    border-radius: 8px;
+  }
+  
+  .packages {
+    width: 48%;
+  }
+  
+  .package {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .package input {
+    margin-right: 10px;
+  }
+  
+  .package-details {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    border: 1px solid #ddd;
+  }
+  
+  .package-details.premium {
+    background-color: #fff6e5;
+    border: 1px solid #ffc107;
+  }
+  
+  .pay-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .pay-button:hover {
+    background-color: #218838;
+  }
+  
+  
