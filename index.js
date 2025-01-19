@@ -44,10 +44,12 @@ function loadTrending(data,page){
         let userInfo = clone.querySelector(".user-info");
         let username = userInfo.querySelector(".username");
         let postTime = userInfo.querySelector(".post-time");
+        let premium = clone.querySelector("#premium");
+        let sponsoredVal = clone.querySelector("#sponsored");
         let dayPosted = new Date(selected.datecreated);
         let currentDate = new Date()
         let dateDiff = currentDate.getDate()-dayPosted.getDate();
-
+  
         
         price.textContent = "S$"+selected.price;
         name.textContent = selected.username;
@@ -57,9 +59,12 @@ function loadTrending(data,page){
         postTime.textContent = dateDiff+" days ago";
         name.textContent = selected.listingname;
         clone.style.display = "flex";
-        
-        clone.setAttribute("productId",selected.listingid);
-        clone.setAttribute("ownerId",selected.ownerid)
+        if(selected.premiumlisting == true){
+          premium.style.display = "block";
+        }
+        if(selected.status == "Sponsored"){
+          sponsoredVal.style.display = "block";
+        }
         trending.appendChild(clone);
     })
 }
@@ -80,6 +85,8 @@ function loadSponsored(dict,page){
       let userInfo = clone.querySelector(".user-info");
       let username = userInfo.querySelector(".username");
       let postTime = userInfo.querySelector(".post-time");
+      let premium = clone.querySelector("#premium");
+      let sponsoredVal = clone.querySelector("#sponsored");
       let dayPosted = new Date(selected.datecreated);
       let currentDate = new Date()
       let dateDiff = currentDate.getDate()-dayPosted.getDate();
@@ -93,6 +100,12 @@ function loadSponsored(dict,page){
       postTime.textContent = dateDiff+" days ago";
       name.textContent = selected.listingname;
       clone.style.display = "flex";
+      if(selected.premiumlisting == true){
+        premium.style.display = "block";
+      }
+      if(selected.status == "Sponsored"){
+        sponsoredVal.style.display = "block";
+      }
       
       clone.setAttribute("productId",selected.listingid);
       clone.setAttribute("ownerId",selected.ownerid)
@@ -120,10 +133,12 @@ function loadForYou(data){
           let userInfo = clone.querySelector(".user-info");
           let username = userInfo.querySelector(".username");
           let postTime = userInfo.querySelector(".post-time");
+          let premium = clone.querySelector("#premium");
+          let sponsoredVal = clone.querySelector("#sponsored");
           let dayPosted = new Date(selected.datecreated);
           let currentDate = new Date()
           let dateDiff = currentDate.getDate()-dayPosted.getDate();
-  
+    
           
           price.textContent = "S$"+selected.price;
           name.textContent = selected.username;
@@ -133,9 +148,12 @@ function loadForYou(data){
           postTime.textContent = dateDiff+" days ago";
           name.textContent = selected.listingname;
           clone.style.display = "flex";
-          
-          clone.setAttribute("productId",selected.listingid);
-          clone.setAttribute("ownerId",selected.ownerid)
+          if(selected.premiumlisting == true){
+            premium.style.display = "block";
+          }
+          if(selected.status == "Sponsored"){
+            sponsoredVal.style.display = "block";
+          }
           forYou.appendChild(clone);
         } 
     }

@@ -332,3 +332,22 @@ body {
 #menu-example #edit{
     display:none;
 }
+#premium{
+    display:none;
+    position:absolute;
+    height:60px;
+    width:auto;
+    right:0px;
+    top:30px;
+}
+#sponsored{
+    display:none;
+    position: absolute;
+    background-color: purple;
+    height:30px;
+    width:auto;
+    padding:2px;
+    border-radius: 30px;
+    right:15px;
+    top:90px;
+}
