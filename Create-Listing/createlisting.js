@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded",function(){
     const price = document.querySelector("#price");
     const meetup = document.querySelector("#meetup");
     const delivery = document.querySelector("#delivery");
-    console.log(meetup);
 
     form.addEventListener("submit", async function(event){  
         event.preventDefault();
