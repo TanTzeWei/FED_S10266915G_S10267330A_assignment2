@@ -115,48 +115,50 @@ function loadSponsored(dict,page){
 }
 
 
-function loadForYou(data){
-    for(let i = 0; i<5;i++){//first 5//
-        let newData = JSON.parse(data);
-        const forYou = document.querySelector("#forYouList");
-        let productExample = document.querySelector("#example");
-        let randomInt = Math.floor(Math.random()*newData.length);
-        let selected = newData[randomInt];
-        if(selected.status == "Sponsored" || selected.status == "Active"){
-          let clone = productExample.cloneNode(true);
-          let description = clone.querySelector(".description");
-          let name = description.querySelector("h3");
-          let price = description.querySelector("p");
-          let condition = description.querySelector("span");
-          let likeButton = clone.querySelector(".like-btn");
-          let likeCount = likeButton.querySelector(".like-count");
-          let userInfo = clone.querySelector(".user-info");
-          let username = userInfo.querySelector(".username");
-          let postTime = userInfo.querySelector(".post-time");
-          let premium = clone.querySelector("#premium");
-          let sponsoredVal = clone.querySelector("#sponsored");
-          let dayPosted = new Date(selected.datecreated);
-          let currentDate = new Date()
-          let dateDiff = currentDate.getDate()-dayPosted.getDate();
-    
-          
-          price.textContent = "S$"+selected.price;
-          name.textContent = selected.username;
-          condition.textContent = selected.condition;
-          likeCount.textContent = selected.likecount;
-          username.textContent = selected.ownername;
-          postTime.textContent = dateDiff+" days ago";
-          name.textContent = selected.listingname;
-          clone.style.display = "flex";
-          if(selected.premiumlisting == true){
-            premium.style.display = "block";
-          }
-          if(selected.status == "Sponsored"){
-            sponsoredVal.style.display = "block";
-          }
-          forYou.appendChild(clone);
-        } 
-    }
+function loadForYou(dict,page){
+  let currentDict = dict[page]
+  for(let i = 0; i<5;i++){//first 5//
+    const forYou = document.querySelector("#forYouList");
+    let productExample = document.querySelector("#example");
+    let selected = currentDict[i];
+    if(selected != null){
+      let clone = productExample.cloneNode(true);
+      let description = clone.querySelector(".description");
+      let name = description.querySelector("h3");
+      let price = description.querySelector("p");
+      let condition = description.querySelector("span");
+      let likeButton = clone.querySelector(".like-btn");
+      let likeCount = likeButton.querySelector(".like-count");
+      let userInfo = clone.querySelector(".user-info");
+      let username = userInfo.querySelector(".username");
+      let postTime = userInfo.querySelector(".post-time");
+      let premium = clone.querySelector("#premium");
+      let sponsoredVal = clone.querySelector("#sponsored");
+      let dayPosted = new Date(selected.datecreated);
+      let currentDate = new Date()
+      let dateDiff = currentDate.getDate()-dayPosted.getDate();
+
+      
+      price.textContent = "S$"+selected.price;
+      name.textContent = selected.username;
+      condition.textContent = selected.condition;
+      likeCount.textContent = selected.likecount;
+      username.textContent = selected.ownername;
+      postTime.textContent = dateDiff+" days ago";
+      name.textContent = selected.listingname;
+      clone.style.display = "flex";
+      if(selected.premiumlisting == true){
+        premium.style.display = "block";
+      }
+      if(selected.status == "Sponsored"){
+        sponsoredVal.style.display = "block";
+      }
+      
+      clone.setAttribute("productId",selected.listingid);
+      clone.setAttribute("ownerId",selected.ownerid)
+      forYou.appendChild(clone);
+    } 
+}
 }
 function loadSponsoredDict(data,Dict){
   let oldData = JSON.parse(data);
@@ -204,6 +206,92 @@ function loadSponsoredDict(data,Dict){
   Dict[5] = fifth;
 }
 
+function loadForYouDict(data,Dict){
+  let newData = JSON.parse(data);
+  let first = [];
+  let second = [];
+  let third = [];
+  let fourth = [];
+  let fifth = [];
+
+  for(let i = 0;i <5;i++){
+    let isValid = true;
+    while(isValid){
+      let randomInt = Math.floor(Math.random()*newData.length)
+      let selected  = newData[randomInt];
+      if(selected != null){
+        first.push(selected);
+        delete newData[randomInt];
+        isValid = false;
+      }else{
+        isValid = true;
+      }
+    }  
+  }
+  for(let i = 0;i <5;i++){
+    let isValid = true;
+    while(isValid){
+      let randomInt = Math.floor(Math.random()*newData.length)
+      let selected  = newData[randomInt];
+      if(selected != null){
+        second.push(selected);
+        delete newData[randomInt];
+        isValid = false;
+      }else{
+        isValid = true;
+      }
+    }  
+  }
+  for(let i = 0;i <5;i++){
+    let isValid = true;
+    while(isValid){
+      let randomInt = Math.floor(Math.random()*newData.length)
+      let selected  = newData[randomInt];
+      if(selected != null){
+        third.push(selected);
+        delete newData[randomInt];
+        isValid = false;
+      }else{
+        isValid = true;
+      }
+    }  
+  }
+  for(let i = 0;i <5;i++){
+    let isValid = true;
+    while(isValid){
+      let randomInt = Math.floor(Math.random()*newData.length)
+      let selected  = newData[randomInt];
+      if(selected != null){
+        fourth.push(selected);
+        delete newData[randomInt];
+        isValid = false;
+      }else{
+        isValid = true;
+      }
+    }  
+  }
+  for(let i = 0;i <5;i++){
+    let isValid = true;
+    while(isValid){
+      let randomInt = Math.floor(Math.random()*newData.length)
+      let selected  = newData[randomInt];
+      if(selected != null){
+        fifth.push(selected);
+        delete newData[randomInt];
+        isValid = false;
+      }else{
+        isValid = true;
+      }
+    }  
+  }
+  Dict[1] = first;
+  Dict[2] = second;
+  Dict[3] = third;
+  Dict[4] = fourth;
+  Dict[5] = fifth;
+
+}
+
 function clickOption(e){
   let target = e.target;
   let productCard = target.parentElement.parentElement;
@@ -230,8 +318,9 @@ document.addEventListener("DOMContentLoaded",async function(){
     const trending = document.querySelector("#trendingList");
     trending.setAttribute("page",1);
     const sponsored = document.querySelector("#sponsoredList");
-    sponsored.setAttribute("page",1)
+    sponsored.setAttribute("page",1);
     const forYou = document.querySelector("#forYouList");
+    forYou.setAttribute("page",1);
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
     let sponsoredDict = {
@@ -241,9 +330,17 @@ document.addEventListener("DOMContentLoaded",async function(){
       4:"",
       5:""
     }
+    let forYouDict = {
+      1:"",
+      2:"",
+      3:"",
+      4:"",
+      5:""
+    }
     loadSponsoredDict(data,sponsoredDict);
-
-    loadForYou(data);
+    loadForYouDict(data,forYouDict);
+    console.log(forYouDict);
+    loadForYou(forYouDict,forYou.getAttribute("page"));
     loadSponsored(sponsoredDict,sponsored.getAttribute("page"));
     loadTrending(data,trending.getAttribute("page"));
 })
