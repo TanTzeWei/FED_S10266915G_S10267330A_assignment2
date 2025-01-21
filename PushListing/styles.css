@@ -62,7 +62,15 @@ body {
     display: flex;
     align-items: center;
   }
-  
+  .user-icon{
+    display: none; /* Initially hidden */
+    cursor: pointer;
+    margin-left: 20px; /* Add spacing between cart and user icon */
+  }
+  .user-icon svg {
+    width: 30px;
+    height: 30px;
+}
   .user-actions button {
     margin-left: 15px;
     padding: 10px 20px;
