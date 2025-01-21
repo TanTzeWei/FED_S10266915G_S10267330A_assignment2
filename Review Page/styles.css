@@ -68,6 +68,9 @@ body {
     height: 24px;
     margin-left: 15px;
 }
+.user-icon {
+    display: none; /* Hide the user icon by default */
+}
 
 .auth-buttons .user-actions {
     display: flex;

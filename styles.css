@@ -242,13 +242,14 @@ body {
     width: 20px;
     height: 20px;
 }
+
 .nav-icons {
     display: flex; /* Flexbox for horizontal alignment */
     align-items: center; /* Vertically center the icons */
     gap: 15px; /* Space between icons */
 }
 
-.nav-icons svg {
+.nav-icons svg , .user-icon svg {
     width: 24px; /* Set a fixed width for the icons */
     height: 24px; /* Set a fixed height for the icons */
     fill: none; /* Keep the icons transparent unless styled otherwise */
@@ -257,8 +258,13 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease;
 }
+.user-icon{
+    margin-left: 20px;
+    display:none;
+}
 
-.nav-icons svg:hover {
+.nav-icons svg:hover,
+.user-icon svg:hover{
     transform: scale(1.2); /* Slight enlargement on hover */
 }
 /* Heading for products*/
