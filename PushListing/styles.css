@@ -125,7 +125,14 @@ body {
     transform: translateY(-2px);
     transition: all 0.3s ease;
 }
-  
+.listing-checkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
   .listing-image {
     width: 60px;
     height: 60px;
