@@ -20,11 +20,13 @@ async function fetchListingsData(){
         console.error("Error fetching data:", error);
       }
 }
-function loadTrending(data,page){
+ function loadTrending(data,page){
     let oldData = JSON.parse(data);
     let newData = oldData.sort((a, b) => b.likecount - a.likecount);
     const trending = document.querySelector("#trendingList");
-
+    while (trending.firstChild) {
+      trending.removeChild(trending.firstChild);
+    }
 
     let dataDict = {1:[newData[0],newData[1],newData[2],newData[3],newData[4]],
       2:[newData[5],newData[6],newData[7],newData[8],newData[9]],
@@ -50,7 +52,7 @@ function loadTrending(data,page){
         let currentDate = new Date()
         let dateDiff = currentDate.getDate()-dayPosted.getDate();
   
-        
+        clone.removeAttribute("id");
         price.textContent = "S$"+selected.price;
         name.textContent = selected.username;
         condition.textContent = selected.condition;
@@ -69,12 +71,16 @@ function loadTrending(data,page){
     })
 }
 function loadSponsored(dict,page){
-  let currentDict = dict[page]
+  let currentDict = dict[String(page)]
+  const sponsored = document.querySelector("#sponsoredList");
+    while (sponsored.firstChild) {
+      sponsored.removeChild(sponsored.firstChild);
+    }
   for(let i = 0; i<5;i++){//first 5//
-    const sponsored = document.querySelector("#sponsoredList");
     let productExample = document.querySelector("#example");
     let selected = currentDict[i];
-    if(selected != null){
+    console.log(dict)
+    if(currentDict && selected){
       let clone = productExample.cloneNode(true);
       let description = clone.querySelector(".description");
       let name = description.querySelector("h3");
@@ -91,7 +97,7 @@ function loadSponsored(dict,page){
       let currentDate = new Date()
       let dateDiff = currentDate.getDate()-dayPosted.getDate();
 
-      
+      clone.removeAttribute("id");
       price.textContent = "S$"+selected.price;
       name.textContent = selected.username;
       condition.textContent = selected.condition;
@@ -138,7 +144,7 @@ function loadForYou(dict,page){
       let currentDate = new Date()
       let dateDiff = currentDate.getDate()-dayPosted.getDate();
 
-      
+      clone.removeAttribute("id");
       price.textContent = "S$"+selected.price;
       name.textContent = selected.username;
       condition.textContent = selected.condition;
@@ -204,6 +210,7 @@ function loadSponsoredDict(data,Dict){
   Dict[3] = third;
   Dict[4] = fourth;
   Dict[5] = fifth;
+  console.log(Dict)
 }
 
 function loadForYouDict(data,Dict){
@@ -324,11 +331,11 @@ document.addEventListener("DOMContentLoaded",async function(){
     
 
     let sponsoredDict = {
-      1:"",
-      2:"",
-      3:"",
-      4:"",
-      5:""
+      1:null,
+      2:null,
+      3:null,
+      4:null,
+      5:null
     }
     let forYouDict = {
       1:"",
@@ -340,70 +347,70 @@ document.addEventListener("DOMContentLoaded",async function(){
     loadSponsoredDict(data,sponsoredDict);
     loadForYouDict(data,forYouDict);
 
+    loadTrending(data,trending.getAttribute("page"));
     loadForYou(forYouDict,forYou.getAttribute("page"));
     loadSponsored(sponsoredDict,sponsored.getAttribute("page"));
-    loadTrending(data,trending.getAttribute("page"));
-
+    
 
     const prevBtnTrend = document.getElementById("prevBtnTrend");
-    prevBtnTrend.addEventListener(function(){
+    prevBtnTrend.addEventListener("click",function(){
       let page = trending.getAttribute("page")
       if(page==1){
 
       }else{
-        trending.setAttribute("page",page-1);
+        trending.setAttribute("page",Number(page)-1);
         loadTrending(data,trending.getAttribute("page"));
       }
     })
     const nextBtnTrend = document.getElementById("nextBtnTrend");
-    nextBtnTrend.addEventListener(function(){
+    nextBtnTrend.addEventListener("click",function(){
       let page = trending.getAttribute("page")
       if(page==5){
 
       }else{
-        trending.setAttribute("page",page+1);
+        trending.setAttribute("page",Number(page)+1);
         loadTrending(data,trending.getAttribute("page"));
       }
     })
 
     const prevBtnSpons = document.getElementById("prevBtnSpons");
-    prevBtnSpons.addEventListener(function(){
+    prevBtnSpons.addEventListener("click",function(){
       let page = sponsored.getAttribute("page")
       if(page==1){
 
       }else{
-        sponsored.setAttribute("page",page-1);
-        loadTrending(data,sponsored.getAttribute("page"));
+        sponsored.setAttribute("page",Number(page)-1);
+        loadSponsored(data,sponsored.getAttribute("page"));
       }
     })
     const nextBtnSpons = document.getElementById("nextBtnSpons");
-    nextBtnSpons.addEventListener(function(){
+    nextBtnSpons.addEventListener("click",function(){
       let page = sponsored.getAttribute("page")
       if(page==5){
 
       }else{
-        sponsored.setAttribute("page",page+1);
-        loadTrending(data,sponsored.getAttribute("page"));
+        sponsored.setAttribute("page",Number(page)+1);
+        loadSponsored(data,sponsored.getAttribute("page"));
       }
     })
     const prevBtnForYou = document.getElementById("prevBtnForYou");
-    prevBtnForYou.addEventListener(function(){
+    prevBtnForYou.addEventListener("click",function(){
       let page = forYou.getAttribute("page")
       if(page==1){
 
       }else{
-        forYou.setAttribute("page",page-1);
-        loadTrending(data,forYou.getAttribute("page"));
+        forYou.setAttribute("page",Number(page)-1);
+        loadForYou(data,forYou.getAttribute("page"));
       }
     })
     const nextBtnForYou = document.getElementById("nextBtnForYou");
-    nextBtnForYou.addEventListener(function(){
+    nextBtnForYou.addEventListener("click",function(){
       let page = forYou.getAttribute("page")
       if(page==5){
 
       }else{
-        forYou.setAttribute("page",page+1);
-        loadTrending(data,forYou.getAttribute("page"));
+        forYou.setAttribute("page",Number(page)+1);
+        loadForYou(data,forYou.getAttribute("page"));
       }
     })
 

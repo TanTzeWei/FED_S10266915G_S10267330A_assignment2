@@ -335,10 +335,10 @@ body {
 #premium{
     display:none;
     position:absolute;
-    height:60px;
+    height:45px;
     width:auto;
     right:0px;
-    top:30px;
+    top:40px;
 }
 #sponsored{
     display:none;
@@ -348,6 +348,6 @@ body {
     width:auto;
     padding:2px;
     border-radius: 30px;
-    right:15px;
+    right:8px;
     top:90px;
 }
