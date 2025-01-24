@@ -89,10 +89,20 @@ body {
     border-radius: 25px;
     cursor: pointer;
 }
+.auth-buttons .register,
+.auth-buttons .login {
+    background-color: #f0f0f0;
+    color: #555;
+}
 
+.auth-buttons .register:hover,
+.auth-buttons .login:hover {
+    background-color: #e0e0e0;
+}
 .auth-buttons .sell-btn {
-    background-color: #FF6F61;
+    background-color: #ff4500;
     color: #ffffff;
+    font-weight: bold;
 }
 
 .auth-buttons button:hover {
