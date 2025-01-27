@@ -12,6 +12,7 @@ body {
     padding: 20px 30px;
     background-color: #fff;
     border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -30,7 +31,7 @@ body {
     width: 100%;
     padding: 15px;
     font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-right: none;
     border-radius: 8px 0 0 8px;
 }
@@ -48,24 +49,27 @@ body {
 .search-bar button:hover {
     background-color: #00594C;
 }
+
 .nav-icons {
     display: flex; /* Flexbox for horizontal alignment */
     align-items: center; /* Vertically center the icons */
     gap: 15px; /* Space between icons */
 }
 
-.nav-icons svg {
-    width: 24px;
-    height: 24px;
-    margin: 0 10px;
+.nav-icons svg, .user-icon svg {
+    width: 24px; /* Set a fixed width for the icons */
+    height: 24px; /* Set a fixed height for the icons */
+    fill: none; /* Keep the icons transparent unless styled otherwise */
+    stroke: #555; /* Match your original stroke color */
+    stroke-width: 2;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.user-icon svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 15px;
+.nav-icons svg:hover, .user-icon svg:hover {
+    transform: scale(1.2); /* Slight enlargement on hover */
 }
+
 .user-icon {
     display: none; /* Hide the user icon by default */
 }
@@ -81,29 +85,16 @@ body {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-}
-.auth-buttons .register,
-.auth-buttons .login {
-    background-color: #f0f0f0;
-    color: #555;
+    transition: background-color 0.3s;
 }
 
-.auth-buttons .register:hover,
-.auth-buttons .login:hover {
-    background-color: #e0e0e0;
-}
 .auth-buttons .sell-btn {
-    background-color: #ff4500;
+    background-color: #FF6F61;
     color: #ffffff;
-    font-weight: bold;
 }
 
 .auth-buttons button:hover {
     background-color: #E65C50;
-}
-
-.auth-buttons .sell-btn:hover {
-    background-color: #e04e53;
 }
   /* Form Styles */
   .form-container {
@@ -154,7 +145,7 @@ body {
     resize: none;
   }
   
-  button {
+  .submit-button {
     background-color: #00796B;
     color: #fff;
     border: none;
@@ -164,7 +155,7 @@ body {
     border-radius: 5px;
   }
   
-  button:hover {
+  .submit-button:hover {
     background-color: #00594C;
   }
   
