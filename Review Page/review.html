@@ -44,9 +44,10 @@
 
     <!-- Review Page Content -->
     <div class="review-container">
-        <header class="header">
-            <h1 class="store-name">MokeSell</h1>
-        </header>
+        <div class="seller-profile">
+            <img src="/images/profile.jpg" alt="Seller Profile Picture" class="profile-pic">
+            <h1 class="seller-name">John Doe</h1>
+        </div>
         <div class="review-content">
             <h2 class="review-title">Submit Your Review</h2>
             <p class="header-description">We value your feedback. Let us know how we did!</p>
@@ -58,17 +59,17 @@
                 <span class="star">&#9733;</span>
                 <span class="star">&#9733;</span>
             </div>
-            <textarea class="review-text" placeholder="Write your review here..."></textarea>
+            <textarea id="review-text" class="review-text" placeholder="Write your review here..."></textarea>
+            <p id="limit-message" class="limit-message">200 characters remaining</p>
             <div class="buttons">
                 <button class="cancel-button">Cancel</button>
                 <button class="submit-button">Submit</button>
             </div>
         </div>
-    </div>
-
     <footer class="footer">
         <p>© 2025 MokeSell. All Rights Reserved.</p>
     </footer>
+    <script src="review.js"></script>
 </body>
 </html>
 

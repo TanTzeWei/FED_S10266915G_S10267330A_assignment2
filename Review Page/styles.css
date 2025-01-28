@@ -122,17 +122,27 @@ body {
     border-top-right-radius: 8px;
 }
 
-.store-name {
+.seller-profile {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Optional for a border effect */
+}
+
+.seller-name {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-}
-
-.header-description {
-    font-size: 16px;
-    color: #777;
-    margin-bottom: 20px; 
-    text-align: center;
+    margin-top: 10px;
 }
 
 .review-content {
@@ -219,6 +229,15 @@ body {
 }
 .submit-button:hover {
     background-color: #388e3c;
+}
+.limit-message {
+    font-size: 14px;
+    color: #555; /* Neutral color */
+    text-align: right;
+    margin-top: 5px;
+}
+.limit-message.warning {
+    color: #f44336; /* Red color when nearing the limit */
 }
 
 /* Footer Styling */
