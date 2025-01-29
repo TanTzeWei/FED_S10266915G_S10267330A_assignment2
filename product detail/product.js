@@ -4,7 +4,31 @@ document.addEventListener("DOMContentLoaded",async function(){
     data = await findProduct(productId);
     if(data != null){
         let productData = JSON.parse(data);
+        const name = document.getElementById("productName");
+        const price = document.getElementById("price");
+        const delivery = document.getElementsByClassName("delivery");
+        const meetup = document.getElementsByClassName("meetup");
+        const address = document.getElementById("location");
+        const os = document.getElementById("id");
+        const condition = document.getElementById("condition");
+        const description = document.getElementsByClassName("description");
 
+        name.textContent = data.listingname;
+        price.textContent = data.price;
+        if(!data.delivery){
+            delivery.style.display = "none";
+        }
+        if(!data.meetup){
+            meetup.style.display = "none";
+        }
+        if(data.address == ""){
+            address.textContent = "N/A";
+        }else{
+            address.textContent = address;
+        }
+        os.textContent = data.os;
+        condition.textContent = data.condition;
+        description.textContent = data.description;
     }else{
         console.log("There is no such product");
     }
