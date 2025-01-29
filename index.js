@@ -70,17 +70,32 @@ async function fetchListingsData(){
         trending.appendChild(clone);
     })
 }
-function loadSponsored(dict,page){
-  let currentDict = dict[String(page)]
+function loadSponsored(dict, page) {
+  let currentDict = dict[page - 1];  
+
+  if (!Array.isArray(currentDict)) {
+    console.error("Error: currentDict is not an array");
+    return;
+  }
+
   const sponsored = document.querySelector("#sponsoredList");
-    while (sponsored.firstChild) {
-      sponsored.removeChild(sponsored.firstChild);
-    }
-  for(let i = 0; i<5;i++){//first 5//
-    let productExample = document.querySelector("#example");
-    let selected = currentDict[i];
-    console.log(dict)
-    if(currentDict && selected){
+  if (!sponsored) {
+    console.error("Element with ID 'sponsoredList' not found.");
+    return;
+  }
+
+  while (sponsored.firstChild) {
+    sponsored.removeChild(sponsored.firstChild);
+  }
+
+  currentDict.forEach((selected) => {
+    if (selected != null) {
+      let productExample = document.querySelector("#example");
+      if (!productExample) {
+        console.error("Element with ID 'example' not found.");
+        return;
+      }
+
       let clone = productExample.cloneNode(true);
       let description = clone.querySelector(".description");
       let name = description.querySelector("h3");
@@ -93,41 +108,106 @@ function loadSponsored(dict,page){
       let postTime = userInfo.querySelector(".post-time");
       let premium = clone.querySelector("#premium");
       let sponsoredVal = clone.querySelector("#sponsored");
+
       let dayPosted = new Date(selected.datecreated);
-      let currentDate = new Date()
-      let dateDiff = currentDate.getDate()-dayPosted.getDate();
+      let currentDate = new Date();
+      let dateDiff = currentDate.getDate() - dayPosted.getDate();
 
       clone.removeAttribute("id");
-      price.textContent = "S$"+selected.price;
-      name.textContent = selected.username;
+      price.textContent = "S$" + selected.price;
+      name.textContent = selected.listingname;
       condition.textContent = selected.condition;
       likeCount.textContent = selected.likecount;
       username.textContent = selected.ownername;
-      postTime.textContent = dateDiff+" days ago";
-      name.textContent = selected.listingname;
+      postTime.textContent = dateDiff + " days ago";
       clone.style.display = "flex";
-      if(selected.premiumlisting == true){
+
+      if (selected.premiumlisting === true) {
         premium.style.display = "block";
       }
-      if(selected.status == "Sponsored"){
+      if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
-      
-      clone.setAttribute("productId",selected.listingid);
-      clone.setAttribute("ownerId",selected.ownerid)
+
+      clone.setAttribute("productId", selected.listingid);
+      clone.setAttribute("ownerId", selected.ownerid);
       sponsored.appendChild(clone);
-    } 
+    }
+  });
 }
+
+function loadSponsoredDict(data, Dict) {
+  let oldData = JSON.parse(data);
+  let newData = oldData.filter(item => item.status == "Sponsored");
+
+  function selectRandomItems(arr, count, usedItems) {
+    let selectedItems = [];
+    let copyArr = [...arr];
+    for (let i = 0; i < count; i++) {
+      if (copyArr.length === 0) break;
+      let ranInt = Math.floor(Math.random() * copyArr.length);
+      let selected = copyArr[ranInt];
+
+      if (!usedItems.has(selected.listingid)) {
+        selectedItems.push(selected);
+        usedItems.add(selected.listingid);
+        copyArr.splice(ranInt, 1);
+      }
+    }
+    return selectedItems;
+  }
+
+  Dict.length = 0;
+
+  let usedItems = new Set();
+  let remainingData = [...newData];  // Create a copy of the data array to work with
+
+  while (remainingData.length > 0) {
+    // Select the number of items to take (either 5 or fewer if there are not enough left)
+    let groupSize = Math.min(5, remainingData.length); 
+    let selectedItems = selectRandomItems(remainingData, groupSize, usedItems);
+    Dict.push(selectedItems);
+
+    // Remove the selected items from remainingData
+    selectedItems.forEach(item => {
+      let index = remainingData.indexOf(item);
+      if (index > -1) remainingData.splice(index, 1);
+    });
+  }
+
+  console.log("Dict after filling arrays:", Dict);
 }
+
+
+
 
 
 function loadForYou(dict,page){
-  let currentDict = dict[page]
-  for(let i = 0; i<5;i++){//first 5//
-    const forYou = document.querySelector("#forYouList");
-    let productExample = document.querySelector("#example");
-    let selected = currentDict[i];
-    if(selected != null){
+  let currentDict = dict[page - 1];  
+
+  if (!Array.isArray(currentDict)) {
+    console.error("Error: currentDict is not an array");
+    return;
+  }
+
+  const sponsored = document.querySelector("#forYouList");
+  if (!sponsored) {
+    console.error("Element with ID 'sponsoredList' not found.");
+    return;
+  }
+
+  while (sponsored.firstChild) {
+    sponsored.removeChild(sponsored.firstChild);
+  }
+
+  currentDict.forEach((selected) => {
+    if (selected != null) {
+      let productExample = document.querySelector("#example");
+      if (!productExample) {
+        console.error("Element with ID 'example' not found.");
+        return;
+      }
+
       let clone = productExample.cloneNode(true);
       let description = clone.querySelector(".description");
       let name = description.querySelector("h3");
@@ -140,164 +220,72 @@ function loadForYou(dict,page){
       let postTime = userInfo.querySelector(".post-time");
       let premium = clone.querySelector("#premium");
       let sponsoredVal = clone.querySelector("#sponsored");
+
       let dayPosted = new Date(selected.datecreated);
-      let currentDate = new Date()
-      let dateDiff = currentDate.getDate()-dayPosted.getDate();
+      let currentDate = new Date();
+      let dateDiff = currentDate.getDate() - dayPosted.getDate();
 
       clone.removeAttribute("id");
-      price.textContent = "S$"+selected.price;
-      name.textContent = selected.username;
+      price.textContent = "S$" + selected.price;
+      name.textContent = selected.listingname;
       condition.textContent = selected.condition;
       likeCount.textContent = selected.likecount;
       username.textContent = selected.ownername;
-      postTime.textContent = dateDiff+" days ago";
-      name.textContent = selected.listingname;
+      postTime.textContent = dateDiff + " days ago";
       clone.style.display = "flex";
-      if(selected.premiumlisting == true){
+
+      if (selected.premiumlisting === true) {
         premium.style.display = "block";
       }
-      if(selected.status == "Sponsored"){
+      if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
-      
-      clone.setAttribute("productId",selected.listingid);
-      clone.setAttribute("ownerId",selected.ownerid)
-      forYou.appendChild(clone);
-    } 
-}
-}
-function loadSponsoredDict(data,Dict){
-  let oldData = JSON.parse(data);
-  let newData = oldData.filter(item => item.status =="Sponsored");
-  let first = [];
-  let second = [];
-  let third = [];
-  let fourth = [];
-  let fifth = [];
 
-  for(let i = 0;i <5;i++){
-    let randomInt = Math.floor(Math.random()*newData.length)
-    let selected  = newData[randomInt];
-    first.push(selected);
-    delete newData[randomInt];
-  }
-  for(let i = 0;i <5;i++){
-    let randomInt = Math.floor(Math.random()*newData.length)
-    let selected  = newData[randomInt];
-    second.push(selected);
-    delete newData[randomInt];
-  }
-  for(let i = 0;i <5;i++){
-    let randomInt = Math.floor(Math.random()*newData.length)
-    let selected  = newData[randomInt];
-    third.push(selected);
-    delete newData[randomInt];
-  }
-  for(let i = 0;i <5;i++){
-    let randomInt = Math.floor(Math.random()*newData.length)
-    let selected  = newData[randomInt];
-    fourth.push(selected);
-    delete newData[randomInt];
-  }
-  for(let i = 0;i <5;i++){
-    let randomInt = Math.floor(Math.random()*newData.length)
-    let selected  = newData[randomInt];
-    fifth.push(selected);
-    delete newData[randomInt];
-  }
-  Dict[1] = first;
-  Dict[2] = second;
-  Dict[3] = third;
-  Dict[4] = fourth;
-  Dict[5] = fifth;
-  console.log(Dict)
+      clone.setAttribute("productId", selected.listingid);
+      clone.setAttribute("ownerId", selected.ownerid);
+      sponsored.appendChild(clone);
+    }
+  });
 }
 
-function loadForYouDict(data,Dict){
+
+function loadForYouDict(data, Dict) {
   let newData = JSON.parse(data);
-  let first = [];
-  let second = [];
-  let third = [];
-  let fourth = [];
-  let fifth = [];
 
-  for(let i = 0;i <5;i++){
-    let isValid = true;
-    while(isValid){
-      let randomInt = Math.floor(Math.random()*newData.length)
-      let selected  = newData[randomInt];
-      if(selected != null){
-        first.push(selected);
-        delete newData[randomInt];
-        isValid = false;
-      }else{
-        isValid = true;
-      }
-    }  
-  }
-  for(let i = 0;i <5;i++){
-    let isValid = true;
-    while(isValid){
-      let randomInt = Math.floor(Math.random()*newData.length)
-      let selected  = newData[randomInt];
-      if(selected != null){
-        second.push(selected);
-        delete newData[randomInt];
-        isValid = false;
-      }else{
-        isValid = true;
-      }
-    }  
-  }
-  for(let i = 0;i <5;i++){
-    let isValid = true;
-    while(isValid){
-      let randomInt = Math.floor(Math.random()*newData.length)
-      let selected  = newData[randomInt];
-      if(selected != null){
-        third.push(selected);
-        delete newData[randomInt];
-        isValid = false;
-      }else{
-        isValid = true;
-      }
-    }  
-  }
-  for(let i = 0;i <5;i++){
-    let isValid = true;
-    while(isValid){
-      let randomInt = Math.floor(Math.random()*newData.length)
-      let selected  = newData[randomInt];
-      if(selected != null){
-        fourth.push(selected);
-        delete newData[randomInt];
-        isValid = false;
-      }else{
-        isValid = true;
-      }
-    }  
-  }
-  for(let i = 0;i <5;i++){
-    let isValid = true;
-    while(isValid){
-      let randomInt = Math.floor(Math.random()*newData.length)
-      let selected  = newData[randomInt];
-      if(selected != null){
-        fifth.push(selected);
-        delete newData[randomInt];
-        isValid = false;
-      }else{
-        isValid = true;
-      }
-    }  
-  }
-  Dict[1] = first;
-  Dict[2] = second;
-  Dict[3] = third;
-  Dict[4] = fourth;
-  Dict[5] = fifth;
+  function selectRandomItems(arr, count, usedItems) {
+    let selectedItems = [];
+    let copyArr = [...arr];
+    for (let i = 0; i < count; i++) {
+      if (copyArr.length === 0) break;
+      let ranInt = Math.floor(Math.random() * copyArr.length);
+      let selected = copyArr[ranInt];
 
+      if (!usedItems.has(selected.listingid)) {
+        selectedItems.push(selected);
+        usedItems.add(selected.listingid);
+        copyArr.splice(ranInt, 1);
+      }
+    }
+    return selectedItems;
+  }
+
+  Dict.length = 0;
+
+  let usedItems = new Set();
+  let remainingData = newData.slice(); 
+
+  while (remainingData.length > 0) {
+    let selectedItems = selectRandomItems(remainingData, Math.min(5, remainingData.length), usedItems);
+    Dict.push(selectedItems);
+    selectedItems.forEach(item => {
+      let index = remainingData.indexOf(item);
+      if (index > -1) remainingData.splice(index, 1);
+    });
+  }
+
+  console.log("Dict after filling arrays:", Dict);
 }
+
 
 function clickOption(e){
   let target = e.target;
@@ -330,20 +318,8 @@ document.addEventListener("DOMContentLoaded",async function(){
     forYou.setAttribute("page",1);
     
 
-    let sponsoredDict = {
-      1:null,
-      2:null,
-      3:null,
-      4:null,
-      5:null
-    }
-    let forYouDict = {
-      1:"",
-      2:"",
-      3:"",
-      4:"",
-      5:""
-    }
+    let sponsoredDict = []
+    let forYouDict = []
     loadSponsoredDict(data,sponsoredDict);
     loadForYouDict(data,forYouDict);
 
@@ -380,7 +356,7 @@ document.addEventListener("DOMContentLoaded",async function(){
 
       }else{
         sponsored.setAttribute("page",Number(page)-1);
-        loadSponsored(data,sponsored.getAttribute("page"));
+        loadSponsored(sponsoredDict,sponsored.getAttribute("page"));
       }
     })
     const nextBtnSpons = document.getElementById("nextBtnSpons");
@@ -390,7 +366,7 @@ document.addEventListener("DOMContentLoaded",async function(){
 
       }else{
         sponsored.setAttribute("page",Number(page)+1);
-        loadSponsored(data,sponsored.getAttribute("page"));
+        loadSponsored(sponsoredDict,sponsored.getAttribute("page"));
       }
     })
     const prevBtnForYou = document.getElementById("prevBtnForYou");
@@ -400,7 +376,7 @@ document.addEventListener("DOMContentLoaded",async function(){
 
       }else{
         forYou.setAttribute("page",Number(page)-1);
-        loadForYou(data,forYou.getAttribute("page"));
+        loadForYou(forYouDict,forYou.getAttribute("page"));
       }
     })
     const nextBtnForYou = document.getElementById("nextBtnForYou");
@@ -410,7 +386,7 @@ document.addEventListener("DOMContentLoaded",async function(){
 
       }else{
         forYou.setAttribute("page",Number(page)+1);
-        loadForYou(data,forYou.getAttribute("page"));
+        loadForYou(forYouDict,forYou.getAttribute("page"));
       }
     })
 
