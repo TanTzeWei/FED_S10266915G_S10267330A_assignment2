@@ -43,56 +43,62 @@
   </header>
 
   <!-- Product Detail Section -->
-  <div class="product-detail-page">
-    <!-- Product Images -->
-    <div class="product-images">
-      <img src="/images/iphone13.png" alt="Main Phone Image" class="main-image">
-      <div class="thumbnail-gallery">
-        <img src="/images/front-view iphone 13.png" alt="Phone Thumbnail 1">
-        <img src="phone-thumb2.jpg" alt="Phone Thumbnail 2">
-        <img src="phone-thumb3.jpg" alt="Phone Thumbnail 3">
-      </div>
+  <div class="product-container">
+    <div class="product-image">
+        <img src="../images/iphone13.png" alt="iPhone 13 Pro Max">
     </div>
+    <div class="product-details">
+        <h2 id="productName">Apple iPhone 13 Pro Max - 128GB, Sierra Blue</h2>
+        
+        <p id="price">SGD 4,999</p>
 
-    <!-- Product Info -->
-    <div class="product-info">
-      <h1 class="product-title">Apple iPhone 13 Pro Max - 128GB, Sierra Blue</h1>
-      <p class="product-price">RM 4,999 <span class="original-price">RM 5,499</span> <span class="discount">(9% Off)</span></p>
-      
-      <!-- Seller Information -->
-      <div class="seller-info">
-        <img src="seller-avatar.jpg" alt="Seller Avatar" class="seller-avatar">
-        <span class="seller-name">TechWorld</span>
-        <div class="seller-rating">
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span class="star">★</span>
-          <span>(98 reviews)</span>
+        <div class="seller-info">
+            <img src="seller.jpg" alt="Seller Profile">
+            <p id="rating"><strong>TechWorld</strong> 4.6/5★ (98 reviews)</p>
+            <button class="chat-button">Chat with Seller</button>
         </div>
-        <button class="contact-seller">Chat with Seller</button>
-      </div>
 
-      <!-- Product Description -->
-      <div class="product-description">
-        <h2>Specifications</h2>
+        <div class="availability">
+            <p><strong>Availability:</strong> <span class="delivery">Delivery</span> / <span class="meetup">Meetup</span></p>
+            <p id="location"><strong>Meetup Location:</strong> 123 Orchard Road, Singapore</p>
+        </div>
+
+        <h3>Specifications:</h3>
         <ul>
-          <li><strong>Brand:</strong> Apple</li>
-          <li><strong>Model:</strong> iPhone 13 Pro Max</li>
-          <li><strong>Storage:</strong> 128GB</li>
-          <li><strong>Color:</strong> Sierra Blue</li>
-          <li><strong>Condition:</strong> Brand New</li>
+            <li id="os"><strong>Operating Software:</strong> IOS</li>
+            <li id="condition"><strong>Condition:</strong> Brand New</li>
         </ul>
-        <p>The iPhone 13 Pro Max offers incredible performance with its A15 Bionic chip, a stunning Super Retina XDR display, and advanced camera features for capturing professional-quality photos and videos.</p>
-      </div>
 
-      <!-- Buttons -->
-      <div class="action-buttons">
-        <button class="make-offer">Make Offer</button>
-      </div>
+        <p class="description">
+            The iPhone 13 Pro Max offers incredible performance with its A15 Bionic chip, a stunning Super Retina XDR display, and advanced camera features for capturing professional-quality photos and videos.
+        </p>
     </div>
-  </div>
+</div>
+
+<h3>Similar Listings</h3>
+<div class="grid-container">
+    <div class="grid-item">
+        <img src="iphone_256gb.jpg" alt="iPhone 13 Pro Max 256GB">
+        <p><strong>iPhone 13 Pro Max - 256GB</strong></p>
+        <p class="price">SGD 5,299</p>
+        <p><strong>Condition:</strong> Brand New</p>
+    </div>
+    <div class="grid-item">
+        <img src="iphone_512gb.jpg" alt="iPhone 13 Pro Max 512GB">
+        <p><strong>iPhone 13 Pro Max - 512GB</strong></p>
+        <p class="price">SGD 5,799</p>
+        <p><strong>Condition:</strong> Like New</p>
+    </div>
+    <div class="grid-item">
+        <img src="iphone_1tb.jpg" alt="iPhone 13 Pro Max 1TB">
+        <p><strong>iPhone 13 Pro Max - 1TB</strong></p>
+        <p class="price">SGD 6,199</p>
+        <p><strong>Condition:</strong> Brand New</p>
+    </div>
+</div>
+
+
+  <script src="product.js"></script>
 </body>
 </html>
 
