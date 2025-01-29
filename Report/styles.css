@@ -2,22 +2,23 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
+    color:#555;
     margin: 0;
   }
-  
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
     background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    font-size: 32px; /* Increased font size */
+    font-size: 32px;
     font-weight: bold;
-    color: #ff5a5f;
+    color: #00796B;
 }
 
 .search-bar {
@@ -30,7 +31,7 @@ body {
     width: 100%;
     padding: 15px;
     font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-right: none;
     border-radius: 8px 0 0 8px;
 }
@@ -39,100 +40,62 @@ body {
     padding: 15px 25px;
     font-size: 18px;
     border: none;
-    background-color: #ff5a5f;
-    color: #fff;
+    background-color: #00796B;
+    color: #ffffff;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
 }
 
-.user-actions button {
+.search-bar button:hover {
+    background-color: #00594C;
+}
+
+.nav-icons {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the icons */
+    gap: 15px; /* Space between icons */
+}
+
+.nav-icons svg, .user-icon svg {
+    width: 24px; /* Set a fixed width for the icons */
+    height: 24px; /* Set a fixed height for the icons */
+    fill: none; /* Keep the icons transparent unless styled otherwise */
+    stroke: #555; /* Match your original stroke color */
+    stroke-width: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.nav-icons svg:hover, .user-icon svg:hover {
+    transform: scale(1.2); /* Slight enlargement on hover */
+}
+
+.user-icon {
+    display: none; /* Hide the user icon by default */
+}
+
+.auth-buttons .user-actions {
+    display: flex;
+}
+
+.auth-buttons button {
     margin-left: 15px;
     padding: 10px 20px;
     font-size: 18px;
     border: none;
-    background-color: #007bff;
-    color: #fff;
     border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.user-actions .sell-btn {
-    background-color: #ff5a5f;
-}
-
-.user-actions button:hover {
-    opacity: 0.9;
-}
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f8f8f8;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.logo {
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.search-bar {
-    flex: 1;
-    margin: 0 20px;
-    display: flex;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.nav-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.nav-icons svg {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-}
-
-.auth-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.auth-buttons button {
-    padding: 5px 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9em;
+.auth-buttons .sell-btn {
+    background-color: #FF6F61;
+    color: #ffffff;
 }
 
 .auth-buttons button:hover {
-    background-color: #0056b3;
+    background-color: #E65C50;
 }
-
-.user-icon {
-    display: none; /* Initially hidden */
-    cursor: pointer;
-    margin-left: 20px; /* Add spacing between cart and user icon */
-}
-
-.user-icon svg {
-    width: 30px;
-    height: 30px;
-}
-  
   /* Form Styles */
   .form-container {
     background-color: #e6e6e6;
@@ -146,8 +109,10 @@ body {
   }
   
   h1 {
-    font-size: 20px;
+    font-size: 24px;
+    color:#333;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   form {
@@ -160,6 +125,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: left;
+    margin-bottom: 15px;
   }
   
   label {
@@ -179,8 +145,8 @@ body {
     resize: none;
   }
   
-  button {
-    background-color: red;
+  .submit-button {
+    background-color: #00796B;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -189,7 +155,7 @@ body {
     border-radius: 5px;
   }
   
-  button:hover {
-    background-color: #cc0000;
+  .submit-button:hover {
+    background-color: #00594C;
   }
   

@@ -1,0 +1,239 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 32px; /* Increased font size */
+    font-weight: bold;
+    color: #00796B;
+}
+
+.search-bar {
+    flex: 1;
+    display: flex;
+    margin: 0 30px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.search-bar button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    background-color: #00796B;
+    color: #ffffff;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+.search-bar button:hover {
+  background-color: #00594C;
+}
+.nav-icons {
+  display: flex; /* Flexbox for horizontal alignment */
+  align-items: center; /* Vertically center the icons */
+  gap: 15px; /* Space between icons */
+}
+
+.nav-icons svg, .user-icon svg {
+  width: 24px; /* Set a fixed width for the icons */
+  height: 24px; /* Set a fixed height for the icons */
+  fill: none; /* Keep the icons transparent unless styled otherwise */
+  stroke: #555; /* Match your original stroke color */
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-icons svg:hover, .user-icon svg:hover {
+  transform: scale(1.2); /* Slight enlargement on hover */
+}
+
+.user-icon {
+  display: none; /* Hide the user icon by default */
+}
+
+.auth-buttons .user-actions {
+  display: flex;
+}
+
+.auth-buttons button {
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-buttons .sell-btn {
+  background-color: #FF6F61;
+  color: #ffffff;
+}
+
+.auth-buttons button:hover {
+  background-color: #E65C50;
+}
+  
+  /* Product Detail Page */
+  .product-detail-page {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .product-images {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .main-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .thumbnail-gallery img {
+    width: 20%;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .product-info {
+    flex: 2;
+  }
+  
+  .product-title {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+  }
+  
+  .product-price {
+    font-size: 22px;
+    color: #e60023;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-left: 10px;
+  }
+  
+  .discount {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .seller-info {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .seller-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .seller-name {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .seller-rating {
+    color: #fbc02d;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .seller-rating span {
+    margin-left: 5px;
+    font-size: 16px;
+    color: #333;
+  }
+  .star {
+    color: #fbc02d;
+    font-size: 18px;
+  }
+  
+  .contact-seller {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .product-description h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .product-description ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .product-description li {
+    margin-bottom: 5px;
+  }
+  
+  .action-buttons button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }  
+  .action-buttons button.make-offer {
+    background-color: #17a2b8;
+  }
+  
+  .extra-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  button:hover {
+    opacity: 0.9;
+  }
+  
+  

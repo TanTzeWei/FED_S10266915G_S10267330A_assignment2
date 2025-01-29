@@ -13,13 +13,14 @@ body {
     align-items: center;
     padding: 20px 30px;
     background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
   .logo {
     font-size: 32px;
     font-weight: bold;
-    color: #ff5a5f;
+    color: #00796B;
   }
   
   .search-bar {
@@ -32,7 +33,7 @@ body {
     width: 100%;
     padding: 15px;
     font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-right: none;
     border-radius: 8px 0 0 8px;
   }
@@ -41,47 +42,60 @@ body {
     padding: 15px 25px;
     font-size: 18px;
     border: none;
-    background-color: #ff5a5f;
-    color: #fff;
+    background-color: #00796B;
+    color: #ffffff;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
   }
   
   .search-bar button:hover {
-    background-color: #e04e53;
+    background-color: #00594C;
   }
+  .nav-icons {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the icons */
+    gap: 15px; /* Space between icons */
+}
+.nav-icons svg, .user-icon svg {
+  width: 24px; /* Set a fixed width for the icons */
+  height: 24px; /* Set a fixed height for the icons */
+  fill: none; /* Keep the icons transparent unless styled otherwise */
+  stroke: #555; /* Match your original stroke color */
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.nav-icons svg:hover, .user-icon svg:hover {
+  transform: scale(1.2); /* Slight enlargement on hover */
+}
+.user-icon{
+  display: none; /* Initially hidden */
+  cursor: pointer;
+  margin-left: 20px; /* Add spacing between cart and user icon */
+}
+.auth-buttons .user-actions {
+  display: flex;
+}
+
+.auth-buttons button {
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-buttons .sell-btn {
+  background-color: #FF6F61;
+  color: #ffffff;
+}
+
+.auth-buttons button:hover {
+  background-color: #E65C50;
+}
   
-  .nav-icons svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 20px;
-    cursor: pointer;
-  }
-  
-  .auth-buttons {
-    display: flex;
-    align-items: center;
-  }
-  
-  .user-actions button {
-    margin-left: 15px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .user-actions .sell-btn {
-    background-color: #ff5a5f;
-  }
-  
-  .user-actions button:hover {
-    background-color: #0056b3;
-  }
   
   /* Main Section */
   .main {
@@ -92,14 +106,33 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
+  .progress-bar {
+    margin-top: 10px;
+    padding: 10px;
+    background: #00796B;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+  .subtitle{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+  }
   .title {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 700;
     margin-bottom: 20px;
     text-align: center;
+    color:#333;
   }
-  
+  .listings h2, .packages h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
   .content {
     display: flex;
     justify-content: space-between;
@@ -121,11 +154,18 @@ body {
   .listing-item:hover {
     background-color: #f0f0f0;
     border-color: #bbb;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    transition: all 0.3s ease-in-out;
 }
-  
+.listing-item.listing-checkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
   .listing-image {
     width: 60px;
     height: 60px;
@@ -154,11 +194,28 @@ body {
     border-radius: 8px;
     width: 100%;
     border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+  .package-details:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
   
   .package-details.premium {
     background-color: #fff6e5;
     border: 1px solid #ffc107;
+  }
+  .badge {
+    display: inline-block;
+    background-color: #ffc107;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 6px;
+    margin-left: 10px;
+    border-radius: 12px;
   }
   
   .pay-button {

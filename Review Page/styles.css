@@ -18,13 +18,14 @@ body {
     align-items: center;
     padding: 20px 30px;
     background-color: #fff;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
     font-size: 32px;
     font-weight: bold;
-    color: #ff5a5f;
+    color: #00796B;
 }
 
 .search-bar {
@@ -37,7 +38,7 @@ body {
     width: 100%;
     padding: 15px;
     font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-right: none;
     border-radius: 8px 0 0 8px;
 }
@@ -46,27 +47,38 @@ body {
     padding: 15px 25px;
     font-size: 18px;
     border: none;
-    background-color: #ff5a5f;
-    color: #fff;
+    background-color: #00796B;
+    color: #ffffff;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
 }
 
 .search-bar button:hover {
-    background-color: #e04e53;
+    background-color: #00594C;
 }
 
-.nav-icons svg {
-    width: 24px;
-    height: 24px;
-    margin: 0 10px;
+.nav-icons {
+    display: flex; /* Flexbox for horizontal alignment */
+    align-items: center; /* Vertically center the icons */
+    gap: 15px; /* Space between icons */
+}
+
+.nav-icons svg, .user-icon svg {
+    width: 24px; /* Set a fixed width for the icons */
+    height: 24px; /* Set a fixed height for the icons */
+    fill: none; /* Keep the icons transparent unless styled otherwise */
+    stroke: #555; /* Match your original stroke color */
+    stroke-width: 2;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-.user-icon svg {
-    width: 24px;
-    height: 24px;
-    margin-left: 15px;
+.nav-icons svg:hover, .user-icon svg:hover {
+    transform: scale(1.2); /* Slight enlargement on hover */
+}
+
+.user-icon {
+    display: none; /* Hide the user icon by default */
 }
 
 .auth-buttons .user-actions {
@@ -78,22 +90,18 @@ body {
     padding: 10px 20px;
     font-size: 18px;
     border: none;
-    background-color: #007bff;
-    color: white;
     border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .auth-buttons .sell-btn {
-    background-color: #ff5a5f;
+    background-color: #FF6F61;
+    color: #ffffff;
 }
 
 .auth-buttons button:hover {
-    background-color: #0056b3;
-}
-
-.auth-buttons .sell-btn:hover {
-    background-color: #e04e53;
+    background-color: #E65C50;
 }
 
 /* Review Page Styling */
@@ -103,7 +111,7 @@ body {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .review-header {
@@ -114,15 +122,27 @@ body {
     border-top-right-radius: 8px;
 }
 
-.store-name {
+.seller-profile {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px; /* Optional for a border effect */
+}
+
+.seller-name {
     font-size: 24px;
     font-weight: bold;
     color: #333;
-}
-
-.header-description {
-    font-size: 16px;
-    color: #777;
+    margin-top: 10px;
 }
 
 .review-content {
@@ -131,7 +151,7 @@ body {
 }
 
 .review-title {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -146,6 +166,7 @@ body {
     justify-content: center;
     gap: 5px;
     margin-bottom: 20px;
+    flex-direction: row-reverse;
 }
 
 .star {
@@ -154,7 +175,10 @@ body {
     cursor: pointer;
     transition: color 0.2s ease-in-out;
 }
-
+.star:hover,
+.star:hover ~ .star {
+    color: #ddd; /* Reset all subsequent stars */
+}
 .star:hover,
 .star:hover ~ .star {
     color: gold;
@@ -169,6 +193,10 @@ body {
     font-size: 14px;
     margin-bottom: 20px;
     resize: none;
+}
+.review-text:focus {
+    border-color: #00796B;
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
 }
 
 .buttons {
@@ -191,10 +219,25 @@ body {
     background-color: #f44336;
     color: white;
 }
+.cancel-button:hover {
+    background-color: #d32f2f;
+}
 
 .submit-button {
     background-color: #4caf50;
     color: white;
+}
+.submit-button:hover {
+    background-color: #388e3c;
+}
+.limit-message {
+    font-size: 14px;
+    color: #555; /* Neutral color */
+    text-align: right;
+    margin-top: 5px;
+}
+.limit-message.warning {
+    color: #f44336; /* Red color when nearing the limit */
 }
 
 /* Footer Styling */
@@ -205,6 +248,10 @@ body {
     font-size: 14px;
     color: #777;
     margin-top: 30px;
+}
+.footer p {
+    font-size: 12px;
+    margin: 0;
 }
 
 
