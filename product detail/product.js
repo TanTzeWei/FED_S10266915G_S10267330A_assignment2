@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded",async function(){
-    
     let productId = localStorage.getItem("productId");
     let data;
     data = await findProduct(productId);

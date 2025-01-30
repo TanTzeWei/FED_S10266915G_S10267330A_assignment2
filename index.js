@@ -311,12 +311,17 @@ function clickOption(e){
 }
 
 function createProductLink(productCard) {
+  const menudot = productCard.querySelector(".menu-dots-product")
   productCard.addEventListener("click",function(){
     let productId = productCard.getAttribute("productid")
     localStorage.setItem("productId",productId)
     const url = `/product/product.html?id=${productId}`;
     window.location.href = url; 
     console.log("Done")
+  })
+  menudot.addEventListener("click",function(event){
+    event.stopPropagation()
+    
   })
   
 }
