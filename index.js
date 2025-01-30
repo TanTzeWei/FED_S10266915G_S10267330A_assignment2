@@ -22,7 +22,8 @@ async function fetchListingsData(){
 }
  function loadTrending(data,page){
     let oldData = JSON.parse(data);
-    let newData = oldData.sort((a, b) => b.likecount - a.likecount);
+    let secondData = oldData.sort((a, b) => b.likecount - a.likecount);
+    let newData = secondData.filter(item => item.status == "Active");
     const trending = document.querySelector("#trendingList");
     while (trending.firstChild) {
       trending.removeChild(trending.firstChild);
@@ -253,7 +254,8 @@ function loadForYou(dict,page){
 
 
 function loadForYouDict(data, Dict) {
-  let newData = JSON.parse(data);
+  let oldData = JSON.parse(data);
+  let newData = oldData.filter(item => item.status == "Active");
 
   function selectRandomItems(arr, count, usedItems) {
     let selectedItems = [];
@@ -321,7 +323,7 @@ function createProductLink(productCard) {
   })
   menudot.addEventListener("click",function(event){
     event.stopPropagation()
-    
+
   })
   
 }
