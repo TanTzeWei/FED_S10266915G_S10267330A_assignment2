@@ -67,6 +67,9 @@ async function fetchListingsData(){
         if(selected.status == "Sponsored"){
           sponsoredVal.style.display = "block";
         }
+        clone.setAttribute("productId", selected.listingid);
+        clone.setAttribute("ownerId", selected.ownerid);
+        createProductLink(clone);
         trending.appendChild(clone);
     })
 }
@@ -307,8 +310,19 @@ function clickOption(e){
   
 }
 
+function createProductLink(productCard) {
+  productCard.addEventListener("click",function(){
+    let productId = productCard.getAttribute("productid")
+    localStorage.setItem("productId",productId)
+    const url = `/product/product.html?id=${productId}`;
+    window.location.href = url; 
+    console.log("Done")
+  })
+  
+}
 
 document.addEventListener("DOMContentLoaded",async function(){
+  
     let data = (await fetchListingsData());
     const trending = document.querySelector("#trendingList");
     trending.setAttribute("page",1);
@@ -389,5 +403,4 @@ document.addEventListener("DOMContentLoaded",async function(){
         loadForYou(forYouDict,forYou.getAttribute("page"));
       }
     })
-
 })

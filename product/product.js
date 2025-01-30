@@ -1,10 +1,12 @@
 document.addEventListener("DOMContentLoaded",async function(){
+    
     let productId = localStorage.getItem("productId");
     let data;
     data = await findProduct(productId);
+    console.log(data)
     if(data != null){
         let productData = JSON.parse(data)[0];
-        console.log(productData);
+        console.log(productId);
         const name = document.getElementById("productName");
         const price = document.getElementById("price");
         const delivery = document.getElementById("delivery");
@@ -12,8 +14,8 @@ document.addEventListener("DOMContentLoaded",async function(){
         const address = document.getElementById("location");
         const os = document.getElementById("os");
         const condition = document.getElementById("condition");
-        const description = document.getElementsByClassName("description");
-        console.log(os);
+        const description = document.getElementById("description");
+        const rating = document.getElementById("rating");
         name.textContent = productData.listingname;
         price.textContent = "SGD "+productData.price;
         if(!productData.delivery){
@@ -49,8 +51,11 @@ document.addEventListener("DOMContentLoaded",async function(){
             condition.appendChild(boldText);
             condition.appendChild(document.createTextNode(productData.condition));
         }
+        console.log(productData.description)
         description.textContent = productData.description;
 
+        rating.textContent = productData.ownername +" 4.6/5★ (98 reviews)";
+        rating.style.fontWeight = "bold";
     }else{
         console.log("There is no such product");
     }
@@ -59,7 +64,7 @@ document.addEventListener("DOMContentLoaded",async function(){
 
 async function findProduct(id) {
     const apiKey = "6784db79cea8d35416e3d912";
-    const query = { listingid:id
+    const query = { listingid:Number(id)
     };
     const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/listing?q=" + encodeURIComponent(JSON.stringify(query));
   
@@ -81,12 +86,13 @@ async function findProduct(id) {
   
       const data = await response.json();
       if (JSON.stringify(data) == "[]") {
+        console.log("no data found")
         return false; 
       } else {
         return JSON.stringify(data);
       }
     } catch (error) {
-      console.error("Error validating login:", error);
+      console.error("Error validating product:", error);
       return false; 
     }
   }
