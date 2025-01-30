@@ -1,34 +1,56 @@
 document.addEventListener("DOMContentLoaded",async function(){
-    let productId = 91//localStorage.getItem("productId");
+    let productId = localStorage.getItem("productId");
     let data;
     data = await findProduct(productId);
     if(data != null){
-        let productData = JSON.parse(data);
+        let productData = JSON.parse(data)[0];
+        console.log(productData);
         const name = document.getElementById("productName");
         const price = document.getElementById("price");
-        const delivery = document.getElementsByClassName("delivery");
-        const meetup = document.getElementsByClassName("meetup");
+        const delivery = document.getElementById("delivery");
+        const meetup = document.getElementById("meetup");
         const address = document.getElementById("location");
-        const os = document.getElementById("id");
+        const os = document.getElementById("os");
         const condition = document.getElementById("condition");
         const description = document.getElementsByClassName("description");
-
-        name.textContent = data.listingname;
-        price.textContent = data.price;
-        if(!data.delivery){
+        console.log(os);
+        name.textContent = productData.listingname;
+        price.textContent = "SGD "+productData.price;
+        if(!productData.delivery){
             delivery.style.display = "none";
         }
-        if(!data.meetup){
+        if(!productData.meetup){
             meetup.style.display = "none";
         }
-        if(data.address == ""){
-            address.textContent = "N/A";
+        if(productData.address == ""){
+            address.textContent = "";
+            let boldText = document.createElement("strong");
+            boldText.textContent = "Meetup Location: ";
+            address.appendChild(boldText);
+            address.appendChild(document.createTextNode("N/A"));
         }else{
-            address.textContent = address;
+            address.textContent = "";
+            let boldText = document.createElement("strong");
+            boldText.textContent = "Meetup Location: ";
+            address.appendChild(boldText);
+            address.appendChild(document.createTextNode(productData.address));
         }
-        os.textContent = data.os;
-        condition.textContent = data.condition;
-        description.textContent = data.description;
+        if(productData.os){
+            os.textContent = "";
+            let boldText = document.createElement("strong");
+            boldText.textContent = "Software: ";
+            os.appendChild(boldText);
+            os.appendChild(document.createTextNode(productData.os));
+        }
+        if(productData.condition){
+            condition.textContent = "";
+            let boldText = document.createElement("strong");
+            boldText.textContent = "Condition: ";
+            condition.appendChild(boldText);
+            condition.appendChild(document.createTextNode(productData.condition));
+        }
+        description.textContent = productData.description;
+
     }else{
         console.log("There is no such product");
     }
