@@ -1,5 +1,7 @@
+let listings=[];
 async function fetchListingsData(){
     try {
+   
         const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/listing";
         const apiKey = "6784db79cea8d35416e3d912";
         const response = await fetch(apiUrl, {
@@ -15,6 +17,7 @@ async function fetchListingsData(){
         }
     
         const data = await response.json();
+        listings=data;
         return JSON.stringify(data); 
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -411,3 +414,71 @@ document.addEventListener("DOMContentLoaded",async function(){
       }
     })
 })
+// Wait until the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+  // Elements
+  const searchInput = document.querySelector('.search-bar input'); // Search input field
+  const searchButton = document.querySelector('.search-bar button'); // Search button
+  const productGrids = {
+      trending: document.getElementById('trendingList'),
+      sponsored: document.getElementById('sponsoredList'),
+      forYou: document.getElementById('forYouList')
+  };
+  
+  // Search function
+  function searchProducts(query) {
+      // Normalize the query for easier comparison
+      query = query.toLowerCase();
+
+      // Function to filter and display products
+      Object.keys(productGrids).forEach(section => {
+          const grid = productGrids[section];
+          const productCards = grid.querySelectorAll('.product-card');
+          
+          productCards.forEach(card => {
+              const description = card.querySelector('.description h3').textContent.toLowerCase();
+              const price = card.querySelector('.description p').textContent.toLowerCase();
+              
+              // Show product if it matches search query
+              if (description.includes(query) || price.includes(query)) {
+                  card.style.display = 'block'; // Show matching product
+              } else {
+                  card.style.display = 'none'; // Hide non-matching product
+              }
+          });
+      });
+  }
+  
+  // Listen for search button click
+  searchButton.addEventListener('click', function() {
+      const query = searchInput.value.trim();
+      searchProducts(query);
+  });
+  
+  // Listen for enter key press for search (optional)
+  searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+          const query = searchInput.value.trim();
+          searchProducts(query);
+      }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Elements
+  const logo = document.getElementById('logo'); // Get the logo element
+  
+  // Reload products when the logo is clicked
+  logo.addEventListener('click', function() {
+      // This can either refresh the page entirely, or you could call your function that loads all the products again
+      window.location.reload(); // This will reload the entire page
+
+      // OR, if you don't want to refresh the whole page, you can reload the content:
+      // loadTrending(listings, 1);   // If you want to re-render trending products
+      // loadSponsored(sponsoredDict, 1);  // If you want to re-render sponsored products
+      // loadForYou(forYouDict, 1); // If you want to re-render "For You" section
+  });
+});
+
+
+

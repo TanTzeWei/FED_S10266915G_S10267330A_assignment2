@@ -365,3 +365,6 @@ body {
     right:8px;
     top:90px;
 }
+#logo {
+    cursor: pointer;
+}
