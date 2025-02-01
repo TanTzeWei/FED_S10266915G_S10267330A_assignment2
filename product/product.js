@@ -15,6 +15,8 @@ document.addEventListener("DOMContentLoaded",async function(){
         const condition = document.getElementById("condition");
         const description = document.getElementById("description");
         const rating = document.getElementById("rating");
+        const pfp =  document.querySelector(".seller-info img");
+        clickProfile(pfp);
         name.textContent = productData.listingname;
         price.textContent = "SGD "+productData.price;
         if(!productData.delivery){
@@ -55,14 +57,14 @@ document.addEventListener("DOMContentLoaded",async function(){
 
         rating.textContent = productData.ownername +" 4.6/5★ (98 reviews)";
         rating.style.fontWeight = "bold";
+        pfp.setAttribute("profileId",productData.ownerid)
     }else{
         console.log("There is no such product");
     }
-    document.querySelector(".seller-info").setAttribute("sellerId",productData.ownerid)
     let parsedData = JSON.parse(otherListingData)
     newListingData = parsedData.filter(p => p.status == "Active" || p.status == "Sponsored");
     let productExample = document.querySelector("#example");
-    clickProfile(document.querySelector(".seller-info"));
+    
     console.log(newListingData)
     for(let i = 0;i<3;i++){
       let ranInt = Math.floor(Math.random()*newListingData.length);
@@ -101,7 +103,6 @@ document.addEventListener("DOMContentLoaded",async function(){
       }
 
       clone.setAttribute("productId", selected.listingid);
-      clone.setAttribute("ownerId", selected.ownerid);
       createProductLink(clone);
       document.querySelector(".grid-container").appendChild(clone);
     }
@@ -151,13 +152,10 @@ async function otherListings(){
 
 function clickProfile(sellerinfo){
   sellerinfo.addEventListener("click",function(){
-    let id = sellerinfo.getAttribute("ownerId");
-    localStorage.setItem("ownerId",id)
+    let id = sellerinfo.getAttribute("profileId");
+    localStorage.setItem("ownerId",id);
     const url = `../profile/profile.html?id=${id}`;
     window.location.href = url; 
-  })
-  sellerinfo.querySelector(".chat-button").addEventListener("click",function(item){
-    item.stopPropagation();
   })
 }
 function createProductLink(productCard) {
@@ -172,9 +170,9 @@ function createProductLink(productCard) {
   menudot.addEventListener("click",function(event){
     event.stopPropagation();
 
-  })
-  
+  }) 
 }
+
 async function findProduct(id) {
     const apiKey = "6784db79cea8d35416e3d912";
     const query = { listingid:Number(id)

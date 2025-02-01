@@ -143,6 +143,9 @@ font-weight: bold;
   align-items: center;
   margin: 10px 0;
 }
+.seller-info img:hover{
+  cursor:pointer;
+}
 
 .seller-info img {
   width: 60px;
