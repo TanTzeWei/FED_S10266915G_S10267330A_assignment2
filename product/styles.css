@@ -386,3 +386,25 @@ h3 {
   right:8px;
   top:90px;
 }
+#lottiePlayer {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  height: 100vh; 
+  width: 100vw; 
+  background-color: rgb(255, 255, 255,0.4); 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  z-index: 1000;
+}
+
+/* Lottie animation player */
+#lottiePlayer #player {
+  position: relative; 
+  height: 50%; 
+  width: 50%; 
+  max-width: 500px; 
+  max-height: 500px; 
+  opacity: 1; 
+}

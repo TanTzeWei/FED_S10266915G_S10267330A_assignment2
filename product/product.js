@@ -105,6 +105,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       clone.setAttribute("productId", selected.listingid);
       createProductLink(clone);
       document.querySelector(".grid-container").appendChild(clone);
+      lottieGone();
     }
 })
 function clickOption(e){
@@ -206,4 +207,8 @@ async function findProduct(id) {
       console.error("Error validating product:", error);
       return false; 
     }
+  }
+  function lottieGone(){
+    const lottie = document.querySelector("#lottiePlayer")
+    lottie.style.display = "none";
   }

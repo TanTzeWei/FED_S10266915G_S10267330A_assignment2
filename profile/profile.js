@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       createProductLink(clone);
       document.querySelector(".listings-grid").appendChild(clone);
     })
-
+    lottieGone();
 })
 
 async function findProfile(idNo){
@@ -168,4 +168,8 @@ function clickOption(e){
     productCard.querySelector(".menu-options #delete").addEventListener("click",function(event){
       event.stopPropagation()
     })
+  }
+  function lottieGone(){
+    const lottie = document.querySelector("#lottiePlayer")
+    lottie.style.display = "none";
   }

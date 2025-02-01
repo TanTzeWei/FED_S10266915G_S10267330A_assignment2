@@ -438,7 +438,12 @@ document.addEventListener("DOMContentLoaded",async function(){
         loadForYou(forYouDict,forYou.getAttribute("page"));
       }
     })
+    lottieGone();
     
 })
+function lottieGone(){
+  const lottie = document.querySelector("#lottiePlayer")
+  lottie.style.display = "none";
+}
 
 
