@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded",async function(){
     search();
-    let productsData = filterJSON(await fetchListingsData(),localStorage.getItem("search"));
+    let data = await fetchListingsData()
+    console.log(JSON.parse(data));
+    let productsData = filterJSON(JSON.parse(data),localStorage.getItem("search"));
+    console.log(productsData);
     let grid = document.querySelector(".product-grid")
-    if(productsData.length() !=0){
+    if(productsData.length !=0){
         productsData.forEach(function(selected){
             let productExample = document.querySelector("#example");
             let clone = productExample.cloneNode(true);
@@ -74,9 +77,8 @@ async function fetchListingsData(){
 }
 function filterJSON(data, searchTerm) {
     return data.filter(item => {
-        return Object.values(item).some(value => 
-            String(value.listingname).toLowerCase().includes(searchTerm.toLowerCase())
-        );
+        return item.listingname && 
+               String(item.listingname).toLowerCase().includes(searchTerm.toLowerCase());
     });
 }
 
