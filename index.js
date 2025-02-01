@@ -315,6 +315,10 @@ function clickOption(e){
   
 }
 
+function search(){
+  
+}
+
 function createProductLink(productCard) {
   const menudot = productCard.querySelector(".menu-dots-product")
   productCard.addEventListener("click",function(){
