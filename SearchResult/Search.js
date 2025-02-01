@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded",async function(){
         lottieGone();
     }else{
         console.warn("There is no such items!");
+        lottieGone();
     }
     
 })

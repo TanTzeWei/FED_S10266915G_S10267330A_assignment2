@@ -195,9 +195,9 @@ body {
     transition: transform 0.3s;
 }
 
-.like-btn svg {
-    width: 20px;
-    height: 20px;
+.like-btn img {
+    width: 24px;
+    height: 24px;
     fill: none;
     stroke: #1976D2;
     stroke-width: 2;
