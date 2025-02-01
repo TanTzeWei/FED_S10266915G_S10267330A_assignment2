@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phone Detail Page</title>
+  <title>Product</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -75,29 +75,41 @@
     </div>
 </div>
 
-<h3>Similar Listings</h3>
+<h3>Other Listings</h3>
 <div class="grid-container">
-    <div class="grid-item">
-        <img src="iphone_256gb.jpg" alt="iPhone 13 Pro Max 256GB">
-        <p><strong>iPhone 13 Pro Max - 256GB</strong></p>
-        <p class="price">SGD 5,299</p>
-        <p><strong>Condition:</strong> Brand New</p>
-    </div>
-    <div class="grid-item">
-        <img src="iphone_512gb.jpg" alt="iPhone 13 Pro Max 512GB">
-        <p><strong>iPhone 13 Pro Max - 512GB</strong></p>
-        <p class="price">SGD 5,799</p>
-        <p><strong>Condition:</strong> Like New</p>
-    </div>
-    <div class="grid-item">
-        <img src="iphone_1tb.jpg" alt="iPhone 13 Pro Max 1TB">
-        <p><strong>iPhone 13 Pro Max - 1TB</strong></p>
-        <p class="price">SGD 6,199</p>
-        <p><strong>Condition:</strong> Brand New</p>
-    </div>
 </div>
 
 
+<div class="product-card" id="example">
+  <div class="user-info">
+      <span class="username">JohnDoe</span>  
+      <span class="post-time">2 days ago</span>
+  </div>
+  <div class="menu-dots-product" >
+      <span onclick="clickOption(event)"></span>
+      <span onclick="clickOption(event)"></span>
+      <span onclick="clickOption(event)"></span>
+  </div>
+  <div class="menu-options" id="menu-example">
+      <a id="report">Report Listing</a>
+      <a id="edit">Edit Listing</a>
+      <a id="delete">Delete Listing</a>
+  </div>
+  <img id="premium" src="images/premiumIcon.png" alt="Premium listing">
+  <img id="sponsored" src="images/sponsoredIcon.png" alt = "Sponsored listing">
+  <img src="https://via.placeholder.com/150" alt="Product 1">
+  <div class="description">
+      <h3>Local stock - Foldable Bicycle</h3>
+      <p>S$140</p>
+      <span>Brand New</span>
+  </div>
+  <button class="like-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
+      </svg>
+      <span class="like-count">23</span>
+  </button>
+</div>
   <script src="product.js"></script>
 </body>
 </html>

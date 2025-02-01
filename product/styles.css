@@ -212,4 +212,174 @@ h3 {
   color: #555;
 }
 
+/*product card*/
+.product-card {
+  position:relative;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover{
+  cursor: pointer;
+}
 
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .description {
+  padding: 10px;
+  text-align: left;
+}
+
+.product-card h3 {
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 10px;
+}
+
+.product-card p {
+  font-size: 16px;
+  color: #555555;
+  margin-bottom: 5px;
+}
+
+.product-card span {
+  font-size: 14px;
+  color: #777777;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.user-info .username {
+  font-weight: bold;
+  color: #333;
+}
+
+.user-info .post-time {
+  color: #999;
+}
+
+/* Like Button */
+.like-btn {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px 0;
+  transition: transform 0.3s;
+}
+
+.like-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #00796B;
+  stroke-width: 2;
+  margin-right: 5px;
+  transition: transform 0.3s;
+}
+
+.like-btn .like-count {
+  font-size: 16px;
+  color: #000;
+}
+
+.like-btn:hover svg {
+  transform: scale(1.3);
+}
+.menu-dots-product {
+  position: absolute;
+  top: 8px; 
+  left: 95%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 24px;
+  
+}
+.menu-dots-product span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
+}
+#menu-example{
+  display:none;
+}
+.menu-options {
+  display: block;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-options a {
+  display: none;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.menu-options a:hover {
+  background-color: #f4f4f4;
+}
+
+#menu-example a:hover{
+  cursor:pointer;
+}
+#menu-example #delete{
+  display: none;
+  color:red;
+}
+#menu-example #edit{
+  display:none;
+}
+#premium{
+  display:none;
+  position:absolute;
+  height:45px;
+  width:auto;
+  right:0px;
+  top:40px;
+}
+#sponsored{
+  display:none;
+  position: absolute;
+  background-color: purple;
+  height:30px;
+  width:auto;
+  padding:2px;
+  border-radius: 30px;
+  right:8px;
+  top:90px;
+}
