@@ -58,9 +58,11 @@ document.addEventListener("DOMContentLoaded",async function(){
     }else{
         console.log("There is no such product");
     }
+    document.querySelector(".seller-info").setAttribute("sellerId",productData.ownerid)
     let parsedData = JSON.parse(otherListingData)
     newListingData = parsedData.filter(p => p.status == "Active" || p.status == "Sponsored");
     let productExample = document.querySelector("#example");
+    clickProfile(document.querySelector(".seller-info"));
     console.log(newListingData)
     for(let i = 0;i<3;i++){
       let ranInt = Math.floor(Math.random()*newListingData.length);
@@ -146,6 +148,18 @@ async function otherListings(){
     console.error("Error fetching data:", error);
   }
 }
+
+function clickProfile(sellerinfo){
+  sellerinfo.addEventListener("click",function(){
+    let id = sellerinfo.getAttribute("ownerId");
+    localStorage.setItem("ownerId",id)
+    const url = `../profile/profile.html?id=${id}`;
+    window.location.href = url; 
+  })
+  sellerinfo.querySelector(".chat-button").addEventListener("click",function(item){
+    item.stopPropagation();
+  })
+}
 function createProductLink(productCard) {
   const menudot = productCard.querySelector(".menu-dots-product")
   productCard.addEventListener("click",function(){
@@ -156,7 +170,7 @@ function createProductLink(productCard) {
     console.log("Done")
   })
   menudot.addEventListener("click",function(event){
-    event.stopPropagation()
+    event.stopPropagation();
 
   })
   
