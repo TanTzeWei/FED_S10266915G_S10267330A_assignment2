@@ -316,7 +316,14 @@ function clickOption(e){
 }
 
 function search(){
-  
+  const searchButton = document.querySelector(".search-bar button");
+  searchButton.addEventListener("click",function(){
+    let search = document.querySelector(".search-bar input").value;
+    localStorage.setItem("search",search);
+    const url = `/SearchResult/Search.html?item=${search}`;
+    window.location.href = url; 
+    console.log("Done")
+  })
 }
 
 function createProductLink(productCard) {
@@ -350,7 +357,7 @@ function editListing(productCard){
 }
 
 document.addEventListener("DOMContentLoaded",async function(){
-  
+    search();
     let data = (await fetchListingsData());
     const trending = document.querySelector("#trendingList");
     trending.setAttribute("page",1);
@@ -431,6 +438,7 @@ document.addEventListener("DOMContentLoaded",async function(){
         loadForYou(forYouDict,forYou.getAttribute("page"));
       }
     })
+    
 })
 
 
