@@ -48,7 +48,10 @@ body {
     background-color: #0056b3;
     transform: translateY(-2px);
 }
-
+.filter-button.active {
+    background-color: #007bff;
+    color: white;
+  }
 .filter-button:active {
     transform: translateY(0);
 }
