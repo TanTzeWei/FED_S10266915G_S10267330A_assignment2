@@ -1,161 +1,196 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color:#555;
-    margin: 0;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #555;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: #00796B;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2F80ED;
 }
 
 .search-bar {
-    flex: 1;
-    display: flex;
-    margin: 0 30px;
+  flex: 1;
+  display: flex;
+  margin: 0 30px;
 }
 
 .search-bar input {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border: 1px solid #ddd;
-    border-right: none;
-    border-radius: 8px 0 0 8px;
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
 }
 
 .search-bar button {
-    padding: 15px 25px;
-    font-size: 18px;
-    border: none;
-    background-color: #00796B;
-    color: #ffffff;
-    border-radius: 0 8px 8px 0;
-    cursor: pointer;
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  background-color: #2F80ED;
+  color: #ffffff;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
 }
 
 .search-bar button:hover {
-    background-color: #00594C;
+  background-color: #1C6DD0;
 }
 
 .nav-icons {
-    display: flex; /* Flexbox for horizontal alignment */
-    align-items: center; /* Vertically center the icons */
-    gap: 15px; /* Space between icons */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.nav-icons svg, .user-icon svg {
-    width: 24px; /* Set a fixed width for the icons */
-    height: 24px; /* Set a fixed height for the icons */
-    fill: none; /* Keep the icons transparent unless styled otherwise */
-    stroke: #555; /* Match your original stroke color */
-    stroke-width: 2;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+.nav-icons svg,
+.user-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #555;
+  stroke-width: 2;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.nav-icons svg:hover, .user-icon svg:hover {
-    transform: scale(1.2); /* Slight enlargement on hover */
+.nav-icons svg:hover,
+.user-icon svg:hover {
+  transform: scale(1.2);
 }
 
 .user-icon {
-    display: none; /* Hide the user icon by default */
+  display: none;
 }
 
 .auth-buttons .user-actions {
-    display: flex;
+  display: flex;
 }
 
 .auth-buttons button {
-    margin-left: 15px;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  margin-left: 15px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .auth-buttons .sell-btn {
-    background-color: #FF6F61;
-    color: #ffffff;
+  background-color: #2F80ED;
+  color: #ffffff;
 }
 
 .auth-buttons button:hover {
-    background-color: #E65C50;
+  background-color: #1C6DD0;
 }
-  /* Form Styles */
-  .form-container {
-    background-color: #e6e6e6;
-    width: 90%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 24px;
-    color:#333;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    margin-bottom: 15px;
-  }
-  
-  label {
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  input[type="text"], textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  textarea {
-    resize: none;
-  }
-  
-  .submit-button {
-    background-color: #00796B;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .submit-button:hover {
-    background-color: #00594C;
-  }
-  
+
+/* Form & Image Container */
+.form-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 80px);
+  padding: 40px 20px;
+}
+
+/* Form Styles */
+.form-container {
+  flex: 1;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Increased max-width for larger screens */
+  width: 90%; /* Occupy 90% of the parent container's width */
+  box-sizing: border-box; 
+}
+
+.form-container h1 { /* Moved h1 styling inside .form-container */
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-container form { /* Moved form styling inside .form-container */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container .form-group { /* Moved .form-group styling inside .form-container */
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-container label { /* Moved label styling inside .form-container */
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.form-container input[type="text"],
+.form-container textarea { /* Moved input and textarea styling inside .form-container */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-container textarea { /* Moved textarea styling inside .form-container */
+  resize: none;
+}
+
+.form-container .submit-button { /* Moved .submit-button styling inside .form-container */
+  background-color: #009688;
+  color: #fff;
+  border: none;
+  padding: 14px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s; 
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.form-container .submit-button:hover { /* Moved .submit-button:hover styling inside .form-container */
+  background-color: #00594C;
+}
+
+/* Image Styles */
+.image-container {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+  max-width: 40%;
+  height: auto; /* Adjust as needed */
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  max-width: 60%;
+  max-height: 500px;
+  border-radius: 10px;
+}
