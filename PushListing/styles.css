@@ -2,8 +2,10 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f0f8f9;
     color: #333;
+    background-image: url("../images/watercolor-light-steel-blue-wallpaper-image.jpg");
+    background-size: cover;
   }
   
   /* Header Styles */
@@ -101,7 +103,7 @@ body {
   .main {
     max-width: 1200px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 40px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -119,19 +121,19 @@ body {
     text-align: center;
     font-size: 18px;
     margin-bottom: 20px;
-    color: #555;
+    color: #7f8c8d;
   }
   .title {
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 20px;
     text-align: center;
-    color:#333;
+    color:#2c3e50;
   }
   .listings h2, .packages h2 {
     font-size: 22px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   .content {
     display: flex;
@@ -146,7 +148,7 @@ body {
     display: flex;
     align-items: center;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fafafa;
@@ -181,7 +183,7 @@ body {
   .package {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
   
   .package input {
@@ -189,7 +191,7 @@ body {
   }
   
   .package-details {
-    background-color: #f8f8f8;
+    background-color: #fff;
     padding: 10px;
     border-radius: 8px;
     width: 100%;
@@ -221,18 +223,39 @@ body {
   .pay-button {
     display: block;
     width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #28a745;
+    padding: 18px;
+    font-size: 20px;
+    background-color: #3498db;
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     text-align: center;
+    transition: background-color 0.3s;
   }
   
   .pay-button:hover {
-    background-color: #218838;
+    background-color: #2980b9;
   }
-  
+  .testimonials {
+    margin-top: 40px; /* Space above testimonials */
+}
+
+.testimonial {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.faqs {
+  margin-top: 40px; /* Space above FAQs */
+}
+
+.faq {
+  margin-bottom: 20px; /* Space between FAQs */
+}
+
+.faq h3 {
+  margin-bottom: 10px; /* Space below question */
+}
   
