@@ -349,13 +349,122 @@ function createProductLink(productCard) {
   })
 }
 
-function editListing(productCard){
-  console.log(productCard.target)
-  localStorage.setItem("productId",productCard.getAttribute("productid"))
+function editListing(event){
+  let productCard = event.target.parentElement;
+  let productId = productCard.getAttribute("productid")
+  localStorage.setItem("productId",productId);
   const url = `/EditListing/EditListing.html?id=${productId}`;
   window.location.href = url; 
 }
+function reportListing(event){
+  let productCard = event.target.parentElement
+  localStorage.setItem("productId",productCard.getAttribute("productid"));
+  const url = `/Report/Report.html`;
+  window.location.href = url; 
+}
+function deleteListing(event){
+  let productCard = event.target.parentElement;
+  let productId = productCard.getAttribute("productid");
+  let id = findItemId(productId)
+  const container = document.createElement("div");
+  container.style.textAlign = "center";
+  container.style.background = "white";
+  container.style.padding = "20px";
+  container.style.borderRadius = "10px";
+  container.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.1)";
+  container.style.position = "absolute";
+  container.style.top = "50%";
+  container.style.left = "50%";
+  container.style.transform = "translate(-50%, -50%)";
 
+  // Create heading
+  const heading = document.createElement("h2");
+  heading.innerText = "Are you sure you want to delete this item?";
+  container.appendChild(heading);
+
+  // Create button container
+  const buttonContainer = document.createElement("div");
+  buttonContainer.style.marginTop = "10px";
+
+  // Create Yes button
+  const yesButton = document.createElement("button");
+  yesButton.innerText = "Yes";
+  yesButton.style.backgroundColor = "red";
+  yesButton.style.color = "white";
+  yesButton.style.border = "none";
+  yesButton.style.padding = "10px 20px";
+  yesButton.style.borderRadius = "5px";
+  yesButton.style.cursor = "pointer";
+  yesButton.style.marginRight = "10px";
+  
+  yesButton.addEventListener("mouseover", function () {
+      yesButton.style.backgroundColor = "darkred";
+  });
+  yesButton.addEventListener("mouseout", function () {
+      yesButton.style.backgroundColor = "red";
+  });
+  
+  yesButton.addEventListener("click", function () {
+
+    const itemId = id;  // Replace with the actual item ID
+    const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
+    const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
+    
+    fetch(databaseUrl, {
+        method: "PATCH",  // Use PATCH to update only specific properties
+        headers: {
+            "Content-Type": "application/json",
+            "x-apikey": apiKey
+        },
+        body: JSON.stringify({
+            status: "Inactive"  // Replace property_name with the actual field you want to update
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log("Updated item:", data))
+    .catch(error => console.error("Error updating item:", error));
+    
+      container.remove();
+  });
+
+  // Create No button
+  const noButton = document.createElement("button");
+  noButton.innerText = "No";
+  noButton.style.backgroundColor = "gray";
+  noButton.style.color = "white";
+  noButton.style.border = "none";
+  noButton.style.padding = "10px 20px";
+  noButton.style.borderRadius = "5px";
+  noButton.style.cursor = "pointer";
+  
+  noButton.addEventListener("mouseover", function () {
+      noButton.style.backgroundColor = "darkgray";
+  });
+  noButton.addEventListener("mouseout", function () {
+      noButton.style.backgroundColor = "gray";
+  });
+  
+  noButton.addEventListener("click", function () {
+      container.remove();
+  });
+
+  buttonContainer.appendChild(yesButton);
+  buttonContainer.appendChild(noButton);
+  container.appendChild(buttonContainer);
+  document.body.appendChild(container);
+  document.body.style.backgroundColor = "#f4f4f4";
+  document.body.style.fontFamily = "Arial, sans-serif";
+
+
+  container.appendChild(deleteButton);
+  document.body.appendChild(container);
+  document.body.style.backgroundColor = "#f4f4f4";
+  document.body.style.fontFamily = "Arial, sans-serif";
+}
+const findItemId = (id) => {
+  const item = jsonData.find(obj => obj.listingid === id); 
+  return item ? item._id : "Item not found";
+};
 document.addEventListener("DOMContentLoaded",async function(){
     search();
     let data = (await fetchListingsData());
