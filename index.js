@@ -75,6 +75,9 @@ async function fetchListingsData(){
         clone.setAttribute("ownerId", selected.ownerid);
         createProductLink(clone);
         trending.appendChild(clone);
+        clone.querySelector(".menu-options #delete").addEventListener("click",function(event){
+          deleteListing(event.target,data);
+        })
     })
 }
 function loadSponsored(dict, page) {
@@ -362,10 +365,16 @@ function reportListing(event){
   const url = `/Report/Report.html`;
   window.location.href = url; 
 }
-function deleteListing(event){
-  let productCard = event.target.parentElement;
+async function deleteListing(button,oldData){
+  const data = JSON.parse(oldData);
+  let productCard = button.parentElement.parentElement;
   let productId = productCard.getAttribute("productid");
-  let id = findItemId(productId)
+  const getId = (productId) => { 
+    const item = data.find(obj => obj.listingid == productId); 
+    return item ? item._id : "Item not found"; 
+};
+  let id = getId(productId);
+  console.log(id);
   const container = document.createElement("div");
   container.style.textAlign = "center";
   container.style.background = "white";
@@ -404,25 +413,33 @@ function deleteListing(event){
       yesButton.style.backgroundColor = "red";
   });
   
-  yesButton.addEventListener("click", function () {
+  yesButton.addEventListener("click", await function () {
 
     const itemId = id;  // Replace with the actual item ID
+    console.log(id);
     const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
     const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
     
     fetch(databaseUrl, {
-        method: "PATCH",  // Use PATCH to update only specific properties
-        headers: {
-            "Content-Type": "application/json",
-            "x-apikey": apiKey
-        },
-        body: JSON.stringify({
-            status: "Inactive"  // Replace property_name with the actual field you want to update
-        })
-    })
-    .then(response => response.json())
-    .then(data => console.log("Updated item:", data))
-    .catch(error => console.error("Error updating item:", error));
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json",
+          "x-apikey": apiKey
+      },
+      body: JSON.stringify({ status: "Inactive" })  // Ensure correct format
+  })
+  .then(async (response) => {
+      const text = await response.text();  // Read raw response
+      console.log("Full Response:", text);
+  
+      if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+      }
+      
+      return JSON.parse(text);  // Parse manually
+  })
+  .then(data => console.log("Updated item:", data))
+  .catch(error => console.error("Error updating item:", error));
     
       container.remove();
   });
@@ -461,10 +478,7 @@ function deleteListing(event){
   document.body.style.backgroundColor = "#f4f4f4";
   document.body.style.fontFamily = "Arial, sans-serif";
 }
-const findItemId = (id) => {
-  const item = jsonData.find(obj => obj.listingid === id); 
-  return item ? item._id : "Item not found";
-};
+
 document.addEventListener("DOMContentLoaded",async function(){
     search();
     let data = (await fetchListingsData());
@@ -547,6 +561,8 @@ document.addEventListener("DOMContentLoaded",async function(){
         loadForYou(forYouDict,forYou.getAttribute("page"));
       }
     })
+
+    
     lottieGone();
     
 })
