@@ -1,85 +1,99 @@
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f7f9fc;
-    color: #333;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-  }
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 30px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f9fc;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
 }
 
 .logo {
-    font-size: 32px; /* Increased font size */
-    font-weight: bold;
-    color: #00796B;
+  font-size: 32px;
+  font-weight: bold;
+  color: #2F80ED;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .search-bar {
-    flex: 1;
-    display: flex;
-    margin: 0 30px;
+  flex: 1;
+  display: flex;
+  margin: 0 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar input {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    border: 1px solid #ddd;
-    border-right: none;
-    border-radius: 8px 0 0 8px;
+  width: 100%;
+  padding:15px;
+  font-size: 18px;
+  border: 1px solid #ddd;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
 }
 
 .search-bar button {
-    padding: 15px 25px;
-    font-size: 18px;
-    border: none;
-    background-color: #00796B;
-    color: #ffffff;
-    border-radius: 0 8px 8px 0;
-    cursor: pointer;
+  padding: 15px 25px;
+  font-size: 18px;
+  border: none;
+  background-color: #2F80ED;
+  color: #ffffff;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
 }
+
 .search-bar button:hover {
-  background-color: #00594C;
+  background-color: #1C6DD0;
 }
 
 .nav-icons {
-  display: flex; /* Flexbox for horizontal alignment */
-  align-items: center; /* Vertically center the icons */
-  gap: 15px; /* Space between icons */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.nav-icons svg, .user-icon svg {
-  width: 24px; /* Set a fixed width for the icons */
-  height: 24px; /* Set a fixed height for the icons */
-  fill: none; /* Keep the icons transparent unless styled otherwise */
-  stroke: #555; /* Match your original stroke color */
+.nav-icons svg,
+.user-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: #555;
   stroke-width: 2;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.nav-icons svg:hover, .user-icon svg:hover {
-  transform: scale(1.2); /* Slight enlargement on hover */
+.nav-icons svg:hover,
+.user-icon svg:hover {
+  transform: scale(1.2);
 }
+
 .user-icon {
-  display: none; /* Hide the user icon by default */
+  display: none;
 }
 
 .auth-buttons .user-actions {
@@ -97,293 +111,358 @@
 }
 
 .auth-buttons .sell-btn {
-  background-color: #FF6F61;
+  background-color: #2F80ED;
   color: #ffffff;
 }
 
 .auth-buttons button:hover {
-  background-color: #E65C50;
+  background-color: #1C6DD0;
 }
 
-  
-  .chat-container {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    height: 90vh;
-    width: 90vw;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    margin-top: 20px;
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    background-color: #ffffff;
-    border-right: 1px solid #ddd;
-    padding: 10px;
-  }
-  
-  .sidebar h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 15px;
-  }
-  
-  .user-list {
-    list-style: none;
-    overflow-y: auto;
-    max-height: calc(100% - 60px);
-  }
-  
-  .user-list li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .user-list li:hover {
-    background-color: #f0f8ff;
-  }
-  
-  .active-chat {
-    background-color: #e6f7ff;
-    font-weight: bold;
-  }
-  
-  .unread-dot {
-    width: 8px;
-    height: 8px;
-    background-color: blue;
-    border-radius: 50%;
-  }
-  
-  /* Chat Window */
-  .chat-window {
-    display: flex;
-    flex-direction: column;
-    background-color: #fdfdfd;
-  }
-  
-  .chat-messages {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    background-color: #fafafa;
-    position: relative;
-  }
-  
-  .message {
-    margin-bottom: 20px;
-    max-width: 70%;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 14px;
-    position: relative;
-  }
-  
-  .message.sent {
-    background-color: #007bff;
-    color: #fff;
-    align-self: flex-end;
-    border-bottom-right-radius: 0;
-  }
-  
-  .message.received {
-    background-color: #f1f1f1;
-    color: #000;
-    align-self: flex-start;
-    border-bottom-left-radius: 0;
-  }
-  
-  .message-timestamp {
-    font-size: 10px;
-    position: absolute;
-    bottom: -15px;
-    right: 10px;
-    color: #999;
-  }
-  
-  .message-input {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #ddd;
-    gap: 5px;
-  }
-  
-  .message-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .attach-btn, .send-btn {
-    border: none;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.2s;
-  }
-  
-  .attach-btn:hover, .send-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-  }
-  
-  /* Item Info */
-  .item-info {
-    background-color: #ffffff;
-    border-left: 1px solid #ddd;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .item-image {
-    width: 100px;
-    height: 100px;
-    background-color: #ddd;
-    margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  
-  .price {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
-  }
-  
-  .price span {
-    font-size: 18px;
-    margin-right: 10px;
-    font-weight: 500;
-  }
-  
-  .offer-btn {
-    border: none;
-    background-color: #28a745;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .offer-btn:hover {
-    background-color: #1e7e34;
-  }
-  .seller-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
+/* Chat Styles */
+.chat-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  height: 90vh;
+  width: 90vw;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
 }
 
-.seller-avatar {
-    width: 50px;
-    height: 50px;
-    background-color: #ccc;
-    border-radius: 50%;
+/* Sidebar */
+.sidebar {
+  background-color: #f5f7fa;
+  border-right: 1px solid #ddd;
+  padding: 10px;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.user-list {
+  list-style: none;
+  overflow-y: auto;
+  max-height: calc(100% - 60px);
+}
+
+.user-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.user-list .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-list .user::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.user-list li:hover {
+  background-color: #e6f7ff;
+}
+
+.active-chat {
+  background-color: #e6f7ff;
+  font-weight: bold;
+}
+
+.unread-dot {
+  width: 8px;
+  height: 8px;
+  background-color: blue;
+  border-radius: 50%;
+}
+
+/* Chat Window */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.message {
+  margin-bottom: 20px;
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  position: relative;
+}
+
+.message.sent {
+  background-color: #007bff;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
+.message.received {
+  background-color: #f1f1f1;
+  color: #000;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+.message-timestamp {
+  font-size: 10px;
+  position: absolute;
+  bottom: -15px;
+  right: 10px;
+  color: #999;
+}
+
+.message-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  gap: 5px;
+}
+
+.message-input button {
+  padding: 12px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.message-input button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.attach-btn,
+.send-btn {
+  border: none;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.attach-btn:hover,
+.send-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* Item Info */
+.item-info {
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.item-image {
+  width: 100%; /* Or a specific width like 150px */
+  height: auto;
+  max-height: 150px; /* Match max-width if needed */
+  background-color: #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden; /* Key for containing the image */
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Or contain if you don't want cropping */
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.price span {
+  font-size: 18px;
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.offer-btn {
+  border: none;
+  background-color: #28a745;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.offer-btn:hover {
+  background-color: #1e7e34;
+}
+
+.seller-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.seller-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.seller-name {
+  font-weight: 500;
+}
+
+.stars {
+  color: gold;
+  font-size: 16px;
 }
 
 .seller-rating {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
-    color: #555;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #555;
 }
 
 .seller-rating span {
-    color: gold;
-    font-size: 16px;
+  color: gold;
+  font-size: 16px;
 }
 
-.go-to-profile {
-    font-size: 12px;
-    color: #007bff;
-    text-decoration: underline;
-    cursor: pointer;
+.profile-link {
+  font-size: 12px;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.go-to-profile:hover {
-    color: #0056b3;
+.profile-link:hover {
+  color: #0056b3;
 }
-  
-  
-  /* Dark Mode */
-  .dark-mode-toggle {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .dark-mode-toggle input {
-    margin-left: 5px;
-  }
-  
-  body.dark-mode {
-    background-color: #1a1a1a;
-    color: #f1f1f1;
-  }
-  
-  body.dark-mode .sidebar, body.dark-mode .item-info, body.dark-mode .chat-window {
-    background-color: #333;
-    border-color: #555;
-  }
-  
-  body.dark-mode, body.dark-mode .message-input input {
-    background-color: #444;
-    color: #fff;
-    border-color: #555;
-  }
-  
-  body.dark-mode .message.sent {
-    background-color: #0056b3;
-  }
-  
-  body.dark-mode .message.received {
-    background-color: #555;
-  }
-  
-  body.dark-mode .offer-btn {
-    background-color: #1e7e34;
-  }
-  
-  body.dark-mode .profile-link {
-    color: #4ca6ff;
-  }
-  
-  body.dark-mode .profile-link:hover {
-    color: #007bff;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .chat-container {
+.profile-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden; /* Key for containing the image */
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Or contain */
+}
+/* Dark Mode */
+.dark-mode-toggle {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode-toggle input {
+  margin-left: 5px;
+}
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .item-info,
+body.dark-mode .chat-window {
+  background-color: #333;
+  border-color: #555;
+}
+
+body.dark-mode,
+body.dark-mode .message-input input {
+  background-color: #444;
+  color: #fff;
+  border-color: #555;
+}
+
+body.dark-mode .message.sent {
+  background-color: #0056b3;
+}
+
+body.dark-mode .message.received {
+  background-color: #555;
+}
+
+body.dark-mode .offer-btn {
+  background-color: #1e7e34;
+}
+
+body.dark-mode .profile-link {
+  color: #4ca6ff;
+}
+
+body.dark-mode .profile-link:hover {
+  color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chat-container {
       grid-template-columns: 1fr;
-    }
-  
-    .sidebar {
-      display: none;
-    }
-  
-    .dark-mode-toggle {
-      bottom: 20px;
-    }
   }
+
+  .sidebar {
+      display: none;
+  }
+
+  .dark-mode-toggle {
+      bottom: 20px;
+  }
+}
   
   

@@ -22,7 +22,7 @@ body {
   .logo {
     font-size: 32px;
     font-weight: bold;
-    color: #00796B;
+    color: #2F80ED;
   }
   
   .search-bar {
@@ -44,7 +44,7 @@ body {
     padding: 15px 25px;
     font-size: 18px;
     border: none;
-    background-color: #00796B;
+    background-color: #2F80ED;
     color: #ffffff;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
@@ -90,12 +90,12 @@ body {
 }
 
 .auth-buttons .sell-btn {
-  background-color: #FF6F61;
+  background-color: #2F80ED;
   color: #ffffff;
 }
 
 .auth-buttons button:hover {
-  background-color: #E65C50;
+  background-color: #2F80ED;
 }
   
   
@@ -232,10 +232,12 @@ body {
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
-  
   .pay-button:hover {
     background-color: #2980b9;
+    transform: translateY(-5px);
+    
   }
   .testimonials {
     margin-top: 40px; /* Space above testimonials */
