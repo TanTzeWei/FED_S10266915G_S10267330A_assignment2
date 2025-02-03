@@ -80,6 +80,7 @@ async function fetchListingsData(){
         })
     })
 }
+
 function loadSponsored(dict, page) {
   let currentDict = dict[page - 1];  
 
@@ -243,7 +244,8 @@ function loadForYou(dict,page){
       likeCount.textContent = selected.likecount;
       username.textContent = selected.ownername;
       postTime.textContent = dateDiff + " days ago";
-      imgProduct.src = selected.photo;
+      console.log(selected.photo)
+
       clone.style.display = "flex";
 
       if (selected.premiumlisting === true) {
