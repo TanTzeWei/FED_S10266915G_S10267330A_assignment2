@@ -230,6 +230,7 @@ function loadForYou(dict,page){
       let postTime = userInfo.querySelector(".post-time");
       let premium = clone.querySelector("#premium");
       let sponsoredVal = clone.querySelector("#sponsored");
+      let imgProduct = clone.querySelector("#productImg")
 
       let dayPosted = new Date(selected.datecreated);
       let currentDate = new Date();
@@ -242,6 +243,7 @@ function loadForYou(dict,page){
       likeCount.textContent = selected.likecount;
       username.textContent = selected.ownername;
       postTime.textContent = dateDiff + " days ago";
+      imgProduct.src = selected.photo;
       clone.style.display = "flex";
 
       if (selected.premiumlisting === true) {
@@ -369,12 +371,12 @@ async function deleteListing(button,oldData){
   const data = JSON.parse(oldData);
   let productCard = button.parentElement.parentElement;
   let productId = productCard.getAttribute("productid");
-  const getId = (productId) => { 
+  const getObj = (productId) => { 
     const item = data.find(obj => obj.listingid == productId); 
-    return item ? item._id : "Item not found"; 
+    return item ? item : "Item not found"; 
 };
-  let id = getId(productId);
-  console.log(id);
+  let obj = getObj(productId);
+  console.log(obj);
   const container = document.createElement("div");
   container.style.textAlign = "center";
   container.style.background = "white";
@@ -413,10 +415,10 @@ async function deleteListing(button,oldData){
       yesButton.style.backgroundColor = "red";
   });
   
-  yesButton.addEventListener("click", await function () {
+  yesButton.addEventListener("click", async function () {
 
-    const itemId = id;  // Replace with the actual item ID
-    console.log(id);
+    const itemId = obj._id;  // Replace with the actual item ID
+    console.log(itemId);
     const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
     const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
     
@@ -426,7 +428,8 @@ async function deleteListing(button,oldData){
           "Content-Type": "application/json",
           "x-apikey": apiKey
       },
-      body: JSON.stringify({ status: "Inactive" })  // Ensure correct format
+      body: JSON.stringify({listingid: obj.id,
+         status: "Inactive" })  // Ensure correct format
   })
   .then(async (response) => {
       const text = await response.text();  // Read raw response
