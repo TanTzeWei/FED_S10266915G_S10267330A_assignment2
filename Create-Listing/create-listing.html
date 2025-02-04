@@ -7,11 +7,28 @@
     <link rel="stylesheet" href="create-listing.css">
 </head>
 <body>
+    <div class="main-container">
+        <!-- Photo Upload Section -->
+        <div class="photo-section-container">
+            <div class="photo-section">
+                <div class="section">
+                    <h2>Upload Photo</h2>
+                    <div class="photo-box">
+                        <label for="photo">Drag and drop a photo here or click to upload</label>
+                        <input type="file" id="photo" name="photo">
+                        <img id="photo-preview" src="#" alt="Photo Preview" style="display: none; margin-top: 10px; max-width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
     <!-- Main Content -->
     <div class="container">
         <header>
             <h1>Create Your Listing</h1>
         </header>
+<div class="form-container">
+ <div class="form-section-container">
+    <div class="form-section">
         <form class="listing-form">
             <!-- Item Details Section -->
             <div class="section">
@@ -20,15 +37,6 @@
                 <input type="text" id="name" name="name" placeholder="Enter the name of your item">
                 <label for="description">Description</label>
                 <textarea id="description" name="description" rows="4" placeholder="Describe your item"></textarea>
-            </div>
-
-            <!-- Photo Upload Section -->
-            <div class="section">
-                <h2>Upload Photo</h2>
-                <div class="photo-box">
-                    <label for="photo">Drag and drop a photo here or click to upload</label>
-                    <input type="file" id="photo" name="photo">
-                </div>
             </div>
 
             <!-- Specifications Section -->
@@ -75,6 +83,9 @@
             <button type="submit" class="submit-button">List Now</button>
         </form>
     </div>
+</div>
+</div>
+</div>
     <script src = "createlisting.js"></script>
 </body>
 </html>

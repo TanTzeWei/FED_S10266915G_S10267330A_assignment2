@@ -12,11 +12,18 @@
         <dotlottie-player id = "player"src="https://lottie.host/c55ba2ff-546e-4a5e-a34e-69bf7be34812/jv0yEj3iZf.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
     </div>
     <header class="header">
-        <div class="logo" id="logo">MokeSell</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for items...">
-            <button>Search</button>
+        <div class="logo" id="logo">
+           <img src="../images/MokeSell.png" alt="MokeSell Logo">
         </div>
+        <nav class="categories">
+            <a href="#">Electronics</a>
+            <a href="#">Fashion</a>
+            <a href="#">Luxury</a>
+            <a href="#">Services</a>
+            <a href="#">Cars</a>
+            <a href="#">Property</a>
+            <a href="#">Others</a>
+        </nav>
         <div class="nav-icons">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
@@ -30,33 +37,31 @@
                 <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
             </svg>
         </div>
-        <div class="user-icon">
+        <div class="profile-icon" id="profileIcon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="7" r="4"></circle>
                 <path d="M5.5 21h13a2.5 2.5 0 0 0-13 0z"></path>
             </svg>
         </div>
+    </div>
         <div class="auth-buttons">
         <div class="user-actions">
             <button>Register</button>
             <button>Login</button>
             <button class="sell-btn">Sell</button>
         </div>
-        
+        </div>
     </header>
-
-    <!-- Categories Navigation -->
-    <nav class="categories">
-        <a href="#">Electronics</a>
-        <a href="#">Fashion</a>
-        <a href="#">Luxury</a>
-        <a href="#">Services</a>
-        <a href="#">Cars</a>
-        <a href="#">Property</a>
-        <a href="#">All Categories</a>
-    </nav>
-
-
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for items...">
+            <button>Search</button>
+        </div>
+    </div>
+    <button class="filter-toggle-button">
+        Filters
+    </button>
+<div class="filters-container">
     <div class="filters">
         <div class="filter-group">
             <span>Price:</span>
@@ -71,8 +76,11 @@
         </div>
         <div class="filter-group">
             <span>Condition:</span>
-            <button class="filter-button" data-filter="condition-new">New</button>
-            <button class="filter-button" data-filter="condition-used">Used</button>
+            <button class="filter-button" data-filter="condition-brand-new"> Brand New</button>
+            <button class="filter-button" data-filter="condition-like-new"> Like New</button>
+            <button class="filter-button" data-filter="condition-lightly-used">Lightly Used</button>
+            <button class="filter-button" data-filter="condition-well-used">Well Used</button>
+            <button class="filter-button" data-filter="condition-heavily-used">Heavily Used</button>
         </div>
         <div class="filter-group">
             <span>Other Filters:</span>
@@ -81,6 +89,7 @@
             <button class="filter-button" data-filter="delivery">Delivery Availability</button>
         </div>
     </div>
+</div>
 
     <div class="product-grid">
         

@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded",async function(){
           applyFilters(productsData);
         });
       });
+
+      const filterToggleButton = document.querySelector(".filter-toggle-button");
+      const filtersContainer = document.querySelector(".filters-container");
+
+    filterToggleButton.addEventListener("click", function() {
+        if (filtersContainer.style.display === "none" || filtersContainer.style.display === "") {
+            filtersContainer.style.display = "block";
+        } else {
+            filtersContainer.style.display = "none";
+        }
+    });
     });
     let grid = document.querySelector(".product-grid")
     if(productsData.length !=0){
@@ -228,15 +239,30 @@ function applyFilters(products) {
   }
 
   // Get selected condition filter
-  if (document.querySelector('[data-filter="condition-new"].active')) {
+  if (document.querySelector('[data-filter="condition-brand-new"].active')) {
       selectedFilters.condition = "brand-new";
-  } else if (document.querySelector('[data-filter="condition-used"].active')) {
-      selectedFilters.condition = "Used";
+  } else if (document.querySelector('[data-filter="condition-like-new"].active')) {
+      selectedFilters.condition = "like-new";
+  }
+  else if (document.querySelector('[data-filter="condition-lightly-used"].active')) {
+    selectedFilters.condition = "lightly-used";
+  }
+  else if (document.querySelector('[data-filter="condition-well-used"].active')) {
+    selectedFilters.condition = "well-used";
+  }
+  else if (document.querySelector('[data-filter="condition-heavily-used"].active')) {
+    selectedFilters.condition = "heavily-used";
   }
 
   // Get selected meetup filter
   if (document.querySelector('[data-filter="meetup"].active')) {
       selectedFilters.meetup = true;
+  }
+  else if (document.querySelector('[data-filter="delivery"].active')) {
+    selectedFilters.delivery = true;
+  }
+  else if (document.querySelector('[data-filter="premium"].active')) {
+    selectedFilters.premiumlisting = true;
   }
 
   console.log("Selected Filters:", selectedFilters);
