@@ -16,16 +16,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
+    padding: 10px 20px;
     background-color: #fff;
     border-bottom: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .logo {
-    font-size: 32px;
-    font-weight: bold;
-    color: #2F80ED;
+  .logo img {
+    max-height: 100%;
+    width:60%;
+    margin-left: 30px;
   }
   .nav-icons {
     display: flex;
@@ -34,7 +34,7 @@ body {
   }
   
   .nav-icons svg,
-  .user-icon svg {
+  .profile-icon svg {
     width: 24px;
     height: 24px;
     fill: none;
@@ -45,14 +45,14 @@ body {
   }
   
   .nav-icons svg:hover,
-  .user-icon svg:hover {
+  .profile-icon svg:hover {
     transform: scale(1.2);
   }
   
-  .user-icon {
-    display: flex;
-  }
-  
+  .profile-icon {
+    display: none;
+    margin-left: 15px; /* Hide the profile icon initially */
+}
   .auth-buttons .user-actions {
     display: flex;
   }
@@ -103,6 +103,7 @@ body {
     padding: 20px 0;
     background-color: #f8f8f8;
     border-bottom: 1px solid #ccc;
+    
 }
 
 .search-bar {
@@ -131,6 +132,70 @@ body {
 
 .search-bar button:hover {
     background-color: #1E88E5;
+}
+/* Promotional Banner */
+.banner-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto; /* Adjust the height as needed */
+    overflow: hidden;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+.banner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height:auto;
+}
+
+.banner-item {
+    min-width: 100%; /* Ensure each banner item takes full width */
+    height: 65vh; /* Set the height for each banner item */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.banner-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    z-index: 1;
+    transition: background-color 0.3s;
+}
+
+.left-btn {
+    left: 10px;
+}
+
+.right-btn {
+    right: 10px;
+}
+
+.banner-btn:hover {
+    background-color: #e0e0e0;
 }
 /* Product Grid */
 .product-grid-container {

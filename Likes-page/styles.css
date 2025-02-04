@@ -20,10 +20,11 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
+.logo-link {
     font-size: 32px;
     font-weight: bold;
     color: #00796B;
+    text-decoration: none;
 }
 
 .search-bar {
@@ -61,7 +62,7 @@ body {
     gap: 15px; /* Space between icons */
 }
 
-.nav-icons svg, .user-icon svg {
+.nav-icons svg, .profile-icon svg {
     width: 24px; /* Set a fixed width for the icons */
     height: 24px; /* Set a fixed height for the icons */
     fill: none; /* Keep the icons transparent unless styled otherwise */
@@ -71,12 +72,13 @@ body {
     transition: transform 0.3s ease;
 }
 
-.nav-icons svg:hover, .user-icon svg:hover {
+.nav-icons svg:hover, .profile-icon svg:hover {
     transform: scale(1.2); /* Slight enlargement on hover */
 }
 
-.user-icon {
-    display: none; /* Hide the user icon by default */
+.profile-icon {
+    display: none;
+    margin-left: 15px; 
 }
 
 .auth-buttons .user-actions {

@@ -575,5 +575,30 @@ function lottieGone(){
   const lottie = document.querySelector("#lottiePlayer")
   lottie.style.display = "none";
 }
+// Banner functionality
+let currentBannerIndex = 0;
+const banners = document.querySelectorAll('.banner img');
+const totalBanners = banners.length;
+
+document.getElementById('nextBanner').addEventListener('click', () => {
+    currentBannerIndex = (currentBannerIndex + 1) % totalBanners;
+    updateBanner();
+});
+
+document.getElementById('prevBanner').addEventListener('click', () => {
+    currentBannerIndex = (currentBannerIndex - 1 + totalBanners) % totalBanners;
+    updateBanner();
+});
+
+function updateBanner() {
+    const bannerWidth = document.querySelector('.banner-container').clientWidth;
+    const bannerContainer = document.querySelector('.banner');
+    bannerContainer.style.transform = `translateX(-${currentBannerIndex * bannerWidth}px)`;
+}
+
+// Initialize banner on page load
+document.addEventListener('DOMContentLoaded', () => {
+    updateBanner();
+});
 
 
