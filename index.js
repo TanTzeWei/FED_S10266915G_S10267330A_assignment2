@@ -379,6 +379,7 @@ async function deleteListing(button,oldData){
 };
   let obj = getObj(productId);
   console.log(obj);
+  console.log(obj.listingid);
   const container = document.createElement("div");
   container.style.textAlign = "center";
   container.style.background = "white";
@@ -418,36 +419,39 @@ async function deleteListing(button,oldData){
   });
   
   yesButton.addEventListener("click", async function () {
+    const itemId = obj._id;  // The document ID to update
+    console.log("Updating Item ID:", itemId);
 
-    const itemId = obj._id;  // Replace with the actual item ID
-    console.log(itemId);
     const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
     const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
-    
+
     fetch(databaseUrl, {
-      method: "PATCH",
-      headers: {
-          "Content-Type": "application/json",
-          "x-apikey": apiKey
-      },
-      body: JSON.stringify({listingid: obj.id,
-         status: "Inactive" })  // Ensure correct format
-  })
-  .then(async (response) => {
-      const text = await response.text();  // Read raw response
-      console.log("Full Response:", text);
-  
-      if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
-      }
-      
-      return JSON.parse(text);  // Parse manually
-  })
-  .then(data => console.log("Updated item:", data))
-  .catch(error => console.error("Error updating item:", error));
-    
-      container.remove();
-  });
+        method: "PATCH",  // Use PATCH to update specific fields
+        headers: {
+            "Content-Type": "application/json",
+            "x-apikey": apiKey
+        },
+        body: JSON.stringify({
+          "status": "Inactive",
+       }
+       )
+    })
+    .then(async (response) => {
+        const text = await response.text();  // Read raw response
+        console.log("Full Response:", text);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+        }
+
+        return JSON.parse(text);  // Parse manually
+    })
+    .then(data => console.log("Updated item:", data))
+    .catch(error => console.error("Error updating item:", error));
+    container.remove();
+});
+
+
 
   // Create No button
   const noButton = document.createElement("button");
