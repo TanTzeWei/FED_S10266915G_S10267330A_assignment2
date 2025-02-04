@@ -326,9 +326,57 @@ function clickOption(e){
       productCard.querySelector("#menu-example #delete").style.display = "hidden";
   } 
 }
-function clickLike(){
+async function clickLike(button, passedData) {
+  try {
+   
+    const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/account";
+    const apiKey = "6784db79cea8d35416e3d912";
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": apiKey
+      }
+    });
   
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+  
+    const data = await response.json();
+    listings=data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+
+  let data = JSON.parse(passedData);
+  const productCard = button.parentElement;
+  const productId = productCard.getAttribute("productid");
+  let productData = data.find(item => item.listingid == productId);
+  let user = data.find(item=>item.id == localStorage.getItem("id"));
+  let likedby;
+  
+  if("likeslist" in user){
+    if("likedby" in productData){
+      likedby = productData.likedby
+      if(user.id in likedby){
+        
+      }
+    }else{
+      likedby = {};
+    }
+  }
+  else{
+    if("likedby" in productData){
+      likedby = productData.likedby
+    }else{
+      likedby = {};
+    }
+  }
+
 }
+
+
 
 function search(){
   const searchButton = document.querySelector(".search-bar button");
