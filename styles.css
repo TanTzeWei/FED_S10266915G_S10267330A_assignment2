@@ -16,22 +16,98 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px 30px;
     background-color: #fff;
-    border-bottom: 1px solid #f5f5f5;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
-}
-
-.logo {
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
     font-size: 32px;
     font-weight: bold;
-    color: #1976D2;
+    color: #2F80ED;
+  }
+  .nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .nav-icons svg,
+  .user-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: #555;
+    stroke-width: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-icons svg:hover,
+  .user-icon svg:hover {
+    transform: scale(1.2);
+  }
+  
+  .user-icon {
+    display: flex;
+  }
+  
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  
+  .auth-buttons button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .auth-buttons .sell-btn {
+    background-color: #2F80ED;
+    color: #ffffff;
+  }
+  
+  .auth-buttons button:hover {
+    background-color: #1C6DD0;
+  }
+/* Categories Navigation */
+.categories {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.categories a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #424242;
+    font-size: 18px;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.categories a:hover {
+    color: #00796B;
+}
+/* Search Bar Container*/
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ccc;
 }
 
 .search-bar {
-    flex: 1;
     display: flex;
-    margin: 0 30px;
+    width: 60%;
 }
 
 .search-bar input {
@@ -56,49 +132,6 @@ body {
 .search-bar button:hover {
     background-color: #1E88E5;
 }
-
-.user-actions button {
-    margin-left: 15px;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.user-actions .sell-btn {
-    background-color: #1976D2;
-    color: #ffffff;
-}
-
-.user-actions button:hover {
-    background-color: #1E88E5;
-}
-
-/* Categories Navigation */
-.categories {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #ccc;
-    font-size: 18px;
-}
-
-.categories a {
-    margin: 0 25px;
-    text-decoration: none;
-    color: #424242;
-    font-size: 18px;
-    transition: color 0.3s;
-    font-weight: 500;
-}
-
-.categories a:hover {
-    color: #00796B;
-}
-
 /* Product Grid */
 .product-grid-container {
     position: relative;
