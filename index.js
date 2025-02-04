@@ -324,7 +324,9 @@ function clickOption(e){
     productCard.querySelector("#menu-example").style.display = "none";
       productCard.querySelector("#menu-example #edit").style.display = "hidden";
       productCard.querySelector("#menu-example #delete").style.display = "hidden";
-  }
+  } 
+}
+function clickLike(){
   
 }
 

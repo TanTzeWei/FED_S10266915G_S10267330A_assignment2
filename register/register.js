@@ -80,12 +80,39 @@ async function validateEmail(target) {
     return false; 
   }
 }
+async function fetchNewId(){
+  try {
+   
+    const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/account";
+    const apiKey = "6784db79cea8d35416e3d912";
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": apiKey
+      }
+    });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    listings=data;
+    return JSON.stringify(data); 
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+  const highestValue = Math.max(...data.map(item => item.value));
+  return Number(highestValue+1)
+}
 
 async function createAccount(u,p,e){
   let hashedPass = cyrb53(p);
+  let newId = await fetchNewId();
 
   let add = {
+    id: newId,
     username: u,
     email: e,
     password: hashedPass,
