@@ -143,6 +143,9 @@ function loadSponsored(dict, page) {
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       sponsored.appendChild(clone);
+      clone.querySelector(".menu-options #delete").addEventListener("click",function(event){
+        deleteListing(event.target,data);
+      })
     }
   });
 }
@@ -258,6 +261,9 @@ function loadForYou(dict,page){
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       sponsored.appendChild(clone);
+      clone.querySelector(".menu-options #delete").addEventListener("click",function(event){
+        deleteListing(event.target,data);
+      })
     }
   });
 }
@@ -357,7 +363,7 @@ function createProductLink(productCard) {
 }
 
 function editListing(event){
-  let productCard = event.target.parentElement;
+  let productCard = event.target.parentElement.parentElement;
   let productId = productCard.getAttribute("productid")
   localStorage.setItem("productId",productId);
   const url = `/EditListing/EditListing.html?id=${productId}`;
