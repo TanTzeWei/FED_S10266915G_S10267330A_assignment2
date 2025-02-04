@@ -105,6 +105,7 @@ async function createListing(name, desc, cover, o, cond, meet, addr, del, pri) {
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector(".listing-form");
   const photo = document.querySelector("#photo");  // File input
+  const photoPreview = document.querySelector("#photo-preview");
   const os = document.querySelector("#os");
   const condition = document.querySelector("#condition");
   const name = document.querySelector("#name");
@@ -113,6 +114,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const price = document.querySelector("#price");
   const meetup = document.querySelector("#meetup");
   const delivery = document.querySelector("#delivery");
+
+  photo.addEventListener("change", function() {
+    const file = photo.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            photoPreview.src = e.target.result;
+            photoPreview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+    }
+});
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
