@@ -96,6 +96,37 @@ body {
 .categories a:hover {
     color: #00796B;
 }
+.subcategories {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.subcategories li {
+    list-style: none;
+}
+
+.subcategories a {
+    display: block;
+    padding: 10px 20px;
+    white-space: nowrap;
+    color: #424242;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.subcategories a:hover {
+    background-color: #f8f8f8;
+}
+
+.category:hover .subcategories {
+    display: block;
+}
 /* Search Bar Container*/
 .search-bar-container {
     display: flex;
@@ -344,35 +375,6 @@ body {
     background-color: #e0e0e0;
 }
 
-.nav-btn svg {
-    width: 20px;
-    height: 20px;
-}
-
-.nav-icons {
-    display: flex; /* Flexbox for horizontal alignment */
-    align-items: center; /* Vertically center the icons */
-    gap: 15px; /* Space between icons */
-}
-
-.nav-icons svg , .user-icon svg {
-    width: 24px; /* Set a fixed width for the icons */
-    height: 24px; /* Set a fixed height for the icons */
-    fill: none; /* Keep the icons transparent unless styled otherwise */
-    stroke: #555; /* Match your original stroke color */
-    stroke-width: 2;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-.user-icon{
-    margin-left: 20px;
-    display:none;
-}
-
-.nav-icons svg:hover,
-.user-icon svg:hover{
-    transform: scale(1.2); /* Slight enlargement on hover */
-}
 /* Heading for products*/
 .section-header {
     margin: 20px 40px; /* Add spacing above the grid */
@@ -487,4 +489,77 @@ body {
     max-width: 500px; 
     max-height: 500px; 
     opacity: 1; 
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo-link {
+        font-size: 24px;
+    }
+
+    .search-bar {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .categories a {
+        margin: 5px 0;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+
+    .auth-buttons .user-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .auth-buttons button {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 item per row */
+    }
+
+    .categories {
+        padding: 10px;
+    }
+
+    .categories a {
+        font-size: 16px;
+    }
+
+    .product-card h3 {
+        font-size: 16px;
+    }
+
+    .product-card p {
+        font-size: 14px;
+    }
+
+    .product-card span {
+        font-size: 12px;
+    }
 }
