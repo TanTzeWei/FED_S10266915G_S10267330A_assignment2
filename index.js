@@ -73,17 +73,17 @@ async function fetchListingsData(){
         }
         clone.setAttribute("productId", selected.listingid);
         clone.setAttribute("ownerId", selected.ownerid);
-        try{
-          if(localStorage.getItem("id") in selected.likedby){//liked
-            likeButton.querySelector("img").src = "images/likedHeart.png";
-            likeButton.setAttribute("liked","true");
-          }else{
-            likeButton.setAttribute("liked","false")
-          }
+        let likedby = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+        const userId = localStorage.getItem("id");
+
+        if (likedby.includes(userId)) { // Check if the user ID is in the array
+          likeButton.querySelector("img").src = "images/likedHeart.png";
+          likeButton.setAttribute("liked", "true");
+        } else {
+          likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
+          likeButton.setAttribute("liked", "false");
         }
-        catch{
-          likeButton.setAttribute("liked","false")
-        }
+
         
 
         createProductLink(clone);
@@ -153,17 +153,16 @@ function loadSponsored(dict, page) {
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
-      try{
-        if(localStorage.getItem("id") in selected.likedby){//liked
+      let likedby = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+        const userId = localStorage.getItem("id");
+
+        if (likedby.includes(userId)) { // Check if the user ID is in the array
           likeButton.querySelector("img").src = "images/likedHeart.png";
-          likeButton.setAttribute("liked","true");
-        }else{
-          likeButton.setAttribute("liked","false")
+          likeButton.setAttribute("liked", "true");
+        } else {
+          likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
+          likeButton.setAttribute("liked", "false");
         }
-      }
-      catch{
-        likeButton.setAttribute("liked","false")
-      }
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       pressLiked(likeButton,selected);
@@ -282,17 +281,16 @@ function loadForYou(dict,page){
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
-      try{
-        if(localStorage.getItem("id") in selected.likedby){//liked
+      let likedby = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+        const userId = localStorage.getItem("id");
+
+        if (likedby.includes(userId)) { // Check if the user ID is in the array
           likeButton.querySelector("img").src = "images/likedHeart.png";
-          likeButton.setAttribute("liked","true");
-        }else{
-          likeButton.setAttribute("liked","false")
+          likeButton.setAttribute("liked", "true");
+        } else {
+          likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
+          likeButton.setAttribute("liked", "false");
         }
-      }
-      catch{
-        likeButton.setAttribute("liked","false")
-      }
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       pressLiked(likeButton,selected);
@@ -373,7 +371,10 @@ function pressLiked(button,selected){
     console.log(button.getAttribute("liked"))
     if(button.getAttribute("liked") != "true"){//unlike
       const itemId = selected._id;  // The document ID to update
-      let newLikedBy = selected.likedby.filter(item => item != user)
+      let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+
+      newLikedBy.push(localStorage.getItem("id"));
+      console.log(newLikedBy)
       console.log("Updating Item ID:", itemId);
 
     const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
@@ -386,7 +387,7 @@ function pressLiked(button,selected){
             "x-apikey": apiKey
         },
         body: JSON.stringify({
-          "likecount": selected.likecount-1,
+          "likecount": Number(selected.likecount)+1,
           "likedby": newLikedBy
        }
        )
@@ -404,13 +405,17 @@ function pressLiked(button,selected){
     .then(data => console.log("Updated item:", data))
     .catch(error => console.error("Error updating item:", error));
 
-
-      button.querySelector("img").src = "images/normalHeart.png";
+    button.querySelector("img").src = "images/likedHeart.png";
+    button.querySelector("path span").textContent = Number(selected.likecount)-1
     }else{
       const itemId = selected._id;  // The document ID to update
-      let newLikedBy = selected.likedby.push(id)
-    console.log("Updating Item ID:", itemId);
+      let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+      console.log(newLikedBy);
 
+      // Remove the item with the matching `id`
+      newLikedBy = newLikedBy.filter(item => item != localStorage.getItem("id"));
+      console.log("Updating Item ID:", itemId);
+      
     const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
     const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
 
@@ -421,8 +426,8 @@ function pressLiked(button,selected){
             "x-apikey": apiKey
         },
         body: JSON.stringify({
-          "likecount": selected.likecount-1,
-          "likedby": newLikedBy
+          "likecount": Number(selected.likecount)-1,
+          "likedby": JSON.stringify(newLikedBy)
        }
        )
     })
@@ -433,15 +438,16 @@ function pressLiked(button,selected){
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
         }
-
         return JSON.parse(text);  // Parse manually
     })
     .then(data => console.log("Updated item:", data))
     .catch(error => console.error("Error updating item:", error));
 
 
-      button.querySelector("img").src = "images/likedHeart.png";
+      
     }
+  button.querySelector("img").src = "images/normalHeart.png";
+  button.querySelector("path span").textContent = Number(selected.likecount)-1;
   })
 }
 
