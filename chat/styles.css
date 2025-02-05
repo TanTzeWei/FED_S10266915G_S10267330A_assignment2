@@ -27,49 +27,18 @@ body {
   width: 100%;
 }
 
-.logo {
-  font-size: 32px;
-  font-weight: bold;
-  color: #2F80ED;
+.logo img {
+  max-height: 100%;
+  width:100%;
+  margin-left: 30px;
+  max-width: 200px;
+  height:50px;
 }
 
 .logo-link {
   text-decoration: none;
   color: inherit;
 }
-
-.search-bar {
-  flex: 1;
-  display: flex;
-  margin: 0 30px;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.search-bar input {
-  width: 100%;
-  padding:15px;
-  font-size: 18px;
-  border: 1px solid #ddd;
-  border-right: none;
-  border-radius: 8px 0 0 8px;
-}
-
-.search-bar button {
-  padding: 15px 25px;
-  font-size: 18px;
-  border: none;
-  background-color: #2F80ED;
-  color: #ffffff;
-  border-radius: 0 8px 8px 0;
-  cursor: pointer;
-}
-
-.search-bar button:hover {
-  background-color: #1C6DD0;
-}
-
 .nav-icons {
   display: flex;
   align-items: center;
@@ -118,7 +87,61 @@ body {
 .auth-buttons button:hover {
   background-color: #1C6DD0;
 }
+/* Categories */
+.categories {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+  background-color: #fff;
+  font-size: 18px;
+  position: relative;
+}
+.categories .category {
+  position: relative; /* Ensure each category has relative positioning */
+}
+.categories a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #424242;
+  font-size: 18px;
+  transition: color 0.3s;
+  font-weight: 500;
+}
 
+.categories a:hover {
+  color: #00796B;
+}
+.subcategories {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.subcategories li {
+  list-style: none;
+}
+
+.subcategories a {
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+  color: #424242;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.subcategories a:hover {
+  background-color: #f8f8f8;
+}
+
+.category:hover .subcategories {
+  display: block;
+}
 /* Chat Styles */
 .chat-container {
   display: grid;
@@ -451,18 +474,5 @@ body.dark-mode .profile-link:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .chat-container {
-      grid-template-columns: 1fr;
-  }
 
-  .sidebar {
-      display: none;
-  }
-
-  .dark-mode-toggle {
-      bottom: 20px;
-  }
-}
-  
   
