@@ -108,7 +108,11 @@ body {
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
+.profile-info {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
 .avatar {
     width: 100px;
     height: 100px;
@@ -116,19 +120,51 @@ body {
     border-radius: 50%;
     margin-right: 20px;
 }
-
+.profile-details {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.username {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
 .username h2 {
     font-size: 24px;
-}
-
-.username p {
-    color: #666;
 }
 
 .rating {
     margin-top: 10px;
     font-size: 14px;
     color: #555;
+}
+.edit-profile-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #00796B;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.edit-profile-btn:hover {
+    background-color: #00594C;
+}
+.description-section {
+    margin-left: 50px;
+    flex: 1;
+}
+
+.description-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.description-section p {
+    color: #666;
 }
 
 /* Listings Section */

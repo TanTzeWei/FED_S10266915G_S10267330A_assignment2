@@ -639,23 +639,28 @@ function lottieGone(){
 let currentBannerIndex = 0;
 const banners = document.querySelectorAll('.banner img');
 const totalBanners = banners.length;
-
-document.getElementById('nextBanner').addEventListener('click', () => {
-    currentBannerIndex = (currentBannerIndex + 1) % totalBanners;
-    updateBanner();
-});
-
-document.getElementById('prevBanner').addEventListener('click', () => {
-    currentBannerIndex = (currentBannerIndex - 1 + totalBanners) % totalBanners;
-    updateBanner();
-});
-
 function updateBanner() {
     const bannerWidth = document.querySelector('.banner-container').clientWidth;
     const bannerContainer = document.querySelector('.banner');
     bannerContainer.style.transform = `translateX(-${currentBannerIndex * bannerWidth}px)`;
 }
-
+function autoplayBanner() {
+  currentBannerIndex++;
+  if (currentBannerIndex >= totalBanners) {
+      currentBannerIndex = 0;
+      const bannerContainer = document.querySelector('.banner');
+      bannerContainer.style.transition = 'none'; // Disable transition for seamless loop
+      bannerContainer.style.transform = `translateX(0)`;
+      setTimeout(() => {
+          bannerContainer.style.transition = 'transform 0.5s ease-in-out'; // Re-enable transition
+          currentBannerIndex++;
+          updateBanner();
+      }, 50); // Small delay to allow the transform to reset
+  } else {
+      updateBanner();
+  }
+}
+setInterval(autoplayBanner, 3000);
 // Initialize banner on page load
 document.addEventListener('DOMContentLoaded', () => {
     updateBanner();
