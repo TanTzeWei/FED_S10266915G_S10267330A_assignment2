@@ -224,4 +224,45 @@
     background: #00594C;
   }
   
-  
+  .container { 
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 300px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: white; /* Optional: add background color */
+}
+
+#password-input { 
+    width: calc(100% - 20px); 
+    padding: 12px; 
+    margin: 10px auto; 
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    display: block;
+    text-align: center;
+}
+#confirm-button, #cancel-button { 
+    padding: 8px; 
+    cursor: pointer; 
+    border-radius: 10px;
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+}
+#confirm-button {
+    background-color: #007BFF;
+    color: white;
+}
+#confirm-button:hover {
+    background-color: #0056b3;
+}
+#cancel-button {
+    background-color: #dc3545;
+    color: white;
+}

@@ -95,6 +95,13 @@
     </div>
     
 </header>
+<div class="container">
+  <h2>Enter Old Password to Apply Changes</h2>
+  <input type="password" id="password-input" placeholder="Enter your password">
+  <button id="confirm-button" onclick="checkPassword()">Confirm</button>
+  <button id="cancel-button" onclick="cancelChanges()">Cancel</button>
+  <p id="message-text" style="color: red;"></p>
+</div>
 
   <div class="edit-profile-container">
     <h2>Edit Profile</h2>
@@ -106,11 +113,7 @@
     <form class="profile-form">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Enter your password">
+        <input type="text" id="username" placeholder="Enter your New username">
       </div>
       <div class="form-group">
         <label for="bio">Bio</label>
