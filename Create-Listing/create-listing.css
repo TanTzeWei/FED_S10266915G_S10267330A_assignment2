@@ -5,72 +5,136 @@ body {
     margin: 0;
     padding: 0;
 }
-
-/* Navigation Bar */
-.navbar {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
-.nav-logo .logo {
-    height: 40px;
+.logo-link img {
+    max-height: 100%;
+    width: 100%;
+    margin-left: 30px;
+    max-width: 200px;
+    height: 50px;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
+.logo-link {
     text-decoration: none;
-    color: #333333;
-    font-size: 14px;
+    color: inherit;
 }
 
-.nav-links li a:hover {
-    color: #007bff;
-}
-
-.nav-actions {
+.nav-icons {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
 }
 
-.sell-btn {
-    padding: 8px 15px;
-    background-color: #28a745;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
+.nav-icons i,
+.user-icon i {
+    font-size: 24px; /* Increase the size of the icons */
+    width: 24px; /* Adjust the width */
+    height: 24px; /* Adjust the height */
+    fill: none;
+    stroke: #555;
+    stroke-width: 2;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.sell-btn:hover {
-    background-color: #218838;
+.nav-icons i:hover,
+.user-icon i:hover {
+    transform: scale(1.2);
 }
 
-.user-profile {
+.auth-buttons .user-actions {
     display: flex;
-    align-items: center;
-    gap: 10px;
 }
 
-.user-profile .avatar {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
+.auth-buttons button {
+    margin-left: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+.auth-buttons .sell-btn {
+    background-color: #2F80ED;
+    color: #ffffff;
+}
+
+.auth-buttons button:hover {
+    background-color: #1C6DD0;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    background-color: #fff;
+    font-size: 18px;
+    position: relative;
+    flex-wrap: wrap; /* Allow categories to wrap to the next line if necessary */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.categories .category {
+    position: relative; /* Ensure each category has relative positioning */
+}
+
+.categories a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #424242;
+    font-size: 18px;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.categories a:hover {
+    color: #00796B;
+}
+
+.subcategories {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.subcategories li {
+    list-style: none;
+}
+
+.subcategories a {
+    display: block;
+    padding: 10px 20px;
+    white-space: nowrap;
+    color: #424242;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.subcategories a:hover {
+    background-color: #f8f8f8;
+}
+
+.category:hover .subcategories {
+    display: block;
+}
 /* Main Container */
 .main-container {
     display: flex;

@@ -212,3 +212,34 @@ async function findProduct(id) {
     const lottie = document.querySelector("#lottiePlayer")
     lottie.style.display = "none";
   }
+  document.addEventListener("DOMContentLoaded", () => {
+    const menu = document.querySelector(".categories");
+    const openBtn = document.querySelector(".hamburger");
+
+    openBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevents immediate closing when clicking the button
+        menu.classList.add("active");
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
+            menu.classList.remove("active");
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  const profileIcon = document.getElementById('user-container');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+
+  profileIcon.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents the click event from bubbling up
+    dropdownMenu.classList.toggle('active'); // Toggle active class correctly
+  });
+
+  // Close the dropdown if the user clicks outside of it
+  window.addEventListener('click', function(event) {
+    if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.classList.remove('active');
+    }
+  });
+});

@@ -42,11 +42,12 @@ body {
 .nav-icons {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 25px;
 }
 
-.nav-icons svg,
-.user-icon svg {
+.nav-icons i,
+.user-icon i {
+  font-size: 24px;
   width: 24px;
   height: 24px;
   fill: none;
@@ -56,14 +57,12 @@ body {
   transition: transform 0.3s ease;
 }
 
-.nav-icons svg:hover,
-.user-icon svg:hover {
+.nav-icons i:hover,
+.user-icon i:hover {
   transform: scale(1.2);
 }
 
-.user-icon {
-  display: none;
-}
+
 
 .auth-buttons .user-actions {
   display: flex;

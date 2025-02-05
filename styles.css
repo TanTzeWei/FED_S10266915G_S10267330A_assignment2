@@ -24,18 +24,21 @@ body {
   
   .logo img {
     max-height: 100%;
-    width:60%;
+    width:100%;
     margin-left: 30px;
     max-width: 200px;
+    height: 50px;
+    
   }
   .nav-icons {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
   }
   
-  .nav-icons svg,
-  .profile-icon svg {
+  .nav-icons i,
+  .user-icon i {
+    font-size: 24px;
     width: 24px;
     height: 24px;
     fill: none;
@@ -45,12 +48,12 @@ body {
     transition: transform 0.3s ease;
   }
   
-  .nav-icons svg:hover,
-  .profile-icon svg:hover {
+  .nav-icons i:hover,
+  .user-icon i:hover {
     transform: scale(1.2);
   }
   
-  .profile-icon {
+  .user-icon {
     display: none;
     margin-left: 15px; /* Hide the profile icon initially */
 }
@@ -183,12 +186,11 @@ body {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
-    height:auto;
 }
 
 .banner-item {
     min-width: 100%; /* Ensure each banner item takes full width */
-    height: 65vh; /* Set the height for each banner item */
+    height: 60vh; /* Set the height for each banner item */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,7 +198,7 @@ body {
 
 .banner img {
     width: 100%;
-    height: auto;
+    height: 60vh;
     object-fit: cover;
 }
 
@@ -495,14 +497,16 @@ body {
 /* Mobile Responsive */
 @media (max-width: 1024px) {
     .header {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row; /* Keep items in a row */
+        align-items: center; /* Vertically center */
+        justify-content: space-between; /* Spread items across */
         padding: 10px 20px;
+        flex-wrap: wrap;
     }
 
     .logo img {
         width: 100%;
-        max-width: 150px; /* Adjust the max-width for smaller screens */
+        max-width: 120px; /* Adjust the max-width for smaller screens */
         margin-left: 0;
     }
 
@@ -512,9 +516,11 @@ body {
     }
 
     .categories {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 20px;
+        display: flex;
+        flex-direction: row; /* Keep categories in a row */
+        gap: 10px; /* Add spacing */
+        padding: 10px 0;
+        flex-wrap: wrap;
     }
     .product-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 items per row */
@@ -525,11 +531,18 @@ body {
     .product-card {
         width: 100%;
     }
+    .auth-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
 
     .auth-buttons .user-actions {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
     }
+    
 
     .auth-buttons button {
         margin: 5px 0;
@@ -541,6 +554,7 @@ body {
         flex-direction: column;
         align-items: flex-start;
         padding: 10px 20px;
+        flex-wrap: wrap;
     }
 
     .logo img {
@@ -555,15 +569,31 @@ body {
     }
 
     .categories {
+        display: none; /* Hide categories by default */
         flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 20px;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
     }
 
     .categories a {
         margin: 5px 0;
     }
-
+    .categories.active {
+        display: flex; /* Show when active */
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        background: none;
+        border: none;
+        padding: 10px;
+    }
     .product-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 items per row */
         gap: 15px;
