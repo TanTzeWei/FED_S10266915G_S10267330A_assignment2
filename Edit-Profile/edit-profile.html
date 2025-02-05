@@ -99,8 +99,9 @@
   <div class="edit-profile-container">
     <h2>Edit Profile</h2>
     <div class="profile-pic-section">
-      <div class="profile-pic"></div>
-      <button class="change-btn">Change</button>
+      <img id = "profilePic">
+      <input type="file" id="fileInput" style="display: none;" accept="image/*">
+      <button class="change-btn" onclick="document.getElementById('fileInput').click();">Change</button>
     </div>
     <form class="profile-form">
       <div class="form-group">
