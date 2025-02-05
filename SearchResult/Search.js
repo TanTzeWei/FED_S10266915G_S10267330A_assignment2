@@ -39,6 +39,8 @@ document.addEventListener("DOMContentLoaded",async function(){
             let postTime = userInfo.querySelector(".post-time");
             let premium = clone.querySelector("#premium");
             let sponsoredVal = clone.querySelector("#sponsored");
+            let picture = clone.querySelector("#productImg")
+            
             let dayPosted = new Date(selected.datecreated);
             let currentDate = new Date()
             let dateDiff = currentDate.getDate()-dayPosted.getDate();
@@ -51,6 +53,8 @@ document.addEventListener("DOMContentLoaded",async function(){
             username.textContent = selected.ownername;
             postTime.textContent = dateDiff+" days ago";
             name.textContent = selected.listingname;
+            picture.src = selected.photo;
+            
             clone.style.display = "flex";
             if(selected.premiumlisting == true){
               premium.style.display = "block";

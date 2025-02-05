@@ -15,34 +15,24 @@ function hideNotification() {
 }
 
 // Function to upload the image to Imgur
-async function uploadImageToImgur(file) {
+async function uploadImageToImgBB(file) {
   const formData = new FormData();
-  formData.append("image", file);  // Append the image file to FormData
+  formData.append('image', file);
 
-  const clientId = "666ace3b3cee718";  // Replace with your Imgur Client ID
-  const apiUrl = "https://api.imgur.com/3/image";  // Imgur upload endpoint
+  const response = await fetch(`https://api.imgbb.com/1/upload?key=dcf161ae0f10bda1cf4c0244444d3bdd`, {
+      method: 'POST',
+      body: formData
+  });
 
-  try {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Authorization": `Client-ID ${clientId}`,  // Authorization header with your Client ID
-      },
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(`Imgur upload failed: ${data.data.error}`);
-    }
-
-    return data.data.link;  // Return the URL of the uploaded image
-  } catch (error) {
-    console.error("Error uploading image to Imgur:", error);
-    return null;  // Return null if upload fails
+  const data = await response.json();
+  if (data.success) {
+      return data.data.url; // The image URL from ImgBB
+  } else {
+      console.error('Image upload failed', data);
+      return null;
   }
 }
+
 async function fetchNewId(){
   try {
    
@@ -77,7 +67,7 @@ async function createListing(name, desc, cover, o, cond, meet, addr, del, pri) {
   id = await fetchNewId()
 
   // Upload the image to Imgur and get the URL
-  const coverPhotoUrl = await uploadImageToImgur(cover.files[0]);  // Use the selected file from the input
+  const coverPhotoUrl = await uploadImageToImgBB(cover.files[0]);  // Use the selected file from the input
   if (!coverPhotoUrl) {
     showNotification("Image upload to Imgur failed!");
     return;  // Exit if image upload fails
