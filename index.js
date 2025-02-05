@@ -147,6 +147,12 @@ function loadSponsored(dict, page) {
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
+      if(localStorage.getItem("id") in selected.likedby){//liked
+        likeButton.querySelector("img").src = "images/likedHeart.png";
+        likeButton.setAttribute("liked","true");
+      }else{
+        likeButton.setAttribute("liked","false")
+      }
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       pressLiked(likeButton,selected);
@@ -264,6 +270,12 @@ function loadForYou(dict,page){
       }
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
+      }
+      if(localStorage.getItem("id") in selected.likedby){//liked
+        likeButton.querySelector("img").src = "images/likedHeart.png";
+        likeButton.setAttribute("liked","true");
+      }else{
+        likeButton.setAttribute("liked","false")
       }
 
       clone.setAttribute("productId", selected.listingid);
