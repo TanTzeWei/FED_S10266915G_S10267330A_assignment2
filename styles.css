@@ -24,18 +24,21 @@ body {
   
   .logo img {
     max-height: 100%;
-    width:60%;
+    width:100%;
     margin-left: 30px;
     max-width: 200px;
+    height: 50px;
+    
   }
   .nav-icons {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 25px;
   }
   
-  .nav-icons svg,
-  .profile-icon svg {
+  .nav-icons i,
+  .user-icon i {
+    font-size: 24px;
     width: 24px;
     height: 24px;
     fill: none;
@@ -45,12 +48,12 @@ body {
     transition: transform 0.3s ease;
   }
   
-  .nav-icons svg:hover,
-  .profile-icon svg:hover {
+  .nav-icons i:hover,
+  .user-icon i:hover {
     transform: scale(1.2);
   }
   
-  .profile-icon {
+  .user-icon {
     display: none;
     margin-left: 15px; /* Hide the profile icon initially */
 }
@@ -183,12 +186,11 @@ body {
     display: flex;
     transition: transform 0.5s ease-in-out;
     width: 100%;
-    height:auto;
 }
 
 .banner-item {
     min-width: 100%; /* Ensure each banner item takes full width */
-    height: 65vh; /* Set the height for each banner item */
+    height: 60vh; /* Set the height for each banner item */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,7 +198,7 @@ body {
 
 .banner img {
     width: 100%;
-    height: auto;
+    height: 60vh;
     object-fit: cover;
 }
 

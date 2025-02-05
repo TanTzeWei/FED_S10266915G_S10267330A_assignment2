@@ -24,17 +24,19 @@
 
 .logo img {
   max-height: 100%;
-  width:60%;
+  width:100%;
   margin-left: 30px;
   max-width: 200px;
+  height: 50px;
 }
 .nav-icons {
   display: flex; /* Flexbox for horizontal alignment */
   align-items: center; /* Vertically center the icons */
-  gap: 15px; /* Space between icons */
+  gap: 25px; /* Space between icons */
 }
 
-.nav-icons svg, .user-icon svg {
+.nav-icons i, .user-icon i {
+  font-size: 24px;
   width: 24px; /* Set a fixed width for the icons */
   height: 24px; /* Set a fixed height for the icons */
   fill: none; /* Keep the icons transparent unless styled otherwise */
@@ -44,7 +46,7 @@
   transition: transform 0.3s ease;
 }
 
-.nav-icons svg:hover, .user-icon svg:hover {
+.nav-icons i:hover, .user-icon i:hover {
   transform: scale(1.2); /* Slight enlargement on hover */
 }
 
