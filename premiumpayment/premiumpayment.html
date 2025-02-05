@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-left">
+            <button class="back-btn">← Back</button>
+            <div class="payment-info-container">
+                <h3>Payment Information</h3>
+                <div class="card-icons">
+                    <img src="mastercard.png" alt="MasterCard">
+                    <img src="visa.png" alt="Visa">
+                    <img src="amex.png" alt="Amex">
+                </div>
+                <input type="text" placeholder="Name on card">
+                <input type="text" placeholder="Card Number">
+                <div class="card-details">
+                    <input type="text" placeholder="MM/YY">
+                    <input type="text" placeholder="CVV">
+                </div>
+            </div>
+            <div class="checkout-buttons">
+                <button class="back-btn">Back</button>
+                <button class="confirm-btn">Confirm Payment $579.98</button>
+            </div>
+        </div>
+
+        <div class="checkout-right">
+            <div class="order-summary-container">
+                <h3>Order Summary</h3>
+                <ul>
+                    <li>Franklin Marcio Wool V-Neck Knit <span>$199.00</span></li>
+                    <li>Judd Slim Dress Chino Pant <span>$199.00</span></li>
+                    <li>Angus Shawl Cardigan <span>$99.99</span></li>
+                </ul>
+                <div class="summary-details">
+                    <p>Delivery: <span>$16.99</span></p>
+                    <p>Discount: <span>$0.00</span></p>
+                    <p>Tax: <span>$12.99</span></p>
+                    <p><strong>Order Total: $579.98</strong></p>
+                </div>
+                <div class="coupon">
+                    <p>Your total savings: <span class="savings">$34.99</span></p>
+                    <input type="text" placeholder="Coupon Code">
+                    <button class="apply-btn">Apply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
