@@ -100,6 +100,7 @@ async function createListing(name, desc, cover, o, cond, meet, addr, del, pri) {
     ownername: localStorage.getItem("username"),
     likecount: 0,
     status: "Active",
+    likedby:{}
   };
 
   const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/listing";

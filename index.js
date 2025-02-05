@@ -73,12 +73,18 @@ async function fetchListingsData(){
         }
         clone.setAttribute("productId", selected.listingid);
         clone.setAttribute("ownerId", selected.ownerid);
-        if(localStorage.getItem("id") in selected.likedby){//liked
-          likeButton.querySelector("img").src = "images/likedHeart.png";
-          likeButton.setAttribute("liked","true");
-        }else{
+        try{
+          if(localStorage.getItem("id") in selected.likedby){//liked
+            likeButton.querySelector("img").src = "images/likedHeart.png";
+            likeButton.setAttribute("liked","true");
+          }else{
+            likeButton.setAttribute("liked","false")
+          }
+        }
+        catch{
           likeButton.setAttribute("liked","false")
         }
+        
 
         createProductLink(clone);
         trending.appendChild(clone);
@@ -147,10 +153,15 @@ function loadSponsored(dict, page) {
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
-      if(localStorage.getItem("id") in selected.likedby){//liked
-        likeButton.querySelector("img").src = "images/likedHeart.png";
-        likeButton.setAttribute("liked","true");
-      }else{
+      try{
+        if(localStorage.getItem("id") in selected.likedby){//liked
+          likeButton.querySelector("img").src = "images/likedHeart.png";
+          likeButton.setAttribute("liked","true");
+        }else{
+          likeButton.setAttribute("liked","false")
+        }
+      }
+      catch{
         likeButton.setAttribute("liked","false")
       }
       clone.setAttribute("productId", selected.listingid);
@@ -271,13 +282,17 @@ function loadForYou(dict,page){
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
-      if(localStorage.getItem("id") in selected.likedby){//liked
-        likeButton.querySelector("img").src = "images/likedHeart.png";
-        likeButton.setAttribute("liked","true");
-      }else{
+      try{
+        if(localStorage.getItem("id") in selected.likedby){//liked
+          likeButton.querySelector("img").src = "images/likedHeart.png";
+          likeButton.setAttribute("liked","true");
+        }else{
+          likeButton.setAttribute("liked","false")
+        }
+      }
+      catch{
         likeButton.setAttribute("liked","false")
       }
-
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       pressLiked(likeButton,selected);
@@ -348,16 +363,18 @@ function clickOption(e){
   } 
 }
 
-function pressLiked(button,productData){
-  button.addEventListener("click",async function(){
+function pressLiked(button,selected){
+  button.addEventListener("click",async function(event){
+    event.stopPropagation();
+    console.log(selected);
     let productCard = button.parentElement
     let user = localStorage.getItem("id")
     let id = productCard.getAttribute("productid")
-    let selected = JSON.parse(productData).find(item => item.id == id);
-    if(Boolean(button.getAttribute("liked"))){//unlike
+    console.log(button.getAttribute("liked"))
+    if(button.getAttribute("liked") != "true"){//unlike
       const itemId = selected._id;  // The document ID to update
       let newLikedBy = selected.likedby.filter(item => item != user)
-    console.log("Updating Item ID:", itemId);
+      console.log("Updating Item ID:", itemId);
 
     const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
     const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
