@@ -117,7 +117,8 @@ async function createAccount(u,p,e){
     email: e,
     password: hashedPass,
     staff: false,
-    premium: false
+    premium: false,
+    likedby: {}
   }
   const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/account";
 
