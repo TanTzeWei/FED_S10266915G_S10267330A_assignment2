@@ -62,11 +62,22 @@ document.addEventListener("DOMContentLoaded",async function(){
             if(selected.status == "Sponsored"){
               sponsoredVal.style.display = "block";
             }
+            let likedby = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+        const userId = localStorage.getItem("id");
+
+        if (likedby.includes(userId)) { // Check if the user ID is in the array
+          likeButton.querySelector("img").src = "images/likedHeart.png";
+          likeButton.setAttribute("liked", "true");
+        } else {
+          likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
+          likeButton.setAttribute("liked", "false");
+        }
             clone.setAttribute("productId", selected.listingid);
             clone.setAttribute("ownerId", selected.ownerid);
             createProductLink(clone);
             grid.appendChild(clone);
         })
+        pressLiked(likeButton,selected);
         lottieGone();
     }else{
         console.warn("There is no such items!");
@@ -124,7 +135,95 @@ function clickOption(e){
     }
     
   }
-
+  function pressLiked(button,selected){
+    button.addEventListener("click",async function(event){
+      event.stopPropagation();
+      console.log(selected);
+      let productCard = button.parentElement
+      let user = localStorage.getItem("id")
+      let id = productCard.getAttribute("productid")
+      console.log(button.getAttribute("liked"))
+      if(button.getAttribute("liked") != "true"){//unlike
+        const itemId = selected._id;  // The document ID to update
+        let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+  
+        newLikedBy.push(localStorage.getItem("id"));
+        console.log(newLikedBy)
+        console.log("Updating Item ID:", itemId);
+  
+      const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
+      const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
+  
+      fetch(databaseUrl, {
+          method: "PATCH",  // Use PATCH to update specific fields
+          headers: {
+              "Content-Type": "application/json",
+              "x-apikey": apiKey
+          },
+          body: JSON.stringify({
+            "likecount": Number(selected.likecount)+1,
+            "likedby": newLikedBy
+         }
+         )
+      })
+      .then(async (response) => {
+          const text = await response.text();  // Read raw response
+          console.log("Full Response:", text);
+  
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+          }
+  
+          return JSON.parse(text);  // Parse manually
+      })
+      .then(data => console.log("Updated item:", data))
+      .catch(error => console.error("Error updating item:", error));
+  
+      button.querySelector("img").src = "images/likedHeart.png";
+      button.querySelector("path span").textContent = Number(selected.likecount)-1
+      }else{
+        const itemId = selected._id;  // The document ID to update
+        let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
+        console.log(newLikedBy);
+  
+        // Remove the item with the matching `id`
+        newLikedBy = newLikedBy.filter(item => item != localStorage.getItem("id"));
+        console.log("Updating Item ID:", itemId);
+        
+      const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
+      const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
+  
+      fetch(databaseUrl, {
+          method: "PATCH",  // Use PATCH to update specific fields
+          headers: {
+              "Content-Type": "application/json",
+              "x-apikey": apiKey
+          },
+          body: JSON.stringify({
+            "likecount": Number(selected.likecount)-1,
+            "likedby": JSON.stringify(newLikedBy)
+         }
+         )
+      })
+      .then(async (response) => {
+          const text = await response.text();  // Read raw response
+          console.log("Full Response:", text);
+  
+          if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+          }
+          return JSON.parse(text);  // Parse manually
+      })
+      .then(data => console.log("Updated item:", data))
+      .catch(error => console.error("Error updating item:", error));
+  
+  
+        
+      }
+    button.querySelector("img").src = "images/normalHeart.png";
+    button.querySelector("path span").textContent = Number(selected.likecount)-1;
+    })
+  }
 function search(){
     const searchButton = document.querySelector(".search-bar button");
     searchButton.addEventListener("click",function(){
