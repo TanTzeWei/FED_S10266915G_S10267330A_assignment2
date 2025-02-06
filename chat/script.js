@@ -9,42 +9,53 @@ document.addEventListener("DOMContentLoaded",async function(){
     let chatRoomExample = document.querySelector(".user");
 
     let userInRooms = chatRoomsData.filter(item=> item.buyerid == userId || item.sellerid);
-    let relevantMessages = messagesData.filter(item=> item.chatroomid in userInRooms.id);  
-
-    userInRooms.array.forEach(element => {
+    console.log(userInRooms);
+    console.log(messagesData);
+      
+    userInRooms.forEach(element => {
         let opposeUser = accountsData.find(item=> item.id == element.buyerid || item.id == element.sellerid)
         let cloneChatRoom = chatRoomExample.cloneNode(true);
-        if(localStorage.getItem(id) == element.buyerid){
-            cloneChatRoom.textContent = element.sellername
-        }else{
-            cloneChatRoom.textContent = element.buyername;
-        }
-        if(opposeUser.pfp != null){
-            cloneChatRoom.querySelector("span img").src = opposeUser.pfp;
-        }
-        cloneChatRoom.appendChild(document.querySelector(".user-list li"));
+        cloneChatRoom.style.display = "block";
+        cloneChatRoom.textContent = element.listingname;
+        if (opposeUser.pfp) {
+            const imgElement = cloneChatRoom.querySelector("span img");
+          
+            if (imgElement) { // Ensure the img element exists
+              imgElement.src = opposeUser.pfp; // Set the src to the user's profile picture
+            } else {
+              console.error("Image element not found in cloneChatRoom");
+            }
+          } else {
+            console.log("Profile picture is not available.");
+          }
+          
+        document.querySelector(".user-list li").appendChild(cloneChatRoom);
         cloneChatRoom.setAttribute("chatRoomId",element.id);
         cloneChatRoom.addEventListener("click",function(){  
+            console.log("clicked")
             localStorage.setItem("chatId",cloneChatRoom.getAttribute("chatRoomId"))
-            let currentMessages = relevantMessages.filter(item=> item.chatroomid == cloneChatRoom.getAttribute("chatRoomId"));
+            let currentMessages = messagesData.filter(item=>item.chatroomid == Number(localStorage.getItem("chatId")));
+            console.log(currentMessages);
             if(currentMessages.length >0){
                 let sortedMessage = currentMessages.sort((a, b) => {
                     let dateA = new Date(a.timestamp);
                     let dateB = new Date(b.timestamp);
                     return dateB - dateA; 
                 });
-
-                sortedMessage.array.array.forEach(message => {
-                    if(element.senderid == localStorage.getItem("id")){//sent by me
+                console.log(sortedMessage);
+                sortedMessage.forEach(message => {
+                    if(element.senderid != localStorage.getItem("id")){//sent by me
                         let clonedMessage = msgSend.cloneNode(true);
-                        clonedMessage.querySelector(".message-text").textContent = element.text;
-                        clonedMessage.querySelector(".message-timestamp").textContent = element.timestamp;
-                        clonedMessage.appendChild(document.querySelector(".chat-messages"));
+                        clonedMessage.querySelector(".message-text").textContent = message.text;
+                        clonedMessage.querySelector(".message-timestamp").textContent = message.timestamp;
+                        clonedMessage.style.display = "block";
+                        document.querySelector(".chat-messages").appendChild(clonedMessage);
                     }else{
                         let clonedMessage = msgReceive.cloneNode(true);
-                        clonedMessage.querySelector(".message-text").textContent = element.text;
-                        clonedMessage.querySelector(".message-timestamp").textContent = element.timestamp;
-                        clonedMessage.appendChild(document.querySelector(".chat-messages"));
+                        clonedMessage.querySelector(".message-text").textContent = message.text;
+                        clonedMessage.querySelector(".message-timestamp").textContent =  message.timestamp;
+                        clonedMessage.style.display = "block";
+                        document.querySelector(".chat-messages").appendChild(clonedMessage);
                     }
                 });
             }
@@ -63,7 +74,7 @@ document.addEventListener("DOMContentLoaded",async function(){
             let clonedMessage = msgSend.cloneNode(true);
             clonedMessage.querySelector(".message-text").textContent = input.value;
             clonedMessage.querySelector(".message-timestamp").textContent = formattedDateTime;
-            clonedMessage.appendChild(document.querySelector(".chat-messages"));
+            document.querySelector(".chat-messages").appendChild(clonedMessage);
 
             let add = {
                 chatroomid:chatId,
@@ -72,7 +83,7 @@ document.addEventListener("DOMContentLoaded",async function(){
                 text:input.value
               }
               const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/messages";
-            
+              const apiKey = "6784db79cea8d35416e3d912";
               const settings = {
                 method: "POST",
                 headers: {

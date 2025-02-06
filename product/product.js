@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded",async function(){
         rating.textContent = productData.ownername +" 4.6/5★ (98 reviews)";
         rating.style.fontWeight = "bold";
         pfp.setAttribute("profileId",productData.ownerid)
+        createChat(productData.listingname,productData.price,productData.ownername)
     }else{
         console.log("There is no such product");
     }
@@ -117,7 +118,6 @@ document.addEventListener("DOMContentLoaded",async function(){
       createProductLink(clone);
       document.querySelector(".grid-container").appendChild(clone);
       lottieGone();
-      createChat(selected.listingname,selected.price,selected.ownername)
     }
 })
 function clickOption(e){
@@ -163,9 +163,8 @@ async function otherListings(){
     console.error("Error fetching data:", error);
   }
 }
-async function fetchNewId(){
+async function fetchNewId() {
   try {
-   
     const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/chatroom";
     const apiKey = "6784db79cea8d35416e3d912";
     const response = await fetch(apiUrl, {
@@ -181,14 +180,23 @@ async function fetchNewId(){
     }
 
     const data = await response.json();
-    listings=data;
-    return JSON.stringify(data); 
+
+    // If the API returns an empty array, return 1 as the new ID
+    if (data.length === 0) {
+      return 1;
+    }
+
+    // Find the highest value from the response data
+    const highestValue = Math.max(...data.map(item => item.value));
+
+    // Return the next ID by adding 1 to the highest value
+    return highestValue + 1;
   } catch (error) {
     console.error("Error fetching data:", error);
+    return null; // Return null if there's an error
   }
-  const highestValue = Math.max(...data.map(item => item.value));
-  return Number(highestValue+1)
 }
+
 function createChat(listingn,price,sname){
   document.querySelector(".chat-button").addEventListener("click",async function(){
     let add = {
@@ -198,11 +206,12 @@ function createChat(listingn,price,sname){
       listingid:localStorage.getItem("productId"),
       listingname:listingn,
       listingprice:price,
-      buyername:username,
+      buyername:localStorage.getItem("username"),
       sellername:sname
     }
+    console.log(add);
     const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/chatroom";
-  
+    const apiKey = "6784db79cea8d35416e3d912"
     const settings = {
       method: "POST",
       headers: {
