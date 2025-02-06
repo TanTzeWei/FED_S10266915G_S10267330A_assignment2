@@ -13,26 +13,50 @@ document.addEventListener("DOMContentLoaded",async function(){
 
     userInRooms.array.forEach(element => {
         let opposeUser = accountsData.find(item=> item.id == element.buyerid || item.id == element.sellerid)
-
         let cloneChatRoom = chatRoomExample.cloneNode(true);
-        cloneChatRoom.textContent = opposeUser.username;
+        if(localStorage.getItem(id) == element.buyerid){
+            cloneChatRoom.textContent = element.sellername
+        }else{
+            cloneChatRoom.textContent = element.buyername;
+        }
         if(opposeUser.pfp != null){
             cloneChatRoom.querySelector("span img").src = opposeUser.pfp;
         }
         cloneChatRoom.appendChild(document.querySelector(".user-list li"));
-        cloneChatRoom.setAttribute("username",);
-        cloneChatRoom.setAttribute("chatRoomId",element.);
+        cloneChatRoom.setAttribute("chatRoomId",element.id);
         cloneChatRoom.addEventListener("click",function(){  
-            let currentMessages = relevantMessages.filter(item=> item.chatroomid == )
+            let currentMessages = relevantMessages.filter(item=> item.chatroomid == cloneChatRoom.getAttribute("chatRoomId"));
+            if(currentMessages.length >0){
+                let sortedMessage = currentMessages.sort((a, b) => {
+                    let dateA = new Date(a.timestamp);
+                    let dateB = new Date(b.timestamp);
+                    return dateB - dateA; 
+                });
+
+                sortedMessage.array.array.forEach(message => {
+                    if(element.senderid == localStorage.getItem("id")){//sent by me
+                        let clonedMessage = msgSend.cloneNode(true);
+                        clonedMessage.querySelector(".message-text").textContent = element.text;
+                        clonedMessage.querySelector(".message-timestamp").textContent = element.timestamp;
+                        clonedMessage.appendChild(document.querySelector(".chat-messages"));
+                    }else{
+                        let clonedMessage = msgReceive.cloneNode(true);
+                        clonedMessage.querySelector(".message-text").textContent = element.text;
+                        clonedMessage.querySelector(".message-timestamp").textContent = element.timestamp;
+                        clonedMessage.appendChild(document.querySelector(".chat-messages"));
+                    }
+                });
+            }
         })
 
     });
 })
+
 async function fetchAccounts(){
     try {
    
         const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/account";
-        const apiKey = "6784db79cea8d35416e3d912";
+        const apiKey = "6784db79cea8d35416e3d912#";
         const response = await fetch(apiUrl, {
           method: "GET",
           headers: {
@@ -56,7 +80,7 @@ async function fetchChatRoom(){
     try {
    
         const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/chatroom";
-        const apiKey = "6784db79cea8d35416e3d912";
+        const apiKey = "6784db79cea8d35416e3d912#";
         const response = await fetch(apiUrl, {
           method: "GET",
           headers: {
@@ -80,7 +104,7 @@ async function fetchMessages(){
     try {
    
         const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/messages";
-        const apiKey = "6784db79cea8d35416e3d912";
+        const apiKey = "6784db79cea8d35416e3d912#";
         const response = await fetch(apiUrl, {
           method: "GET",
           headers: {
