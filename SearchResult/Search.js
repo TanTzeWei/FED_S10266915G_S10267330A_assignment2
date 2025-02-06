@@ -253,6 +253,9 @@ function search(){
     productCard.querySelector(".menu-options #edit").addEventListener("click",function(event){
       event.stopPropagation()
     })
+    productCard.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
+      event.stopPropagation()
+    })
     productCard.querySelector(".menu-options #delete").addEventListener("click",function(event){
       event.stopPropagation()
     })

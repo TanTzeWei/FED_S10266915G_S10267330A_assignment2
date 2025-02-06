@@ -270,9 +270,20 @@ function createProductLink(productCard) {
     console.log("Done")
   })
   menudot.addEventListener("click",function(event){
-    event.stopPropagation();
-
-  }) 
+    event.stopPropagation()
+  })
+  productCard.querySelector(".menu-options #report").addEventListener("click",function(event){
+    event.stopPropagation()
+  })
+  productCard.querySelector(".menu-options #edit").addEventListener("click",function(event){
+    event.stopPropagation()
+  })
+  productCard.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
+    event.stopPropagation()
+  })
+  productCard.querySelector(".menu-options #delete").addEventListener("click",function(event){
+    event.stopPropagation()
+  })
 }
 
 async function findProduct(id) {

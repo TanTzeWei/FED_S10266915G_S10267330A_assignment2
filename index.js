@@ -352,11 +352,13 @@ function clickOption(e){
       productCard.querySelector("#menu-example #delete").style.display = "block";
     }else{
       productCard.querySelector("#menu-example").style.display = "block";
+      productCard.querySelector("#menu-example #sponsor").style.display = "block";
       productCard.querySelector("#menu-example #report").style.display = "block";
     }
   }else{
     productCard.querySelector("#menu-example").style.display = "none";
       productCard.querySelector("#menu-example #edit").style.display = "hidden";
+      productCard.querySelector("#menu-example #sponsor").style.display = "hidden";
       productCard.querySelector("#menu-example #delete").style.display = "hidden";
   } 
 }
@@ -464,6 +466,14 @@ function search(){
   })
 }
 
+function sponsorListing(event){
+  let productCard = event.target.parentElement.parentElement;
+  let productId = productCard.getAttribute("productid")
+  localStorage.setItem("productId",productId);
+  const url = `/PushListing/pushlisting.html?id=${productId}`;
+  window.location.href = url; 
+}
+
 function createProductLink(productCard) {
   const menudot = productCard.querySelector(".menu-dots-product")
   productCard.addEventListener("click",function(){
@@ -480,6 +490,9 @@ function createProductLink(productCard) {
     event.stopPropagation()
   })
   productCard.querySelector(".menu-options #edit").addEventListener("click",function(event){
+    event.stopPropagation()
+  })
+  productCard.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
     event.stopPropagation()
   })
   productCard.querySelector(".menu-options #delete").addEventListener("click",function(event){
