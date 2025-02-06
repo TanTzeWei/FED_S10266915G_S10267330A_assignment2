@@ -324,40 +324,39 @@ async function findProduct(id) {
     const lottie = document.querySelector("#lottiePlayer")
     lottie.style.display = "none";
   }
-  document.addEventListener("DOMContentLoaded", () => {
-    if(localStorage.getItem("id") === null){
-      console.log("user not logged in")
-    }else{
-      document.querySelector(".user-icon").style.display = "block";
-      document.querySelector(".auth-buttons").style.display = "none";
-    }
-    const menu = document.querySelector(".categories");
+  document.addEventListener('DOMContentLoaded', function() {
     const openBtn = document.querySelector(".hamburger");
+    const menu = document.querySelector(".categories");
+    const navIcons = document.querySelector(".nav-icons");
+    const authButtons = document.querySelector(".auth-buttons");
 
     openBtn.addEventListener("click", (event) => {
         event.stopPropagation(); // Prevents immediate closing when clicking the button
-        menu.classList.add("active");
+        menu.classList.toggle("active");
+        navIcons.classList.toggle("active");
+        authButtons.classList.toggle("active");
     });
 
     document.addEventListener("click", (event) => {
         if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
             menu.classList.remove("active");
+            navIcons.classList.remove("active");
+            authButtons.classList.remove("active");
         }
     });
-});
-document.addEventListener('DOMContentLoaded', function() {
-  const profileIcon = document.getElementById('user-container');
-  const dropdownMenu = document.getElementById('dropdown-menu');
 
-  profileIcon.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents the click event from bubbling up
-    dropdownMenu.classList.toggle('active'); // Toggle active class correctly
-  });
+    const profileIcon = document.getElementById('user-container');
+    const dropdownMenu = document.getElementById('dropdown-menu');
 
-  // Close the dropdown if the user clicks outside of it
-  window.addEventListener('click', function(event) {
-    if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-      dropdownMenu.classList.remove('active');
-    }
-  });
+    profileIcon.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevents the click event from bubbling up
+        dropdownMenu.classList.toggle('active'); // Toggle active class correctly
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('active');
+        }
+    });
 });
