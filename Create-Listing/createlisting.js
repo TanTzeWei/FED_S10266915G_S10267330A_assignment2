@@ -123,6 +123,12 @@ async function createListing(name, desc, cover, o, cond, meet, addr, del, pri) {
 
 // Event listener for form submission
 document.addEventListener("DOMContentLoaded", function () {
+  if(localStorage.getItem("id") === null){
+    console.log("user not logged in")
+  }else{
+    document.querySelector(".user-icon").style.display = "block";
+    document.querySelector(".auth-buttons").style.display = "none";
+  }
   const form = document.querySelector(".listing-form");
   const photo = document.querySelector("#photo");  // File input
   const photoPreview = document.querySelector("#photo-preview");

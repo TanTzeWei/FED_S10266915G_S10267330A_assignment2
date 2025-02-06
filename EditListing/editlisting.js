@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded",async function(){
+  if(localStorage.getItem("id") === null){
+    console.log("user not logged in")
+  }else{
+    document.querySelector(".user-icon").style.display = "block";
+    document.querySelector(".auth-buttons").style.display = "none";
+  }
   let productData = await fetchListingsData();
   let obj = JSON.parse(productData).find(item=> item.listingid = localStorage.getItem("productId"));
   const name = document.querySelector("#name");

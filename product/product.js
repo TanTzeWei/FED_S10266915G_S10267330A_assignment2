@@ -325,6 +325,12 @@ async function findProduct(id) {
     lottie.style.display = "none";
   }
   document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem("id") === null){
+      console.log("user not logged in")
+    }else{
+      document.querySelector(".user-icon").style.display = "block";
+      document.querySelector(".auth-buttons").style.display = "none";
+    }
     const menu = document.querySelector(".categories");
     const openBtn = document.querySelector(".hamburger");
 
