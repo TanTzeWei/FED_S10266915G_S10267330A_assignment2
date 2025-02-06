@@ -186,14 +186,13 @@ body {
   margin-bottom: 8px;
 }
 
-.user-list .user {
-  display: flex;
+#chatRoomExample {
+  display: none;
   align-items: center;
   gap: 10px;
 }
 
-.user-list .user::before {
-  content: "";
+#chatRoomExample span img{
   display: inline-block;
   width: 30px;
   height: 30px;
@@ -242,6 +241,7 @@ body {
 }
 
 .message.sent {
+  display:none;
   background-color: #007bff;
   color: #fff;
   align-self: flex-end;
@@ -249,6 +249,7 @@ body {
 }
 
 .message.received {
+  display:none;
   background-color: #f1f1f1;
   color: #000;
   align-self: flex-start;
