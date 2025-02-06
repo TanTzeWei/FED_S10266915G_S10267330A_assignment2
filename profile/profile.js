@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded",async function(){
     let profileId = localStorage.getItem("ownerId");
+
+    if(profileId != localStorage.getItem("id")){
+      document.querySelector("#editProf").style.display = "none";
+    }
     let profileData = JSON.parse(await findProfile(profileId))[0];
     console.log(profileData);
     const user = document.querySelector(".username h2");
