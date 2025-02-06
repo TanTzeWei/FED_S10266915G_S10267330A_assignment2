@@ -34,17 +34,23 @@ document.addEventListener("DOMContentLoaded",async function(){
         cloneChatRoom.addEventListener("click",function(){  
             console.log("clicked")
             localStorage.setItem("chatId",cloneChatRoom.getAttribute("chatRoomId"))
+            document.querySelector(".item-info h3").textContent = element.listingname
+            document.querySelector(".price span").textContent = "$"+element.listingprice
+            if(Number(localStorage.getItem("id")) == element.buyerid){
+                document.querySelector(".seller-name").textContent = element.sellername;
+            }else{
+                document.querySelector(".seller-name").textContent = element.buyername;
+            }
             let currentMessages = messagesData.filter(item=>item.chatroomid == Number(localStorage.getItem("chatId")));
-            console.log(currentMessages);
             if(currentMessages.length >0){
                 let sortedMessage = currentMessages.sort((a, b) => {
                     let dateA = new Date(a.timestamp);
                     let dateB = new Date(b.timestamp);
-                    return dateB - dateA; 
+                    return dateA-dateB; 
                 });
-                console.log(sortedMessage);
                 sortedMessage.forEach(message => {
-                    if(element.senderid != localStorage.getItem("id")){//sent by me
+                    console.log(localStorage.getItem("id"))
+                    if(message.senderid == Number(localStorage.getItem("id"))){//sent by me
                         let clonedMessage = msgSend.cloneNode(true);
                         clonedMessage.querySelector(".message-text").textContent = message.text;
                         clonedMessage.querySelector(".message-timestamp").textContent = message.timestamp;
