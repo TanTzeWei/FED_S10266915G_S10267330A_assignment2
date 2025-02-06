@@ -80,7 +80,7 @@ async function fetchListingsData(){
           likeButton.querySelector("img").src = "images/likedHeart.png";
           likeButton.setAttribute("liked", "true");
         } else {
-          likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
+          likeButton.querySelector("img").src = "images/normalHeart.png"; // Or your default image
           likeButton.setAttribute("liked", "false");
         }
 
@@ -89,6 +89,9 @@ async function fetchListingsData(){
         createProductLink(clone);
         trending.appendChild(clone);
         pressLiked(likeButton,selected);
+        clone.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
+          sponsorListing(event)
+        })
         clone.querySelector(".menu-options #delete").addEventListener("click",function(event){
           deleteListing(event.target,data);
         })
@@ -160,15 +163,19 @@ function loadSponsored(dict, page) {
           likeButton.querySelector("img").src = "images/likedHeart.png";
           likeButton.setAttribute("liked", "true");
         } else {
-          likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
+          likeButton.querySelector("img").src = "images/normalHeart.png"; // Or your default image
           likeButton.setAttribute("liked", "false");
         }
+        createProductLink(clone);
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       pressLiked(likeButton,selected);
       sponsored.appendChild(clone);
+      clone.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
+        sponsorListing(event)
+      })
       clone.querySelector(".menu-options #delete").addEventListener("click",function(event){
-        deleteListing(event.target,data);
+        deleteListing(event.target,selected);
       })
     }
   });
@@ -291,12 +298,16 @@ function loadForYou(dict,page){
           likeButton.querySelector("img").src = "images/unlikedHeart.png"; // Or your default image
           likeButton.setAttribute("liked", "false");
         }
+      createProductLink(clone);
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       pressLiked(likeButton,selected);
       sponsored.appendChild(clone);
+      clone.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
+        sponsorListing(event)
+      })
       clone.querySelector(".menu-options #delete").addEventListener("click",function(event){
-        deleteListing(event.target,data);
+        deleteListing(event.target,selected);
       })
     }
   });
@@ -349,10 +360,10 @@ function clickOption(e){
     if(productCard.getAttribute("ownerId") == localStorage.getItem("id")){
       productCard.querySelector("#menu-example").style.display = "block";
       productCard.querySelector("#menu-example #edit").style.display = "block";
+      productCard.querySelector("#menu-example #sponsor").style.display = "block";
       productCard.querySelector("#menu-example #delete").style.display = "block";
     }else{
       productCard.querySelector("#menu-example").style.display = "block";
-      productCard.querySelector("#menu-example #sponsor").style.display = "block";
       productCard.querySelector("#menu-example #report").style.display = "block";
     }
   }else{
@@ -408,7 +419,7 @@ function pressLiked(button,selected){
     .catch(error => console.error("Error updating item:", error));
 
     button.querySelector("img").src = "images/likedHeart.png";
-    button.querySelector("path span").textContent = Number(selected.likecount)-1
+    button.querySelector("path span").textContent = Number(selected.likecount)+1
     }else{
       const itemId = selected._id;  // The document ID to update
       let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
@@ -467,6 +478,8 @@ function search(){
 }
 
 function sponsorListing(event){
+  console.log("click")
+  event.preventDefault();
   let productCard = event.target.parentElement.parentElement;
   let productId = productCard.getAttribute("productid")
   localStorage.setItem("productId",productId);
@@ -515,121 +528,125 @@ function reportListing(event){
 }
 async function deleteListing(button,oldData){
   const data = JSON.parse(oldData);
-  let productCard = button.parentElement.parentElement;
-  let productId = productCard.getAttribute("productid");
-  const getObj = (productId) => { 
-    const item = data.find(obj => obj.listingid == productId); 
-    return item ? item : "Item not found"; 
+let productCard = button.parentElement.parentElement;
+let productId = productCard.getAttribute("productid");
+
+const getObj = (productId) => { 
+  const item = data.find(obj => obj.listingid == productId); 
+  return item ? item : "Item not found"; 
 };
-  let obj = getObj(productId);
-  console.log(obj);
-  console.log(obj.listingid);
-  const container = document.createElement("div");
-  container.style.textAlign = "center";
-  container.style.background = "white";
-  container.style.padding = "20px";
-  container.style.borderRadius = "10px";
-  container.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.1)";
-  container.style.position = "absolute";
-  container.style.top = "50%";
-  container.style.left = "50%";
-  container.style.transform = "translate(-50%, -50%)";
 
-  // Create heading
-  const heading = document.createElement("h2");
-  heading.innerText = "Are you sure you want to delete this item?";
-  container.appendChild(heading);
+let obj = getObj(productId);
+console.log(obj);
+console.log(obj.listingid);
 
-  // Create button container
-  const buttonContainer = document.createElement("div");
-  buttonContainer.style.marginTop = "10px";
+// Create container
+const container = document.createElement("div");
+container.style.textAlign = "center";
+container.style.background = "white";
+container.style.padding = "20px";
+container.style.borderRadius = "10px";
+container.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.1)";
+container.style.position = "fixed"; // Use 'fixed' to keep it in place while scrolling
+container.style.top = "50%"; // Position from the top of the screen
+container.style.left = "50%"; // Position from the left of the screen
+container.style.transform = "translate(-50%, -50%)"; // Adjust for exact center
+container.style.zIndex = "1000"; // Ensure it's above other elements
+container.style.maxWidth = "400px"; // Optional: Set a max width for better look
 
-  // Create Yes button
-  const yesButton = document.createElement("button");
-  yesButton.innerText = "Yes";
+// Create heading
+const heading = document.createElement("h2");
+heading.innerText = "Are you sure you want to delete this item?";
+container.appendChild(heading);
+
+// Create button container
+const buttonContainer = document.createElement("div");
+buttonContainer.style.marginTop = "10px";
+
+// Create Yes button
+const yesButton = document.createElement("button");
+yesButton.innerText = "Yes";
+yesButton.style.backgroundColor = "red";
+yesButton.style.color = "white";
+yesButton.style.border = "none";
+yesButton.style.padding = "10px 20px";
+yesButton.style.borderRadius = "5px";
+yesButton.style.cursor = "pointer";
+yesButton.style.marginRight = "10px";
+
+yesButton.addEventListener("mouseover", function () {
+  yesButton.style.backgroundColor = "darkred";
+});
+yesButton.addEventListener("mouseout", function () {
   yesButton.style.backgroundColor = "red";
-  yesButton.style.color = "white";
-  yesButton.style.border = "none";
-  yesButton.style.padding = "10px 20px";
-  yesButton.style.borderRadius = "5px";
-  yesButton.style.cursor = "pointer";
-  yesButton.style.marginRight = "10px";
-  
-  yesButton.addEventListener("mouseover", function () {
-      yesButton.style.backgroundColor = "darkred";
-  });
-  yesButton.addEventListener("mouseout", function () {
-      yesButton.style.backgroundColor = "red";
-  });
-  
-  yesButton.addEventListener("click", async function () {
-    const itemId = obj._id;  // The document ID to update
-    console.log("Updating Item ID:", itemId);
-
-    const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
-    const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
-
-    fetch(databaseUrl, {
-        method: "PATCH",  // Use PATCH to update specific fields
-        headers: {
-            "Content-Type": "application/json",
-            "x-apikey": apiKey
-        },
-        body: JSON.stringify({
-          "status": "Inactive",
-       }
-       )
-    })
-    .then(async (response) => {
-        const text = await response.text();  // Read raw response
-        console.log("Full Response:", text);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
-        }
-
-        return JSON.parse(text);  // Parse manually
-    })
-    .then(data => console.log("Updated item:", data))
-    .catch(error => console.error("Error updating item:", error));
-    container.remove();
 });
 
+yesButton.addEventListener("click", async function () {
+  const itemId = obj._id;  // The document ID to update
+  console.log("Updating Item ID:", itemId);
 
+  const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
+  const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
 
-  // Create No button
-  const noButton = document.createElement("button");
-  noButton.innerText = "No";
+  fetch(databaseUrl, {
+    method: "PATCH",  // Use PATCH to update specific fields
+    headers: {
+      "Content-Type": "application/json",
+      "x-apikey": apiKey
+    },
+    body: JSON.stringify({
+      "status": "Inactive",
+    })
+  })
+  .then(async (response) => {
+    const text = await response.text();  // Read raw response
+    console.log("Full Response:", text);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+    }
+
+    return JSON.parse(text);  // Parse manually
+  })
+  .then(data => console.log("Updated item:", data))
+  .catch(error => console.error("Error updating item:", error));
+  
+  container.remove(); // Remove the container after action
+});
+
+// Create No button
+const noButton = document.createElement("button");
+noButton.innerText = "No";
+noButton.style.backgroundColor = "gray";
+noButton.style.color = "white";
+noButton.style.border = "none";
+noButton.style.padding = "10px 20px";
+noButton.style.borderRadius = "5px";
+noButton.style.cursor = "pointer";
+
+noButton.addEventListener("mouseover", function () {
+  noButton.style.backgroundColor = "darkgray";
+});
+noButton.addEventListener("mouseout", function () {
   noButton.style.backgroundColor = "gray";
-  noButton.style.color = "white";
-  noButton.style.border = "none";
-  noButton.style.padding = "10px 20px";
-  noButton.style.borderRadius = "5px";
-  noButton.style.cursor = "pointer";
-  
-  noButton.addEventListener("mouseover", function () {
-      noButton.style.backgroundColor = "darkgray";
-  });
-  noButton.addEventListener("mouseout", function () {
-      noButton.style.backgroundColor = "gray";
-  });
-  
-  noButton.addEventListener("click", function () {
-      container.remove();
-  });
+});
 
-  buttonContainer.appendChild(yesButton);
-  buttonContainer.appendChild(noButton);
-  container.appendChild(buttonContainer);
-  document.body.appendChild(container);
-  document.body.style.backgroundColor = "#f4f4f4";
-  document.body.style.fontFamily = "Arial, sans-serif";
+noButton.addEventListener("click", function () {
+  container.remove(); // Remove the container when "No" is clicked
+});
 
+// Append buttons to buttonContainer
+buttonContainer.appendChild(yesButton);
+buttonContainer.appendChild(noButton);
 
-  container.appendChild(deleteButton);
-  document.body.appendChild(container);
-  document.body.style.backgroundColor = "#f4f4f4";
-  document.body.style.fontFamily = "Arial, sans-serif";
+// Append buttonContainer to container
+container.appendChild(buttonContainer);
+
+// Append container to the body
+document.body.appendChild(container);
+document.body.style.backgroundColor = "#f4f4f4"; // Optional background color for body
+document.body.style.fontFamily = "Arial, sans-serif"; // Optional font styling
+
 }
 
 document.addEventListener("DOMContentLoaded",async function(){
