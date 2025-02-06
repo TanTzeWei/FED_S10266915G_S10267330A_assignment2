@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       createProductLink(clone);
       document.querySelector(".grid-container").appendChild(clone);
       lottieGone();
+      createChat(selected.listingname,selected.price,selected.ownername)
     }
 })
 function clickOption(e){
@@ -162,6 +163,75 @@ async function otherListings(){
     console.error("Error fetching data:", error);
   }
 }
+async function fetchNewId(){
+  try {
+   
+    const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/chatroom";
+    const apiKey = "6784db79cea8d35416e3d912";
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": apiKey
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    listings=data;
+    return JSON.stringify(data); 
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+  const highestValue = Math.max(...data.map(item => item.value));
+  return Number(highestValue+1)
+}
+function createChat(listingn,price,sname){
+  document.querySelector(".chat-button").addEventListener("click",async function(){
+    let add = {
+      id: await fetchNewId(),
+      buyerid: localStorage.getItem("id"),
+      sellerid: localStorage.getItem("ownerId"),
+      listingid:localStorage.getItem("productId"),
+      listingname:listingn,
+      listingprice:price,
+      buyername:username,
+      sellername:sname
+    }
+    const apiUrl = "https://assg2fed-fbbe.restdb.io/rest/chatroom";
+  
+    const settings = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-apikey": apiKey,
+        "Cache-Control": "no-cache",
+      },
+      body: JSON.stringify(add), 
+    };
+  
+    try {
+      const response = await fetch(apiUrl, settings);
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log("Data created successfully:", data);
+      return data; // Return the created data
+    } catch (error) {
+      console.error("Error creating new data:", error);
+    }
+
+    const url = `../chat/chat.html`;
+    window.location.href = url; 
+})
+}
+
 function pressLiked(button,selected){
   button.addEventListener("click",async function(event){
     event.stopPropagation();
