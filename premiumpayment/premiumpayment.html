@@ -5,8 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout Page</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <header class="header">
+        <div class="logo">
+          <img src="../images/MokeSell.png" alt="MokeSell Logo">
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <i class="fa fa-bars"></i>
+        </div>
+        <nav class="categories" id="categories">
+          <div class="category">
+          <a href="#">Apple</a>
+          <ul class="subcategories">
+              <li><a href="#">Iphone 15 Pro Max</a></li>
+              <li><a href="#">Iphone 15 Pro</a></li>
+              <li><a href="#">Iphone 15</a></li>
+              <li><a href="#">Iphone 14 Pro Max</a></li>
+              <li><a href="#">Iphone 14</a></li>
+          </div>
+    
+          <div class="category">
+          <a href="#">Samsung</a>
+          <ul class="subcategories">
+              <li><a href="#">Galaxy S23 Ultra</a></li>
+              <li><a href="#">Galaxy S23</a></li>
+              <li><a href="#">Galaxy Z Fold 5</a></li>
+              <li><a href="#">Galaxy Z Flip 5</a></li>
+          </div>
+    
+          <div class="category">
+          <a href="#">XiaoMi</a>
+          <ul class="subcategories">
+              <li><a href="#">XiaoMi 13 Ultra</a></li>
+              <li><a href="#">Redmi Note 12</a></li>
+              <li><a href="#">Poco F5</a></li>
+              <li><a href="#">Accessories</a></li>
+          </div>
+          
+          <div class="category">
+          <a href="#">Google Pixel</a>
+          <ul class="subcategories">
+              <li><a href="#">Pixel 8 Pro</a></li>
+              <li><a href="#">Pixel 7a</a></li>
+              <li><a href="#">Tablets</a></li>
+              <li><a href="#">Accessories</a></li>
+          </div>
+    
+          <div class="category">
+          <a href="#">OnePlus</a>
+          <ul class="subcategories">
+              <li><a href="#">OnePlus 12</a></li>
+              <li><a href="#">OnePlus 11</a></li>
+              <li><a href="#">Tablets</a></li>
+              <li><a href="#">Accessories</a></li>
+          </div>
+    
+          <div class="category">
+          <a href="#">Others</a>
+          <ul class="subcategories">
+              <li><a href="#">Other Android Phones</a></li>
+              <li><a href="#">Other Feature Phones</a></li>
+              <li><a href="#">Tablets</a></li>
+              <li><a href="#">Accessories</a></li>
+          </div>
+    
+      </nav>
+      
+      <div class="nav-icons">
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-regular fa-bell"></i>
+        <i class="fa-regular fa-comments"></i>
+      </div>
+      <div class="user-icon">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <div class="auth-buttons" id="auth-buttons">
+        <div class="user-actions">
+          <button>Register</button>
+          <button>Login</button>
+          <button class="sell-btn">Sell</button>
+        </div>
+      </div> 
+    </header>
+    <div class="checkout-wrapper">
     <div class="checkout-container">
         <div class="checkout-left">
             <button class="back-btn">← Back</button>
@@ -17,18 +100,19 @@
                     <img src="visa.png" alt="Visa">
                     <img src="amex.png" alt="Amex">
                 </div>
-                <input type="text" placeholder="Name on card">
-                <input type="text" placeholder="Card Number">
+                <input type="text" placeholder="Name on card" class="input-field">
+                <input type="text" placeholder="Card Number" class="input-field">
                 <div class="card-details">
-                    <input type="text" placeholder="MM/YY">
-                    <input type="text" placeholder="CVV">
+                    <input type="text" placeholder="MM/YY" class="input-field">
+                    <input type="text" placeholder="CVV" class="input-field">
                 </div>
             </div>
             <div class="checkout-buttons">
                 <button class="back-btn">Back</button>
-                <button class="confirm-btn">Confirm Payment $579.98</button>
+                <button class="confirm-btn" id="confirm-btn">Confirm Payment $579.98</button>
             </div>
         </div>
+    </div>
 
         <div class="checkout-right">
             <div class="order-summary-container">
@@ -46,11 +130,14 @@
                 </div>
                 <div class="coupon">
                     <p>Your total savings: <span class="savings">$34.99</span></p>
-                    <input type="text" placeholder="Coupon Code">
+                    <input type="text" placeholder="Coupon Code" class="input-field">
                     <button class="apply-btn">Apply</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+    <script src="script.js"></script>
 </body>
 </html>
+
