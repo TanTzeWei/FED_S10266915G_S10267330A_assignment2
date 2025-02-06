@@ -19,18 +19,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function updatePremiumStatus() {
-        const userId = localStorage.getItem('userId'); // Retrieve user ID from localStorage or another source
-        if (!userId) {
+        const userid = Number(localStorage.getItem('id'));
+        console.log('User ID from localStorage:', userid); // Retrieve user ID from localStorage or another source
+        if (!userid) {
             console.error('User ID not found.');
             alert('Error: User ID is missing.');
             return;
         }
 
         const apiKey = '6784db79cea8d35416e3d912'; // Replace with your RestDB API key
-        const url = `https://assg2fed-fbbe.restdb.io/rest/account/${userId}`;
+        const url = `https://assg2fed-fbbe.restdb.io/rest/account`; // Collection URL (no need for `/id` yet)
 
         try {
-            const response = await fetch(url, {
+            // Fetch the records and find the recordId for the matching userId
+            const records = await getRecords(url, apiKey);
+            console.log('Fetched records:', records);
+            // Find the record with the matching userId
+            const userRecord = records.find(record => record.id === userid);
+            console.log('Matching user record:', userRecord);
+            if (!userRecord) {
+                throw new Error('User record not found.');
+            }
+
+            const recordId = userRecord._id; // Get the recordId for the user
+
+            // Now update the premium status for the found user
+            const updateResponse = await fetch(`${url}/${recordId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,17 +53,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify({ premium: true })
             });
 
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            if (!updateResponse.ok) throw new Error(`HTTP error! Status: ${updateResponse.status}`);
 
-            const data = await response.json();
+            const data = await updateResponse.json();
             console.log('Premium status updated:', data);
             alert('Payment successful! Your premium status has been updated.');
+
         } catch (error) {
             console.error('Error updating premium status:', error);
             alert('An error occurred while updating your premium status. Please try again.');
         }
     }
+
+    // Function to fetch records from RestDB
+    const getRecords = async (url, apiKey) => {
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'x-apikey': apiKey
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch records');
+            }
+
+            const data = await response.json();
+            return data; // Return the records
+
+        } catch (error) {
+            console.error('Error fetching records:', error);
+            throw error;
+        }
+    };
 });
+
 document.addEventListener('DOMContentLoaded', function () {
     // Check if the screen size is small
     const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
@@ -80,3 +119,5 @@ document.addEventListener('DOMContentLoaded', function () {
         userIcon.classList.toggle('show');
     });
 });
+
+  

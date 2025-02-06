@@ -635,9 +635,22 @@ h3 {
   .grid-container {
     grid-template-columns: 1fr;
   }
-  .nav-icons, .user-container, .auth-buttons {
-    margin-top: 10px;
-}
+  .nav-icons, .auth-buttons {
+    display: none;
+  }
+
+  .nav-icons.active, .auth-buttons.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .user-container {
+    order: 1;
+    align-self: flex-end;
+  }
 }
 
 @media (max-width: 480px) {
@@ -652,7 +665,7 @@ h3 {
     max-width: 150px;
     margin-left: 0;
   }
-
+  
   .categories {
     flex-direction: column;
     align-items: flex-start;
@@ -688,6 +701,22 @@ h3 {
 
   .grid-container {
     grid-template-columns: 1fr;
+  }
+  .nav-icons, .auth-buttons {
+    display: none;
+  }
+
+  .nav-icons.active, .auth-buttons.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .user-container {
+    order: 1;
+    align-self: flex-end;
   }
 }
 @media (min-width: 769px) {
