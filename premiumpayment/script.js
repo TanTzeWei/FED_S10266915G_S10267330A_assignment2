@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    if(localStorage.getItem("id") === null){
+        console.log("user not logged in")
+      }else{
+        document.querySelector(".user-icon").style.display = "block";
+        document.querySelector(".auth-buttons").style.display = "none";
+      }
     const confirmBtn = document.getElementById('confirm-btn');
 
     confirmBtn.addEventListener('click', async function () {

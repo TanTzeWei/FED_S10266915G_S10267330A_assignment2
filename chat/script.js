@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded",async function(){
+    if(localStorage.getItem("id") === null){
+        console.log("user not logged in")
+      }else{
+        document.querySelector(".user-icon").style.display = "block";
+        document.querySelector(".auth-buttons").style.display = "none";
+      }
     let chatRoomsData = JSON.parse(await fetchChatRoom());
     let messagesData = JSON.parse(await fetchMessages());
     let accountsData = JSON.parse(await fetchAccounts());

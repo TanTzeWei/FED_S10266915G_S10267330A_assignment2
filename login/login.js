@@ -57,6 +57,12 @@ async function validatelogin(target,target2) {
   }
 
 document.addEventListener("DOMContentLoaded",function(){
+  if(localStorage.getItem("id") === null){
+    console.log("user not logged in")
+  }else{
+    document.querySelector(".user-icon").style.display = "block";
+    document.querySelector(".auth-buttons").style.display = "none";
+  }
     let username = document.querySelector("#username");
     let password = document.querySelector("#password"); 
     let loginForm = document.querySelector(".login-form");
