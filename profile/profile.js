@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded",async function(){
       username.textContent = selected.ownername;
       postTime.textContent = dateDiff + " days ago";
       clone.style.display = "flex";
+      pressLiked(likeButton,selected);
+
 
       if (selected.premiumlisting === true) {
         premium.style.display = "block";
@@ -59,15 +61,37 @@ document.addEventListener("DOMContentLoaded",async function(){
       if (selected.status === "Sponsored") {
         sponsoredVal.style.display = "block";
       }
+      if (likedby.includes(userId)) { // Check if the user ID is in the array
+        likeButton.querySelector("img").src = "images/likedHeart.png";
+        likeButton.setAttribute("liked", "true");
+      } else {
+        likeButton.querySelector("img").src = "images/normalHeart.png"; // Or your default image
+        likeButton.setAttribute("liked", "false");
+      }
+      clone.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
+        sponsorListing(event)
+      })
 
       clone.setAttribute("productId", selected.listingid);
       clone.setAttribute("ownerId", selected.ownerid);
       createProductLink(clone);
       document.querySelector(".listings-grid").appendChild(clone);
+      if(selected.status == "Inactive"){
+        clone.querySelector("#inactive").style.display = "block";
+        clone.removeEventListener("click")
+      }
     })
     lottieGone();
 })
-
+function sponsorListing(event){
+  console.log("click")
+  event.preventDefault();
+  let productCard = event.target.parentElement.parentElement;
+  let productId = productCard.getAttribute("productid")
+  localStorage.setItem("productId",productId);
+  const url = `/PushListing/pushlisting.html?id=${productId}`;
+  window.location.href = url; 
+}
 async function findProfile(idNo){
     const apiKey = "6784db79cea8d35416e3d912";
     const query = { id:Number(idNo)
@@ -173,6 +197,9 @@ function clickOption(e){
       event.stopPropagation()
     })
     productCard.querySelector(".menu-options #edit").addEventListener("click",function(event){
+      event.stopPropagation()
+    })
+    productCard.querySelector(".menu-options #sponsor").addEventListener("click",function(event){
       event.stopPropagation()
     })
     productCard.querySelector(".menu-options #delete").addEventListener("click",function(event){
