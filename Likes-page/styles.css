@@ -235,7 +235,7 @@ body {
 }
 
 .product-card {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 220px;

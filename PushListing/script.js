@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       let currentDate = new Date();
       let dateDiff = currentDate.getDate() - dayPosted.getDate();
 
+      document.querySelector(".listing-image img").src = String(obj.photo);
       title.textContent = obj[0].listingname;
       itemPrice.textContent = "Price:$"+obj.price;
       datePosted.textContent = "Posted "+dateDiff+" days ago"; 

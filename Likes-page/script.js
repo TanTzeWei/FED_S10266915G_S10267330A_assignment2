@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded",async function(){
         let dateDiff = currentDate.getDate()-dayPosted.getDate();
   
         clone.removeAttribute("id");
+        clone.querySelector("#productImg").src = String(selected.photo);
         price.textContent = "S$"+selected.price;
         name.textContent = selected.username;
         condition.textContent = selected.condition;

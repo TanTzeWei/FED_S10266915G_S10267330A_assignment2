@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded",async function(){
         const description = document.getElementById("description");
         const rating = document.getElementById("rating");
         const pfp =  document.querySelector(".seller-info img");
+        document.querySelector("#productImg").src = String(productData.photo);
         clickProfile(pfp);
         name.textContent = productData.listingname;
         price.textContent = "SGD "+productData.price;
@@ -92,7 +93,8 @@ document.addEventListener("DOMContentLoaded",async function(){
       let dayPosted = new Date(selected.datecreated);
       let currentDate = new Date();
       let dateDiff = currentDate.getDate() - dayPosted.getDate();
-
+      
+      clone.querySelector("#productImg").src = String(selected.photo);
       clone.removeAttribute("id");
       price.textContent = "S$" + selected.price;
       name.textContent = selected.listingname;
