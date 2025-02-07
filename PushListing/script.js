@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded",async function(){
         .catch(error => console.error("Error updating item:", error));
             })
 
-        const url = `/product/product.html?id=${productId}`;
+        const url = `../index/index.html`;
         window.location.href = url; 
         })
 
