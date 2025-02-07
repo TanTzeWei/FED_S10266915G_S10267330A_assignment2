@@ -405,6 +405,7 @@ async function findProduct(id) {
   }
   document.addEventListener('DOMContentLoaded', function() {
     const openBtn = document.querySelector(".hamburger");
+    const closeBtn = document.querySelector(".close-menu");
     const menu = document.querySelector(".categories");
     const navIcons = document.querySelector(".nav-icons");
     const authButtons = document.querySelector(".auth-buttons");
@@ -412,11 +413,12 @@ async function findProduct(id) {
     openBtn.addEventListener("click", (event) => {
         event.stopPropagation(); // Prevents immediate closing when clicking the button
         menu.classList.toggle("active");
+        document.body.classList.toggle('menu-open');
         navIcons.classList.toggle("active");
         authButtons.classList.toggle("active");
     });
 
-    document.addEventListener("click", (event) => {
+    closeBtn.addEventListener("click", (event) => {
         if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
             menu.classList.remove("active");
             navIcons.classList.remove("active");

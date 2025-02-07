@@ -41,7 +41,7 @@ async function fetchListingsData(){
       });
   
       if (!response.ok) {
-        throw new Error(HTTP error! status: ${response.status});
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
   
       const data = await response.json();
@@ -51,3 +51,17 @@ async function fetchListingsData(){
       console.error("Error fetching data:", error);
     }
 }
+const profileIcon = document.getElementById('user-container');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    profileIcon.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevents the click event from bubbling up
+        dropdownMenu.classList.toggle('active'); // Toggle active class correctly
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.addEventListener('click', function(event) {
+        if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('active');
+        }
+    });

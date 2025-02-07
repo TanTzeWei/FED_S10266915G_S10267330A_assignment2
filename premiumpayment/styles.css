@@ -276,102 +276,155 @@ h3 {
 
 /* Mobile-Friendly Layout */
 @media (max-width: 1024px) {
-    .header {
-        flex-wrap: wrap;
-        padding: 15px;
-    }
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 20px;
+  }
 
-    .categories {
-        display: none; /* Hide categories in mobile view */
-    }
+  .logo img {
+      width: 100%;
+      max-width: 150px;
+      margin-left: 0;
+  }
 
-    .nav-icons, .auth-buttons {
-        display: none; /* Hide extra nav items on small screens */
-    }
+  .nav-icons {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+  }
 
-    .user-icon {
-        display: block; /* Show user icon instead */
-    }
+  .categories {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 20px;
+  }
+
+  .categories .category {
+      width: 100%;
+  }
+
+  .categories a {
+      margin: 5px 0;
+  }
+
+  .checkout-wrapper {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .checkout-container,
+  .checkout-right {
+      width: 100%;
+      max-width: 100%;
+      padding: 20px;
+  }
+
+  .payment-info-container,
+  .order-summary-container {
+      height: auto;
+  }
 }
 
 @media (max-width: 768px) {
-    .checkout-wrapper {
-        flex-direction: column; /* Stack checkout sections */
-        align-items: center;
-    }
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 20px;
+  }
 
-    .checkout-container, .checkout-right {
-        width: 90%;
-        max-width: 100%;
-    }
+  .logo img {
+      width: 100%;
+      max-width: 150px;
+      margin-left: 0;
+  }
 
-    .checkout-left {
-        border-right: none;
-        text-align: center;
-    }
+  .nav-icons {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+  }
 
-    .checkout-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
+  .categories {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 20px;
+  }
 
-    .checkout-buttons button {
-        width: 100%;
-    }
+  .categories .category {
+      width: 100%;
+  }
 
-    .input-field, .coupon input {
-        width: 100%;
-    }
-    .hamburger-menu {
-        display: block; /* Show hamburger menu on small screens */
-    }
-    .categories {
-        display: none; /* Hide categories by default on small screens */
-        flex-direction: column;
-        width: 100%;
-    }
-    .categories.show {
-        display: flex; /* Show categories when toggled */
-    }
-    .nav-icons, .user-icon {
-        display: none;
-    }
-    .auth-buttons {
-        display: none; /* Initially hide auth buttons */
-    }
-    .hamburger-menu.show,.auth-buttons.show,.user-icon.show {
-        display: flex; /* Show auth buttons when hamburger is clicked */
-        flex-direction: column;
-        align-items: center;
-    }
-    .category > a {
-        cursor: pointer; /* Change cursor to pointer for clickable links */
-    }
+  .categories a {
+      margin: 5px 0;
+  }
 
-    .subcategories.show {
-        display: block; /* Display subcategories when the show class is added */
-    }
+  .checkout-wrapper {
+      flex-direction: column;
+      padding: 20px;
+  }
+
+  .checkout-container,
+  .checkout-right {
+      width: 100%;
+      max-width: 100%;
+      padding: 20px;
+  }
+
+  .payment-info-container,
+  .order-summary-container {
+      height: auto;
+  }
 }
 
 @media (max-width: 480px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-    }
+  .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+  }
 
-    .logo img {
-        max-width: 150px;
-        height: auto;
-    }
+  .logo img {
+      width: 100%;
+      max-width: 150px;
+      margin-left: 0;
+  }
 
-    .checkout-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
+  .nav-icons {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+  }
 
-    .apply-btn, .confirm-btn, .back-btn {
-        width: 100%;
-    }
+  .categories {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 20px;
+  }
+
+  .categories .category {
+      width: 100%;
+  }
+
+  .categories a {
+      margin: 5px 0;
+  }
+
+  .checkout-wrapper {
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .checkout-container,
+  .checkout-right {
+      width: 100%;
+      max-width: 100%;
+      padding: 10px;
+  }
+
+  .payment-info-container,
+  .order-summary-container {
+      height: auto;
+  }
 }
 
