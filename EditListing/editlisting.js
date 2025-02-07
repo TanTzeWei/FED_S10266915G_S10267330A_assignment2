@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded",async function(){
   if(localStorage.getItem("id") === null){
     console.log("user not logged in")
   }else{
-    document.querySelector(".user-icon").style.display = "block";
-    document.querySelector(".auth-buttons").style.display = "none";
+    document.querySelector(".user-container").style.display = "block";
+    document.querySelector(".user-actions").style.display = "none";
   }
   let productData = await fetchListingsData();
   let obj = JSON.parse(productData).find(item=> item.listingid = localStorage.getItem("productId"));
@@ -25,6 +25,54 @@ document.addEventListener("DOMContentLoaded",async function(){
   address.value = obj.address;
   delivery.value = obj.delivery;
   price.value = obj.price;
+
+  document.querySelector(".listng-form").addEventListener("submit",async function(event){
+    event.preventDefault();
+    const itemId = obj._id;  // The document ID to update
+        console.log("Updating Item ID:", itemId);
+
+        const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
+        const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
+
+        fetch(databaseUrl, {
+            method: "PATCH",  // Use PATCH to update specific fields
+            headers: {
+            "Content-Type": "application/json",
+            "x-apikey": apiKey
+            },
+            body: JSON.stringify({
+              ownerid: localStorage.getItem("id"),
+              premiumlisting: localStorage.getItem("premium"),
+              listingname: name.value,
+              description: description.value,
+              os: os.value,
+              condition: condition.value,
+              meetup: Boolean(meetup.value),
+              address: address.value,
+              delivery: Boolean(delivery.value),
+              price: price.value,
+              ownername: localStorage.getItem("username")
+            })
+        })
+        .then(async (response) => {
+            const text = await response.text();  // Read raw response
+            console.log("Full Response:", text);
+
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+            }
+
+            return JSON.parse(text);  // Parse manually
+        })
+        .then(data => console.log("Updated item:", data))
+        .catch(error => console.error("Error updating item:", error));
+            })
+
+            let productId = productCard.getAttribute("productid")
+            localStorage.setItem("productId",productId)
+            const url = `/product/product.html?id=${productId}`;
+            window.location.href = url; 
+            console.log("Done")
 })
 
 async function fetchListingsData(){
