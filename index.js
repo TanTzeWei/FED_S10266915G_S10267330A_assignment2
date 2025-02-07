@@ -527,7 +527,7 @@ function reportListing(event){
   window.location.href = url; 
 }
 async function deleteListing(button,oldData){
-  const data = JSON.parse(oldData);
+const data = JSON.parse(oldData);
 let productCard = button.parentElement.parentElement;
 let productId = productCard.getAttribute("productid");
 

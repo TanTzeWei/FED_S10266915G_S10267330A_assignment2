@@ -18,7 +18,42 @@ document.addEventListener("DOMContentLoaded",async function(){
       title.textContent = obj[0].listingname;
       itemPrice.textContent = "Price:$"+obj.price;
       datePosted.textContent = "Posted "+dateDiff+" days ago"; 
-})
+
+
+      document.querySelector(".pay-button").addEventListener(async function(){
+        const itemId = obj._id;  // The document ID to update
+        console.log("Updating Item ID:", itemId);
+
+        const apiKey = "6784db79cea8d35416e3d912";  // Replace with your API key
+        const databaseUrl = `https://assg2fed-fbbe.restdb.io/rest/listing/${itemId}`; 
+
+        fetch(databaseUrl, {
+            method: "PATCH",  // Use PATCH to update specific fields
+            headers: {
+            "Content-Type": "application/json",
+            "x-apikey": apiKey
+            },
+            body: JSON.stringify({
+            "status": "Sponsored",
+            })
+        })
+        .then(async (response) => {
+            const text = await response.text();  // Read raw response
+            console.log("Full Response:", text);
+
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} - ${text}`);
+            }
+
+            return JSON.parse(text);  // Parse manually
+        })
+        .then(data => console.log("Updated item:", data))
+        .catch(error => console.error("Error updating item:", error));
+            })
+
+        const url = `/product/product.html?id=${productId}`;
+        window.location.href = url; 
+        })
 
 async function fetchListing(idNo) {
     const apiKey = "6784db79cea8d35416e3d912";
