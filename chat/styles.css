@@ -474,5 +474,138 @@ body.dark-mode .profile-link:hover {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
 
+  .logo img {
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
+  }
+
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .categories .category {
+    width: 100%;
+  }
+
+  .categories a {
+    margin: 5px 0;
+  }
+
+  .chat-container {
+    grid-template-columns: 1fr 2fr;
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .item-info {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
+  }
+
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .categories .category {
+    width: 100%;
+  }
+
+  .categories a {
+    margin: 5px 0;
+  }
+
+  .chat-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .item-info {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .logo img {
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
+  }
+
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .categories .category {
+    width: 100%;
+  }
+
+  .categories a {
+    margin: 5px 0;
+  }
+
+  .chat-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .item-info {
+    display: none;
+  }
+}
   
