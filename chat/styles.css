@@ -508,10 +508,18 @@ body.dark-mode .profile-link:hover {
   }
 
   .chat-container {
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr;
     height: auto;
     width: 100%;
     margin-top: 10px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .chat-window {
+    grid-column: 1 / -1;
   }
 
   .item-info {
@@ -559,6 +567,14 @@ body.dark-mode .profile-link:hover {
     margin-top: 10px;
   }
 
+  .sidebar {
+    display: none;
+  }
+
+  .chat-window {
+    grid-column: 1 / -1;
+  }
+
   .item-info {
     display: none;
   }
@@ -602,6 +618,14 @@ body.dark-mode .profile-link:hover {
     height: auto;
     width: 100%;
     margin-top: 10px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .chat-window {
+    grid-column: 1 / -1;
   }
 
   .item-info {

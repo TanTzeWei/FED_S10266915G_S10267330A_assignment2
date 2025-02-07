@@ -247,110 +247,142 @@ button:hover {
 
 /* Mobile Resposiveness */
 @media (max-width: 1024px) {
-  /* Reduce header padding */
   .header {
-    padding: 15px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
   }
 
-  /* Adjust navbar */
+  .logo-link img {
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
+  }
+
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
   .categories {
-    font-size: 16px;
-    padding: 0 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
   }
 
-  /* Resize form container */
-  .container {
-    max-width: 800px;
-    padding: 30px;
+  .categories .category {
+    width: 100%;
   }
 
-  .form-container {
-    padding: 40px;
+  .categories a {
+    margin: 5px 0;
   }
 
-  /* Resize input fields */
-  input, select, textarea {
-    padding: 12px;
-    font-size: 14px;
-  }
-
-  /* Adjust buttons */
-  .auth-buttons button {
-    padding: 8px 16px;
-    font-size: 16px;
-  }
-
-  .submit {
-    font-size: 15px;
-    padding: 12px;
-  }
-
-  /* Resize container-header */
-  .container-header {
-    font-size: 28px;
-    padding: 35px 20px;
-  }
-
-  /* Adjust contact info */
-  .contact-info {
-    padding: 15px;
-    font-size: 14px;
-  }
-}
-@media (max-width: 768px) {
   .container {
     flex-direction: column;
     padding: 20px;
-    overflow-x: hidden; /* Prevents horizontal scrolling */
   }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .contact-info {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
   .header {
     flex-direction: column;
-    align-items: center;
-    padding: 15px;
+    align-items: flex-start;
+    padding: 10px 20px;
   }
-  input, select, textarea {
-    max-width: 100%; /* Take full width on small screens */
-    font-size: 14px;
+
+  .logo-link img {
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
   }
+
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
   .categories {
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    padding: 10px 20px;
   }
+
+  .categories .category {
+    width: 100%;
+  }
+
+  .categories a {
+    margin: 5px 0;
+  }
+
   .container {
     flex-direction: column;
-    padding: 15px;
+    padding: 20px;
   }
-  .form-container,
+
+  .form-container {
+    padding: 20px;
+  }
+
   .contact-info {
-    width: 100%;
+    padding: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 15px;
-  }
   .header {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 10px;
   }
+
   .logo-link img {
-    max-width: 120px;
+    width: 100%;
+    max-width: 150px;
+    margin-left: 0;
   }
-  input, select, textarea {
-    max-width: 100%; /* Take full width on small screens */
-    font-size: 14px;
-    overflow-x: hidden;
+
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
   }
+
+  .categories {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .categories .category {
+    width: 100%;
+  }
+
   .categories a {
-    font-size: 14px;
+    margin: 5px 0;
   }
-  .container-header {
-    font-size: 20px;
-    padding: 20px;
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
   }
-  .form-container,
+
+  .form-container {
+    padding: 10px;
+  }
+
   .contact-info {
     padding: 10px;
-    max-width: 100%;
   }
 }

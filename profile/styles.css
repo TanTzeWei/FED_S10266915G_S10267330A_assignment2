@@ -490,6 +490,12 @@ body {
         margin-left: 0;
     }
 
+    .nav-icons {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     .categories {
         flex-direction: column;
         align-items: flex-start;
@@ -504,36 +510,28 @@ body {
         margin: 5px 0;
     }
 
-    .search-bar {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .content {
+    .profile-header {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .listings, .packages {
-        width: 100%;
-    }
-
-    .listing-item, .package {
+    .profile-info {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .listing-image {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
+    .description-section {
+        margin-left: 0;
+        text-align: center;
     }
 
-    .package-details {
-        width: 100%;
+    .listings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .pay-button {
-        width: 100%;
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -550,6 +548,12 @@ body {
         margin-left: 0;
     }
 
+    .nav-icons {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     .categories {
         flex-direction: column;
         align-items: flex-start;
@@ -564,36 +568,28 @@ body {
         margin: 5px 0;
     }
 
-    .search-bar {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .content {
+    .profile-header {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .listings, .packages {
-        width: 100%;
-    }
-
-    .listing-item, .package {
+    .profile-info {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .listing-image {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
+    .description-section {
+        margin-left: 0;
+        text-align: center;
     }
 
-    .package-details {
-        width: 100%;
+    .listings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .pay-button {
-        width: 100%;
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -610,6 +606,12 @@ body {
         margin-left: 0;
     }
 
+    .nav-icons {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     .categories {
         flex-direction: column;
         align-items: flex-start;
@@ -624,35 +626,27 @@ body {
         margin: 5px 0;
     }
 
-    .search-bar {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .content {
+    .profile-header {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .listings, .packages {
-        width: 100%;
-    }
-
-    .listing-item, .package {
+    .profile-info {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
-    .listing-image {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px;
+    .description-section {
+        margin-left: 0;
+        text-align: center;
     }
 
-    .package-details {
-        width: 100%;
+    .listings-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .pay-button {
-        width: 100%;
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 }

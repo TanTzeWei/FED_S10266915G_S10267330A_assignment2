@@ -442,7 +442,12 @@ body {
       margin: 10px 0;
       width: 100%;
   }
-
+  .nav-icons {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: 20px;
+  }
   .content {
       flex-direction: column;
   }

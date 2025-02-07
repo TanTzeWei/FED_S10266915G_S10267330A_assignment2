@@ -5,113 +5,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Listing</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header class="header">
         <div class="logo">MokeSell</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for items...">
-            <button>Search</button>
-        </div>
-        <div class="nav-icons">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                <polyline points="3 7 12 13 21 7"></polyline>
-            </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.5 8.5 0 0 1-7.6-4.7A8.38 8.38 0 0 1 3 11.5a8.38 8.38 0 0 1 .9-3.8 8.5 8.5 0 0 1 7.6-4.7 8.5 8.5 0 0 1 7.6 4.7 8.38 8.38 0 0 1 .9 3.8z"></path>
-                <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path>
-            </svg>
-        </div>
-        <div class="user-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="7" r="4"></circle>
-                <path d="M5.5 21h13a2.5 2.5 0 0 0-13 0z"></path>
-            </svg>
-        </div>
-        <div class="auth-buttons">
-        <div class="user-actions">
-            <button>Register</button>
-            <button>Login</button>
-            <button class="sell-btn">Sell</button>
-        </div>
-        </div>
+        <nav class="categories">
+            <div class="category">
+            <a href="#">Apple</a>
+            <ul class="subcategories">
+                <li><a href="#">Iphone 15 Pro Max</a></li>
+                <li><a href="#">Iphone 15 Pro</a></li>
+                <li><a href="#">Iphone 15</a></li>
+                <li><a href="#">Iphone 14 Pro Max</a></li>
+                <li><a href="#">Iphone 14</a></li>
+             </ul>
+            </div>
+      
+            <div class="category">
+            <a href="#">Samsung</a>
+            <ul class="subcategories">
+                <li><a href="#">Galaxy S23 Ultra</a></li>
+                <li><a href="#">Galaxy S23</a></li>
+                <li><a href="#">Galaxy Z Fold 5</a></li>
+                <li><a href="#">Galaxy Z Flip 5</a></li>
+            </ul>
+            </div>
+      
+            <div class="category">
+            <a href="#">XiaoMi</a>
+            <ul class="subcategories">
+                <li><a href="#">XiaoMi 13 Ultra</a></li>
+                <li><a href="#">Redmi Note 12</a></li>
+                <li><a href="#">Poco F5</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+            </div>
+            
+            <div class="category">
+            <a href="#">Google Pixel</a>
+            <ul class="subcategories">
+                <li><a href="#">Pixel 8 Pro</a></li>
+                <li><a href="#">Pixel 7a</a></li>
+                <li><a href="#">Tablets</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+            </div>
+      
+            <div class="category">
+            <a href="#">OnePlus</a>
+            <ul class="subcategories">
+                <li><a href="#">OnePlus 12</a></li>
+                <li><a href="#">OnePlus 11</a></li>
+                <li><a href="#">Tablets</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+            </div>
+      
+            <div class="category">
+            <a href="#">Others</a>
+            <ul class="subcategories">
+                <li><a href="#">Other Android Phones</a></li>
+                <li><a href="#">Other Feature Phones</a></li>
+                <li><a href="#">Tablets</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+            </div>
+      
+        </nav>
+         <div class="nav-icons">
+    <i class="fa-regular fa-heart"></i>
+    <i class="fa-regular fa-bell"></i>
+    <i class="fa-regular fa-comments"></i>
+  </div>
+  <div class="user-container" id="user-container">
+    <img src="../images/profile.jpg" alt="User Profile">
+    
+    <div class="dropdown-menu" id="dropdown-menu">
+      <a href="#"><i class="fa-solid fa-gear"></i>Settings</a>
+      <a href="#"><i class="fa-solid fa-right-from-bracket" style="color: #ff0000;"></i>Log Out</a>
+    </div>
+  </div>
+  <div class="auth-buttons">
+    <div class="user-actions">
+      <button>Register</button>
+      <button>Login</button>
+      <button class="sell-btn">Sell</button>
+    </div>
+  </div>
     </header>
     <!-- Main Content -->
-    <div class="container">
-        <header class="title">
-            <h1>Edit Your Listing</h1>
-        </header>
-        <form class="listing-form">
-            <!-- Item Details Section -->
-            <div class="section">
-                <h2>Item Details</h2>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" value="Sample Item">
-                
-                <label for="description">Description</label>
-                <textarea id="description" name="description" rows="4">Sample description...</textarea>
-            </div>
-
-            <!-- Photo Upload Section -->
-            <div class="section">
-                <h2>Upload Photo</h2>
-                <div class="photo-box">
-                    <label for="photo">Drag and drop a photo here or click to upload</label>
-                    <input type="file" id="photo" name="photo" accept="image/*">
-                    <img id="imagePreview" src="" alt="Image Preview" style="display: none; margin-top: 10px; max-width: 100%; border-radius: 5px;">
+    <div class="main-container">
+        <!-- Photo Upload Section -->
+        <div class="photo-section-container">
+            <div class="photo-section">
+                <div class="section">
+                    <h2>Upload Photo</h2>
+                    <div class="photo-box">
+                        <label for="photo">Drag and drop a photo here or click to upload</label>
+                        <input type="file" id="photo" name="photo">
+                        <img id="photo-preview" src="#" alt="Photo Preview" style="display: none; margin-top: 10px; max-width: 100%;">
+                    </div>
                 </div>
             </div>
+        </div>
+        <!-- Form Section -->
+        <div class="form-section-container">
+            <div class="form-section">
+                <header>
+                    <h1>Edit Your Listing</h1>
+                </header>
+                <form class="listing-form">
+                    <!-- Item Details Section -->
+                    <div class="section">
+                        <h2>Item Details</h2>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter the name of your item">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4" placeholder="Describe your item"></textarea>
+                    </div>
 
-            <!-- Specifications Section -->
-            <div class="section">
-                <h2>Specifications</h2>
-                <label for="os">Operating System</label>
-                <select id="os" name="os">
-                    <option value="Android">Android</option>
-                    <option value="iOS">iOS</option>
-                    <option value="Others">Others</option>
-                </select>
+                    <!-- Specifications Section -->
+                    <div class="section">
+                        <h2>Specifications</h2>
+                        <label for="os">Operating System</label>
+                        <select id="os" name="os">
+                            <option value="Android">Android</option>
+                            <option value="iOS">iOS</option>
+                            <option value="Others">Others</option>
+                        </select>
 
-                <label for="condition">Condition</label>
-                <select id="condition" name="condition">
-                    <option value="brand-new">Brand new</option>
-                    <option value="like-new">Like new</option>
-                    <option value="lightly-used">Lightly used</option>
-                    <option value="well-used">Well used</option>
-                    <option value="heavily-used">Heavily used</option>
-                </select>
+                        <label for="condition">Condition</label>
+                        <select id="condition" name="condition">
+                            <option value="brand-new">Brand new</option>
+                            <option value="like-new">Like new</option>
+                            <option value="lightly-used">Lightly used</option>
+                            <option value="well-used">Well used</option>
+                            <option value="heavily-used">Heavily used</option>
+                        </select>
+                    </div>
+
+                    <div id="notification" class="notification hidden">
+                        <p id="notification-message">This is a notification message.</p>
+                    </div>
+
+                    <div class="deal-methods">
+                        <label>Deal Methods</label>
+                        <div>
+                            <label><input type="checkbox" name="deal-method" id="meetup"> Meet-up</label>
+                            <input type="text" name="meetup-address" placeholder="Address" id="address">
+                        </div>
+                        <div>
+                            <label><input type="checkbox" name="deal-method" id="delivery"> Delivery</label>
+                        </div>
+                    </div>
+
+                    <!-- Price Section -->
+                    <div class="section">
+                        <h2>Price</h2>
+                        <label for="price">Price</label>
+                        <input type="text" id="price" name="price" placeholder="Price of Listing">
+                    </div>
+
+                    <button type="submit" class="submit-button">Update Listing</button>
+                </form>
             </div>
-
-            <div id="notification" class="notification hidden">
-                <p id="notification-message">This is a notification message.</p>
-            </div>
-
-            <div class="deal-methods">
-                <label>Deal Methods</label>
-                <div>
-                    <label><input type="checkbox" name="deal-method" id="meetup"> Meet up</label>
-                    <input type="text" name="meetup-address" placeholder="Address" id="address">
-                </div>
-                <div>
-                    <label><input type="checkbox" name="deal-method" id="delivery"> Delivery</label>
-                </div>
-            </div>
-
-            <!-- Price Section -->
-            <div class="section">
-                <h2>Price</h2>
-                <label for="price">Price</label>
-                <input type="text" id="price" name="price" value="100.00">
-            </div>
-
-            <button type="button" class="submit-button" onclick="saveChanges()">Save Changes</button>
-        </form> 
+        </div>
     </div>
-
     <script src="editlisting.js"></script>
 </body>
 </html>
