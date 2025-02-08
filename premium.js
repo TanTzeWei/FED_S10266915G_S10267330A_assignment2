@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     event.stopPropagation();
                     console.log("✅ Logout button clicked!");
                     localStorage.removeItem("id");
-                    window.location.href = "../login/login.html";
+                    window.location.href = "login.html";
                 });
             } else {
                 console.error("❌ Logout button NOT found!");
@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const plan = this.getAttribute('data-plan');
             const price = this.getAttribute('data-price');
             localStorage.setItem('selectedPlan', JSON.stringify({ plan, price }));
-            window.location.href = '../premiumpayment/premiumpayment.html';
+            window.location.href = 'premiumpayment.html';
         });
     });
 });
 function subCatSearch(event){
     let button = event.target;
     localStorage.setItem("search",button.textContent);
-    const url = `/SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+    const url = `Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
     window.location.href = url; 
   
   }

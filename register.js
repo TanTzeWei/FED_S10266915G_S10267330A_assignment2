@@ -203,7 +203,7 @@ signupForm.addEventListener("submit", async function(event) {
       singupButton.textContent = "Signup";
       singupButton.style.background = "#ff4d4d";
       singupButton.disabled = false;
-      window.location.href = "..//login/login.html"
+      window.location.href = "login.html"
     }
     
   }   
