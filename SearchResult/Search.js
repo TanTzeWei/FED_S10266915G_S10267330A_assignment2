@@ -230,7 +230,7 @@ function clickOption(e){
       .catch(error => console.error("Error updating item:", error));
   
       button.querySelector("img").src = "images/likedHeart.png";
-      button.querySelector("path span").textContent = Number(selected.likecount)-1
+      button.querySelector("path span").textContent = Number(selected.likecount)+1
       }else{
         const itemId = selected._id;  // The document ID to update
         let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
