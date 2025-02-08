@@ -174,6 +174,7 @@ function clickOption(e){
         productCard.querySelector("#menu-example").style.display = "block";
         productCard.querySelector("#menu-example #edit").style.display = "block";
         productCard.querySelector("#menu-example #delete").style.display = "block";
+        productCard.querySelector("#menu-example #sponsor").style.display = "block";
       }else{
         productCard.querySelector("#menu-example").style.display = "block";
         productCard.querySelector("#menu-example #report").style.display = "block";
