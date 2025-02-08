@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/likespage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <div id = "lottiePlayer">
-        <script  src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-        <dotlottie-player id = "player"src="https://lottie.host/c55ba2ff-546e-4a5e-a34e-69bf7be34812/jv0yEj3iZf.lottie" background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
-    </div>
     <header class="header">
-        <div class="logo">
+        <a href="/" class="logo-link">
             <img src="../images/MokeSell.png" alt="MokeSell Logo">
-        </div>
+        </a>
         <nav class="categories">
             <div class="category">
             <a href="#">Apple</a>
@@ -26,7 +22,7 @@
                 <li><a onclick="subCatSearch(event)">Iphone 14 Pro Max</a></li>
                 <li><a onclick="subCatSearch(event)">Iphone 14</a></li>
             </div>
-
+      
             <div class="category">
             <a href="#">Samsung</a>
             <ul class="subcategories">
@@ -35,7 +31,7 @@
                 <li><a onclick="subCatSearch(event)">Galaxy Z Fold 5</a></li>
                 <li><a onclick="subCatSearch(event)">Galaxy Z Flip 5</a></li>
             </div>
-
+      
             <div class="category">
             <a href="#">XiaoMi</a>
             <ul class="subcategories">
@@ -50,7 +46,7 @@
                 <li><a onclick="subCatSearch(event)">Pixel 8 Pro</a></li>
                 <li><a onclick="subCatSearch(event)">Pixel 7a</a></li>
             </div>
-
+      
             <div class="category">
             <a href="#">OnePlus</a>
             <ul class="subcategories">
@@ -59,62 +55,45 @@
             </div>
         </nav>
         <div class="nav-icons">
-            <a href="../Likes-page/likes-page.html">
-            <i class="fa-regular fa-heart"></i>
-            </a>
-            <i class="fa-regular fa-bell"></i>
-            <a href="../chat/chat.html">
-            <i class="fa-regular fa-comments"></i>
-            </a>
-          </div>
-          <div class="user-container" id="user-container">
+          <a href="../Likes-page/likes-page.html">
+          <i class="fa-regular fa-heart"></i>
+          </a>
+          <i class="fa-regular fa-bell"></i>
+          <a href="../chat/chat.html">
+          <i class="fa-regular fa-comments"></i>
+          </a>
+        </div>
+        <div class="user-container" id="user-container">
             <img src="../images/profile.jpg" alt="User Profile">
+            
             <div class="dropdown-menu" id="dropdown-menu">
               <a href="../Edit-Profile/edit-profile.html"><i class="fa-solid fa-gear"></i>Settings</a>
-              <a href="#" id="logoutbutton" class="logout-button">
+              <a href="#"id="logoutbutton" class="logout-button">
                 <i class="fa-solid fa-right-from-bracket" style="color: #ff0000;"></i>Log Out
               </a>
             </div>
           </div>
-          <div class="auth-buttons">
-            <div class="user-actions">
-              <button class="register-btn"><a href="../register/register.html">Register</a></button>
-              <button class="login-btn"><a href="../login/login.html">Login</a></button>
-              <button class="sell-btn" onclick="window.location.href='../Create-Listing/create-listing.html'">Sell</button>
-            </div>
+        <div class="auth-buttons">
+          <div class="user-actions">
+            <button class="register-btn"><a href="../register/register.html">Register</a></button>
+            <button class="login-btn"><a href="../login/login.html">Login</a></button>
+            <button class="sell-btn" onclick="window.location.href='../Create-Listing/create-listing.html'">Sell</button>
           </div>
+        </div>
     </header>
     <main>
-        <section class="profile-header">
-            <div class="profile-info">
-                <div class="avatar"></div>
-                <div class="profile-details">
-                <div class="username">
-                    <h2>@Username <span class="crown">👑</span></h2>
-                    <div class="rating">
-                        <span>4.5/5 ⭐</span>
-                        <span>(89 reviews)</span>
-                    </div>
-                    <button id = "editProf" href="../Edit-Profile/edit-profile.html" class="edit-profile-btn">Edit Profile</button>
-                </div>
-                <div class="description-section">
-                    <h3>About Me</h3>
-                    <p>This is a detailed description about the user. It can include hobbies, interests, and other personal information.</p>
-                </div>
-            </div>
-            </div>
-        </section>
         <section class="listings">
-            <h2>Listings by Username</h2>
+            <h2>Liked Listings</h2>
             <div class="listings-grid">
                 <!-- Sample Listing -->
                 
-                 
+                
+                <!-- Repeat similar cards -->
             </div>
         </section>
     </main>
+    <script src = "script.js"></script>
     <div class="product-card" id="example">
-        <div id = "inactive">INACTIVE</div>
         <div class="user-info">
             <span class="username">JohnDoe</span>  
             <span class="post-time">2 days ago</span>
@@ -125,27 +104,25 @@
             <span onclick="clickOption(event)"></span>
         </div>
         <div class="menu-options" id="menu-example">
-            <a id="report">Report Listing</a>
-            <a id="edit" onclick = "editListing(event)">Edit Listing</a>
-            <a id="delete">Delete Listing</a>
+            <a id="report" onclick = "reportListing(event)">Report Listing</a>
+            <a id="edit" onclick="editListing(event)">Edit Listing</a>
+            <a id ="sponsor" >Sponsor Listing</a>
+            <a id="delete" >Delete Listing</a>
         </div>
-        <img id="premium" src="../images/premiumIcon.png" alt="Premium listing">
-        <img id="sponsored" src="../images/sponsoredIcon.png" alt = "Sponsored listing">
-        <img src="images/front-view iphone 13.png" alt="Product 1">
+        <img id="premium" src="images/premiumIcon.png" alt="Premium listing">
+        <img id="sponsored" src="images/sponsoredIcon.png" alt = "Sponsored listing">
+        <img id="productImg" src="" alt="Product 1">
         <div class="description">
             <h3>Local stock - Foldable Bicycle</h3>
             <p>S$140</p>
             <span>Brand New</span>
         </div>
         <button class="like-btn">
-            <img src = "../images/normalHeart.png" viewBox="0 0 24 24" width="24" height="24">
+            <img src="../images/normalHeart.png" viewBox="0 0 24 24" width="24" height="24">
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="none" stroke="#000" stroke-width="2"/>
             </svg>
             <span class="like-count">23</span>
         </button>
     </div>
-    <script src="profile.js"></script>
 </body>
 </html>
-
-

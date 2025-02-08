@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upgrade to Premium</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Bump Listing Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/pushlisting.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -53,6 +54,7 @@
           <li><a onclick="subCatSearch(event)">OnePlus 12</a></li>
           <li><a onclick="subCatSearch(event)">OnePlus 11</a></li>
       </div>
+
   </nav>
   <div class="nav-icons">
     <a href="../Likes-page/likes-page.html">
@@ -65,13 +67,13 @@
   </div>
   <div class="user-container" id="user-container">
     <img src="../images/profile.jpg" alt="User Profile">
-  <div class="dropdown-menu" id="dropdown-menu">
-    <a href="../Edit-Profile/edit-profile.html"><i class="fa-solid fa-gear"></i>Settings</a>
-    <a href="#"id="logoutbutton" class="logout-button">
-      <i class="fa-solid fa-right-from-bracket" style="color: #ff0000;"></i>Log Out
-    </a>
+    <div class="dropdown-menu" id="dropdown-menu">
+      <a href="../Edit-Profile/edit-profile.html"><i class="fa-solid fa-gear"></i>Settings</a>
+      <a href="#" id="logoutbutton" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket" style="color: #ff0000;"></i>Log Out
+      </a>
+    </div>
   </div>
-</div>
   <div class="auth-buttons">
     <div class="user-actions">
       <button class="register-btn"><a href="../register/register.html">Register</a></button>
@@ -79,75 +81,60 @@
       <button class="sell-btn" onclick="window.location.href='../Create-Listing/create-listing.html'">Sell</button>
     </div>
   </div>
-    
-</header>
-  
-  <div class="hero">
-    <h1>Upgrade to Premium</h1>
-    <p>Boost Your Listings and Maximize Sales</p>
-    <a href="#pricing" class="cta-button">Get Premium Now</a>
+  </header>
+  <div class="main">
+    <h1 class="title">Sponsor Your Listing</h1>
+    <p class="subtitle">Get your item seen by more buyers!</p> <p>Bumping your listing moves it to the top of the search results, making it more visible to potential buyers. This can help you sell your item faster.</p>
+    <p class="subtitle">"Step 1: Select Listings" → "Step 2: Choose Package" → "Step 3: Pay."
+    </p>
+    <section class="content">
+      <div class="listings">
+        <h2>Listing Selected</h2>
+        <div class="progress-bar">
+          1/1 Listings Selected
+        </div>
+        <div class="listing-item">
+          <div class="listing-image">
+            <img>
+          </div>
+          <div class="listing-details">
+            <p id="title">Title</p>
+            <p id="itemPrice">Price: $XX.XX</p>
+            <p id="postTime">Posted X days ago</p>
+          </div>
+        </div>
+      </div>
+      <div class="packages">
+        <h2>Selected Bump Package</h2>
+        <div class="package">
+            <div class="package-details">
+              <p>Forever Sponsor</p>
+              <p id="price">Price: $10.00</p>
+              <p>Sponsor the listing of your choice forever with a one time payment!</p>
+            </div>
+        </div>
+        <button class="pay-button" onclick="window.location.href='../premiumpayment/premiumpayment.html'">Pay Now</button>
+      </div>
+    </section>
+    <div class="testimonials">
+      <h2>What Our Users Say</h2>
+      <div class="testimonial">
+          <p>"Sponsoring my listing really helped! I sold my item within a week." - Happy Seller</p>
+      </div>
   </div>
-  
-  <section class="features" id="features">
-    <h2>Premium Features</h2>
-    <div class="feature-list">
-      <div class="feature-item">
-        <img src="/images/google.png" alt="Priority Placement">
-        <h3>Priority Placement</h3>
-        <p>Get your listings to the top and attract more views.</p>
-      </div>
-      <div class="feature-item">
-        <img src="/images/analysis.png" alt="Advanced Analytics">
-        <h3>Advanced Analytics</h3>
-        <p>Track your performance with detailed insights.</p>
-      </div>
-      <div class="feature-item">
-        <img src="/images/brand.png" alt="Custom Branding">
-        <h3>Custom Branding</h3>
-        <p>Make your listings stand out with personalized branding.</p>
-      </div>
+  <div class="faqs">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+        <h3>How does sponsor work?</h3>
+        <p>Your listing is moved to the top of the search results for a period of time.</p>
     </div>
-  </section>
-  <section class="pricing" id="pricing">
-    <h2>Choose Your Plan</h2>
-    <p>Select the plan that best suits your needs.</p>
-    <div class="pricing-cards">
-      <div class="pricing-card">
-        <h3>Basic</h3>
-        <p class="price">$9.99 / month</p>
-        <ul>
-          <li>Priority Placement</li>
-          <li>Standard Analytics</li>
-          <li>Basic Branding Options</li>
-        </ul>
-        <button class="pricing-button" data-plan="Basic" data-price="9.99">Choose Basic</button>
-      </div>
-  
-      <div class="pricing-card premium">
-        <h3>Advanced</h3>
-        <p class="price">$19.99 / month</p>
-        <ul>
-          <li>Priority Placement</li>
-          <li>Advanced Analytics</li>
-          <li>Custom Branding</li>
-          <li>Dedicated Support</li>
-        </ul>
-        <button class="pricing-button" data-plan="Advanced" data-price="19.99">Choose Advanced</button>
-      </div>
-  
-      <div class="pricing-card">
-        <h3>Professional</h3>
-        <p class="price">$49.99 / month</p>
-        <ul>
-          <li>All Premium Features</li>
-          <li>Account Manager</li>
-          <li>Exclusive Discounts</li>
-          <li>Priority Customer Support</li>
-        </ul>
-        <button class="pricing-button" data-plan="Professional" data-price="49.99">Choose Professional</button>
-      </div>
+    <div class="faq">
+        <h3>How long does my listing stay sponsored?</h3>
+        <p>It depends on the package you choose.</p>
     </div>
-  </section>
+</div>
+  </div>
   <script src="script.js"></script>
-</body>  
+</body>
 </html>
+
