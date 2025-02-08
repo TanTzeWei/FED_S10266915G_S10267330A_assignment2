@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded",async function(){
         const userId = localStorage.getItem("id");
 
         if (likedby.includes(userId)) { // Check if the user ID is in the array
-          likeButton.querySelector("img").src = "../images/likedHeart.png";
+          likeButton.querySelector("img").src = "images/likedHeart.png";
           likeButton.setAttribute("liked", "true");
         } else {
-          likeButton.querySelector("img").src = "../images/normalHeart.png"; // Or your default image
+          likeButton.querySelector("img").src = "images/normalHeart.png"; // Or your default image
           likeButton.setAttribute("liked", "false");
         }
 
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded",async function(){
           .then(data => console.log("Updated item:", data))
           .catch(error => console.error("Error updating item:", error));
       
-          button.querySelector("img").src = "../images/likedHeart.png";
+          button.querySelector("img").src = "images/likedHeart.png";
           button.querySelector("path span").textContent = Number(selected.likecount)+1
           }else{
             const itemId = selected._id;  // The document ID to update
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded",async function(){
       
             
           }
-        button.querySelector("img").src = "../images/normalHeart.png";
+        button.querySelector("img").src = "images/normalHeart.png";
         button.querySelector("path span").textContent = Number(selected.likecount)-1;
         })
       }
