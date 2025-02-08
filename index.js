@@ -474,7 +474,7 @@ function search(){
   searchButton.addEventListener("click",function(){
     let search = document.querySelector(".search-bar input").value;
     localStorage.setItem("search",search);
-    const url = `/SearchResult/Search.html?item=${search}`;
+    const url = `FED_S10266915G_S10267330A_assignment2/SearchResult/Search.html?item=${search}`;
     window.location.href = url; 
     console.log("Done")
   })
