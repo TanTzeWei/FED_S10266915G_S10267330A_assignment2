@@ -53,7 +53,7 @@ body {
     transform: scale(1.2);
   }
   
-  .user-icon {
+  .user-container {
     display: none;
     margin-left: 15px; /* Hide the profile icon initially */
 }
