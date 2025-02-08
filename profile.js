@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded",async function(){
                     event.stopPropagation();
                     console.log("✅ Logout button clicked!");
                     localStorage.removeItem("id");
-                    window.location.href = "../login/login.html";
+                    window.location.href = "login.html";
                 });
             } else {
                 console.error("❌ Logout button NOT found!");
@@ -134,7 +134,7 @@ function sponsorListing(event){
   let productCard = event.target.parentElement.parentElement;
   let productId = productCard.getAttribute("productid")
   localStorage.setItem("productId",productId);
-  const url = `/PushListing/pushlisting.html?id=${productId}`;
+  const url = `pushlisting.html?id=${productId}`;
   window.location.href = url; 
 }
 async function findProfile(idNo){
@@ -231,7 +231,7 @@ function clickOption(e){
     productCard.addEventListener("click",function(){
       let productId = productCard.getAttribute("productid")
       localStorage.setItem("productId",productId)
-      const url = `/product/product.html?id=${productId}`;
+      const url = `product.html?id=${productId}`;
       window.location.href = url; 
       console.log("Done")
     })
@@ -258,7 +258,7 @@ function clickOption(e){
   function subCatSearch(event){
     let button = event.target;
     localStorage.setItem("search",button.textContent);
-    const url = `/SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+    const url = `Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
     window.location.href = url; 
   
   }

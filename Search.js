@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded",async function(){
                   event.stopPropagation();
                   console.log("✅ Logout button clicked!");
                   localStorage.removeItem("id");
-                  window.location.href = "../login/login.html";
+                  window.location.href = "login.html";
               });
           } else {
               console.error("❌ Logout button NOT found!");
@@ -280,7 +280,7 @@ function search(){
     searchButton.addEventListener("click",function(){
       let search = document.querySelector(".search-bar input").value;
       localStorage.setItem("search",search);
-      const url = `/SearchResult/Search.html?item=${search}`;
+      const url = `Search.html?item=${search}`;
       window.location.href = url; 
       console.log("Done")
     })
@@ -291,7 +291,7 @@ function search(){
     productCard.addEventListener("click",function(){
       let productId = productCard.getAttribute("productid")
       localStorage.setItem("productId",productId)
-      const url = `/product/product.html?id=${productId}`;
+      const url = `product.html?id=${productId}`;
       window.location.href = url; 
       console.log("Done")
     })
@@ -315,7 +315,7 @@ function search(){
   function editListing(productCard){
     console.log(productCard.target)
     localStorage.setItem("productId",productCard.getAttribute("productid"))
-    const url = `/EditListing/EditListing.html?id=${productId}`;
+    const url = `EditListing.html?id=${productId}`;
     window.location.href = url; 
   }
   function lottieGone(){

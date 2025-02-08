@@ -474,7 +474,7 @@ function search(){
   searchButton.addEventListener("click",function(){
     let search = document.querySelector(".search-bar input").value;
     localStorage.setItem("search",search);
-    const url = `/SearchResult/Search.html?item=${search}`;
+    const url = `Search.html?item=${search}`;
     window.location.href = url; 
     console.log("Done")
   })
@@ -486,7 +486,7 @@ function sponsorListing(event){
   let productCard = event.target.parentElement.parentElement;
   let productId = productCard.getAttribute("productid")
   localStorage.setItem("productId",productId);
-  const url = `/PushListing/pushlisting.html?id=${productId}`;
+  const url = `pushlisting.html?id=${productId}`;
   window.location.href = url; 
 }
 
@@ -495,7 +495,7 @@ function createProductLink(productCard) {
   productCard.addEventListener("click",function(){
     let productId = productCard.getAttribute("productid")
     localStorage.setItem("productId",productId)
-    const url = `/product/product.html?id=${productId}`;
+    const url = `product.html?id=${productId}`;
     window.location.href = url; 
     console.log("Done")
   })
@@ -520,13 +520,13 @@ function editListing(event){
   let productCard = event.target.parentElement.parentElement;
   let productId = productCard.getAttribute("productid")
   localStorage.setItem("productId",productId);
-  const url = `/EditListing/EditListing.html?id=${productId}`;
+  const url = `EditListing.html?id=${productId}`;
   window.location.href = url; 
 }
 function reportListing(event){
   let productCard = event.target.parentElement
   localStorage.setItem("productId",productCard.getAttribute("productid"));
-  const url = `/Report/Report.html`;
+  const url = `Report.html`;
   window.location.href = url; 
 }
 async function deleteListing(button,oldData){
@@ -778,7 +778,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function subCatSearch(event){
   let button = event.target;
   localStorage.setItem("search",button.textContent);
-  const url = `/SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+  const url = `Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
   window.location.href = url; 
 
 }

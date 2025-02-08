@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded",function(){
             console.log("Can login");
             loginButton.style.backgroundColor = "#28a745";
             loginButton.disabled = false;
-            window.location.href = "../index.html"
+            window.location.href = "index.html"
         }else{
             console.log("cannot login");
             loginButton.style.backgroundColor = "#28a745";
