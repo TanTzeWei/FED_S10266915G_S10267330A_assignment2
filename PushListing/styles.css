@@ -44,7 +44,7 @@ body {
 .nav-icons i:hover, .user-icon i:hover {
   transform: scale(1.2); /* Slight enlargement on hover */
 }
-.user-icon{
+.user-container{
   display: none; /* Initially hidden */
   cursor: pointer;
   margin-left: 20px; /* Add spacing between cart and user icon */
@@ -71,7 +71,9 @@ body {
 .auth-buttons button:hover {
   background-color: #2F80ED;
 }
-  
+.register-btn a , .login-btn a  {
+  text-decoration: none;
+}
 /* Categories*/
 .categories {
   display: flex;
@@ -105,6 +107,7 @@ body {
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  margin-top: 15px;
 }
 
 .subcategories li {
@@ -126,7 +129,54 @@ body {
 
 .category:hover .subcategories {
   display: block;
-}  
+} 
+/* User Container */
+.user-container {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid red !important;
+  
+}
+.user-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+/* Dropdown Menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-menu a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+  
+}
+.dropdown-menu a i {
+  margin-right: 8px; /* Adds space between icon and text */
+}
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-menu.active {
+  display: block; /* Ensure the dropdown appears when active */
+}
   /* Main Section */
   .main {
     max-width: 1200px;
@@ -320,7 +370,26 @@ body {
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .search-bar {
       margin: 10px 0;
       width: 100%;
@@ -379,7 +448,28 @@ body {
   .categories a {
       margin: 5px 0;
   }
+   .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .search-bar {
       margin: 10px 0;
       width: 100%;
@@ -437,7 +527,28 @@ body {
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .search-bar {
       margin: 10px 0;
       width: 100%;
