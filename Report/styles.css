@@ -74,6 +74,10 @@ body {
 .register-btn a , .login-btn a  {
   text-decoration: none;
 }
+.register-btn a:hover, 
+.login-btn a:hover {
+  color: #ffffff; /* Ensure the text color remains white on hover */
+}
 /* Categories */
 .categories {
   display: flex;

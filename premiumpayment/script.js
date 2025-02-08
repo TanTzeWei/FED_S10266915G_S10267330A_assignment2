@@ -155,35 +155,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Check if the screen size is small
-    const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
-
-    if (isSmallScreen) {
-        const categories = document.querySelectorAll('.category > a');
-        
-        categories.forEach(category => {
-            category.addEventListener('click', function (e) {
-                // Prevent the default link behavior
-                e.preventDefault();
-
-                // Toggle visibility of subcategories
-                const subcategories = this.nextElementSibling; // The <ul> element
-                subcategories.classList.toggle('show');
-            });
-        });
-    }
-
-    // Hamburger menu functionality
-    document.getElementById('hamburger-menu').addEventListener('click', function () {
-        var categories = document.querySelector('.categories');
-        var authButtons = document.querySelector('.auth-buttons');
-        var userIcon = document.querySelector('.user-icon');
-
-        categories.classList.toggle('show');
-        authButtons.classList.toggle('show');
-        userIcon.classList.toggle('show');
-    });
-});
+function subCatSearch(event){
+    let button = event.target;
+    localStorage.setItem("search",button.textContent);
+    const url = `/SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+    window.location.href = url; 
+  
+  }
 
   

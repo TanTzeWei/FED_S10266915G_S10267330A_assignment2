@@ -463,41 +463,10 @@ async function findProduct(id) {
     const lottie = document.querySelector("#lottiePlayer")
     lottie.style.display = "none";
   }
-  document.addEventListener('DOMContentLoaded', function() {
-    const openBtn = document.querySelector(".hamburger");
-    const closeBtn = document.querySelector(".close-menu");
-    const menu = document.querySelector(".categories");
-    const navIcons = document.querySelector(".nav-icons");
-    const authButtons = document.querySelector(".auth-buttons");
+function subCatSearch(event){
+  let button = event.target;
+  localStorage.setItem("search",button.textContent);
+  const url = `/SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+  window.location.href = url; 
 
-    openBtn.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevents immediate closing when clicking the button
-        menu.classList.toggle("active");
-        document.body.classList.toggle('menu-open');
-        navIcons.classList.toggle("active");
-        authButtons.classList.toggle("active");
-    });
-
-    closeBtn.addEventListener("click", (event) => {
-        if (!menu.contains(event.target) && !openBtn.contains(event.target)) {
-            menu.classList.remove("active");
-            navIcons.classList.remove("active");
-            authButtons.classList.remove("active");
-        }
-    });
-
-    const profileIcon = document.getElementById('user-container');
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    profileIcon.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevents the click event from bubbling up
-        dropdownMenu.classList.toggle('active'); // Toggle active class correctly
-    });
-
-    // Close the dropdown if the user clicks outside of it
-    window.addEventListener('click', function(event) {
-        if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('active');
-        }
-    });
-});
+}

@@ -318,3 +318,10 @@ async function fetchListingsData(){
         console.error("Error fetching data:", error);
       }
 }
+function subCatSearch(event){
+  let button = event.target;
+  localStorage.setItem("search",button.textContent);
+  const url = `/SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+  window.location.href = url; 
+
+}
