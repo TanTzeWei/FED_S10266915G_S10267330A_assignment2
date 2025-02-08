@@ -17,11 +17,11 @@
     <div class="category">
       <a href="#">Apple</a>
       <ul class="subcategories">
-        <li><a href="#">Iphone 15 Pro Max</a></li>
-        <li><a href="#">Iphone 15 Pro</a></li>
-        <li><a href="#">Iphone 15</a></li>
-        <li><a href="#">Iphone 14 Pro Max</a></li>
-        <li><a href="#">Iphone 14</a></li>
+        <li><a href="#" class="subcategory-link">Iphone 15 Pro Max</a></li>
+        <li><a href="#" class="subcategory-link">Iphone 15 Pro</a></li>
+        <li><a href="#" class="subcategory-link">Iphone 15</a></li>
+        <li><a href="#" class="subcategory-link">Iphone 14 Pro Max</a></li>
+        <li><a href="#" class="subcategory-link">Iphone 13</a></li>
       </ul>
     </div>
 
@@ -76,21 +76,31 @@
     </div>
   </nav>
   <div class="nav-icons">
-    <i class="fa-regular fa-heart"></i>
+    <a href="../Likes-page/likes-page.html">
+      <i class="fa-regular fa-heart"></i>
+    </a>
     <i class="fa-regular fa-bell"></i>
+    <a href="../chat/chat.html">
     <i class="fa-regular fa-comments"></i>
+    </a>
   </div>
-  <div class="user-icon">
-    <i class="fa-regular fa-user"></i>
+  <div class="user-container" id="user-container">
+    <img src="../images/profile.jpg" alt="User Profile">
+    <div class="dropdown-menu" id="dropdown-menu">
+      <a href="../Edit-Profile/edit-profile.html"><i class="fa-solid fa-gear"></i>Settings</a>
+      <a href="#" id="logoutbutton" class="logout-button">
+        <i class="fa-solid fa-right-from-bracket" style="color: #ff0000;"></i>Log Out
+      </a>
+    </div>
   </div>
   <div class="auth-buttons">
     <div class="user-actions">
-      <button>Register</button>
-      <button>Login</button>
-      <button class="sell-btn">Sell</button>
+      <button class="register-btn"><a href="../register/register.html">Register</a></button>
+      <button class="login-btn"><a href="../login/login.html">Login</a></button>
+      <button class="sell-btn" onclick="window.location.href='../Create-Listing/create-listing.html'">Sell</button>
+
     </div>
   </div>
-    
 </header>
 <body>
   <div class="wrapper">
@@ -138,13 +148,7 @@
         </div>
     </div>
 </div>
-
-    <script>
-        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Thank you for your feedback!');
-        });
-    </script>
+<script src="report.js"></script>
 </body>
 </html>
 
