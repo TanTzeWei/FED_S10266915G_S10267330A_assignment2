@@ -184,6 +184,26 @@ document.addEventListener("DOMContentLoaded",async function(){
         const url = `../Report/Report.html`;
         window.location.href = url; 
       }
+      function clickOption(e){
+        let target = e.target;
+        let productCard = target.parentElement.parentElement;
+        if(window.getComputedStyle(productCard.querySelector("#menu-example")).display == "none"){
+          if(productCard.getAttribute("ownerId") == localStorage.getItem("id")){
+            productCard.querySelector("#menu-example").style.display = "block";
+            productCard.querySelector("#menu-example #edit").style.display = "block";
+            productCard.querySelector("#menu-example #sponsor").style.display = "block";
+            productCard.querySelector("#menu-example #delete").style.display = "block";
+          }else{
+            productCard.querySelector("#menu-example").style.display = "block";
+            productCard.querySelector("#menu-example #report").style.display = "block";
+          }
+        }else{
+          productCard.querySelector("#menu-example").style.display = "none";
+            productCard.querySelector("#menu-example #edit").style.display = "hidden";
+            productCard.querySelector("#menu-example #sponsor").style.display = "hidden";
+            productCard.querySelector("#menu-example #delete").style.display = "hidden";
+        } 
+    }      
       async function deleteListing(button,oldData){
       const data = JSON.parse(oldData);
       let productCard = button.parentElement.parentElement;

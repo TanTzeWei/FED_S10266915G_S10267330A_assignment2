@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded",async function(){
 
             let productId = productCard.getAttribute("productid")
             localStorage.setItem("productId",productId)
-            const url = `/product/product.html?id=${productId}`;
+            const url = `../product/product.html?id=${productId}`;
             window.location.href = url; 
             console.log("Done")
 })
