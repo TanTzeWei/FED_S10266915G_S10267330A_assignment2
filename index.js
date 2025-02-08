@@ -474,7 +474,7 @@ function search(){
   searchButton.addEventListener("click",function(){
     let search = document.querySelector(".search-bar input").value;
     localStorage.setItem("search",search);
-    const url = `FED_S10266915G_S10267330A_assignment2/SearchResult/Search.html?item=${search}`;
+    const url = `/SearchResult/Search.html?item=${search}`;
     window.location.href = url; 
     console.log("Done")
   })
@@ -653,56 +653,12 @@ document.body.style.fontFamily = "Arial, sans-serif"; // Optional font styling
 }
 
 document.addEventListener("DOMContentLoaded",async function(){
-  const authButtons = document.querySelector(".auth-buttons");
-  if(localStorage.getItem("id") === null){
+    if(localStorage.getItem("id") === null){
       console.log("user not logged in")
-      authButtons.classList.remove('logged-in');
+    }else{
+      document.querySelector(".user-icon").style.display = "block";
+      document.querySelector(".auth-buttons").style.display = "none";
     }
-    else{
-      authButtons.classList.add('logged-in');
-      document.querySelector(".user-container").style.display = "block";
-      document.querySelector(".register-btn").style.display = "none";
-      document.querySelector(".login-btn").style.display = "none";
-    }
-    const profileIcon = document.getElementById("user-container");
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    const logoutButton = document.getElementById("logoutbutton");
-
-  if (!profileIcon || !dropdownMenu) {
-      console.error("❌ user-container OR dropdown-menu NOT found in the DOM!");
-      return;
-  }
-
-  console.log("✅ user-container FOUND!");
-
-  // Corrected click event listener
-  profileIcon.addEventListener("click", function (event) {
-      console.log("✅ Profile Icon Clicked!");
-      event.stopPropagation(); // Prevents the click event from bubbling up
-      dropdownMenu.classList.toggle("active"); // Toggle active class correctly
-      setTimeout(() => {
-          if (logoutButton) {
-              console.log("✅ Logout button FOUND!");
-              logoutButton.addEventListener("click", function (event) {
-                  event.stopPropagation();
-                  console.log("✅ Logout button clicked!");
-                  localStorage.removeItem("id");
-                  window.location.href = "../login/login.html";
-              });
-          } else {
-              console.error("❌ Logout button NOT found!");
-          }
-      }, 1000); // Give the browser time to render the dropdown
-  });
-
-
-  // Close the dropdown if the user clicks outside of it
-  document.addEventListener("click", function (event) {
-      if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-          dropdownMenu.classList.remove("active");
-          console.log("✅ Dropdown closed!");
-      }
-  });
     search();
     let data = (await fetchListingsData());
     const trending = document.querySelector("#trendingList");
