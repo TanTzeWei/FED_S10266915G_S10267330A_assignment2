@@ -9,9 +9,9 @@
 </head>
 <body>
   <header class="header">
-    <div class="logo">
+    <a href="/" class="logo">
       <img src="../images/MokeSell.png" alt="MokeSell Logo">
-    </div>
+    </a>
     <nav class="categories">
       <div class="category">
       <a href="#">Apple</a>
@@ -70,18 +70,28 @@
 
   </nav>
   <div class="nav-icons">
+    <a href="../Likes-page/likes-page.html">
     <i class="fa-regular fa-heart"></i>
+    </a>
     <i class="fa-regular fa-bell"></i>
+    <a href="../chat/chat.html">
     <i class="fa-regular fa-comments"></i>
+    </a>
   </div>
-  <div class="user-icon">
-    <i class="fa-regular fa-user"></i>
+  <div class="user-container" id="user-container">
+    <img src="../images/profile.jpg" alt="User Profile">
+  <div class="dropdown-menu" id="dropdown-menu">
+    <a href="../Edit-Profile/edit-profile.html"><i class="fa-solid fa-gear"></i>Settings</a>
+    <a href="#"id="logoutbutton" class="logout-button">
+      <i class="fa-solid fa-right-from-bracket" style="color: #ff0000;"></i>Log Out
+    </a>
   </div>
+</div>
   <div class="auth-buttons">
     <div class="user-actions">
-      <button>Register</button>
-      <button>Login</button>
-      <button class="sell-btn">Sell</button>
+      <button class="register-btn"><a href="../register/register.html">Register</a></button>
+      <button class="login-btn"><a href="../login/login.html">Login</a></button>
+      <button class="sell-btn" onclick="window.location.href='../Create-Listing/create-listing.html'">Sell</button>
     </div>
   </div>
     
@@ -125,7 +135,7 @@
           <li>Standard Analytics</li>
           <li>Basic Branding Options</li>
         </ul>
-        <button class="pricing-button">Choose Basic</button>
+        <button class="pricing-button" data-plan="Basic" data-price="9.99">Choose Basic</button>
       </div>
   
       <div class="pricing-card premium">
@@ -137,7 +147,7 @@
           <li>Custom Branding</li>
           <li>Dedicated Support</li>
         </ul>
-        <button class="pricing-button">Choose Advanced</button>
+        <button class="pricing-button" data-plan="Advanced" data-price="19.99">Choose Advanced</button>
       </div>
   
       <div class="pricing-card">
@@ -149,10 +159,10 @@
           <li>Exclusive Discounts</li>
           <li>Priority Customer Support</li>
         </ul>
-        <button class="pricing-button">Choose Professional</button>
+        <button class="pricing-button" data-plan="Professional" data-price="49.99">Choose Professional</button>
       </div>
     </div>
   </section>
-  
+  <script src="script.js"></script>
 </body>  
 </html>

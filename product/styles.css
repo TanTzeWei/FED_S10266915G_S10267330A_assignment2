@@ -1,7 +1,4 @@
 /* General Page Styling */
-body.menu-open {
-  overflow: hidden;
-}
 body {
   font-family: Arial, sans-serif;
   margin: 0;
