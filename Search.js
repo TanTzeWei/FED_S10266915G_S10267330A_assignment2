@@ -174,6 +174,7 @@ function clickOption(e){
         productCard.querySelector("#menu-example").style.display = "block";
         productCard.querySelector("#menu-example #edit").style.display = "block";
         productCard.querySelector("#menu-example #delete").style.display = "block";
+        productCard.querySelector("#menu-example #sponsor").style.display = "block";
       }else{
         productCard.querySelector("#menu-example").style.display = "block";
         productCard.querySelector("#menu-example #report").style.display = "block";
@@ -230,7 +231,7 @@ function clickOption(e){
       .catch(error => console.error("Error updating item:", error));
   
       button.querySelector("img").src = "images/likedHeart.png";
-      button.querySelector("path span").textContent = Number(selected.likecount)-1
+      button.querySelector("path span").textContent = Number(selected.likecount)+1
       }else{
         const itemId = selected._id;  // The document ID to update
         let newLikedBy = Array.isArray(selected.likedby) ? [...selected.likedby] : [];
