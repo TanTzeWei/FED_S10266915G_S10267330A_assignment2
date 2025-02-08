@@ -466,6 +466,12 @@ body {
     align-items: center; 
     z-index: 1000;
 }
+#inactive{
+    display:none;
+    position:absolute;
+    width: 100%;
+    height:100%;
+}
 
 /* Lottie animation player */
 #lottiePlayer #player {
