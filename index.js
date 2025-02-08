@@ -474,7 +474,7 @@ function search(){
   searchButton.addEventListener("click",function(){
     let search = document.querySelector(".search-bar input").value;
     localStorage.setItem("search",search);
-    const url = `SearchResult/Search.html?item=${search}`;
+    const url = `/SearchResult/Search.html?item=${search}`;
     window.location.href = url; 
     console.log("Done")
   })
