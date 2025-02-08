@@ -25,15 +25,17 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.logo {
-    font-size: 32px; /* Increased font size */
-    font-weight: bold;
-    color: #00796B;
-}
+.logo-link img {
+    max-height: 100%;
+    width:100%;
+    margin-left: 30px;
+    max-width: 200px;
+    height: 50px;
+  }
 .nav-icons {
   display: flex; /* Flexbox for horizontal alignment */
   align-items: center; /* Vertically center the icons */
-  gap: 15px; /* Space between icons */
+  gap: 25px; /* Space between icons */
 }
 
 .nav-icons i, .user-icon i {
@@ -51,7 +53,7 @@ body {
   transform: scale(1.2); /* Slight enlargement on hover */
 }
 
-.user-icon {
+.user-container {
   display: none; /* Hide the user icon by default */
 }
 
@@ -70,12 +72,15 @@ body {
 }
 
 .auth-buttons .sell-btn {
-  background-color: #FF6F61;
+  background-color: #2f80ed;
   color: #ffffff;
 }
 
 .auth-buttons button:hover {
-  background-color: #E65C50;
+  background-color: #2f80ed;
+}
+.register-btn a , .login-btn a  {
+    text-decoration: none;
 }
 .categories {
     display: flex;
@@ -102,7 +107,7 @@ body {
 }
 
 .categories a:hover {
-    color: #00796B;
+    color: #2f80ed;
 }
 
 .subcategories {
@@ -114,6 +119,7 @@ body {
     border: 1px solid #e0e0e0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    margin-top: -2px;
 }
 
 .subcategories li {

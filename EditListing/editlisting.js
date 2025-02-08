@@ -1,10 +1,54 @@
 document.addEventListener("DOMContentLoaded",async function(){
+  const authButtons = document.querySelector(".auth-buttons");
   if(localStorage.getItem("id") === null){
-    console.log("user not logged in")
-  }else{
-    document.querySelector(".user-container").style.display = "block";
-    document.querySelector(".user-actions").style.display = "none";
+      console.log("user not logged in")
+      authButtons.classList.remove('logged-in');
+    }
+    else{
+      authButtons.classList.add('logged-in');
+      document.querySelector(".user-container").style.display = "block";
+      document.querySelector(".register-btn").style.display = "none";
+      document.querySelector(".login-btn").style.display = "none";
+    }
+    const profileIcon = document.getElementById("user-container");
+    const dropdownMenu = document.getElementById("dropdown-menu");
+    const logoutButton = document.getElementById("logoutbutton");
+
+  if (!profileIcon || !dropdownMenu) {
+      console.error("❌ user-container OR dropdown-menu NOT found in the DOM!");
+      return;
   }
+
+  console.log("✅ user-container FOUND!");
+
+  // Corrected click event listener
+  profileIcon.addEventListener("click", function (event) {
+      console.log("✅ Profile Icon Clicked!");
+      event.stopPropagation(); // Prevents the click event from bubbling up
+      dropdownMenu.classList.toggle("active"); // Toggle active class correctly
+      setTimeout(() => {
+          if (logoutButton) {
+              console.log("✅ Logout button FOUND!");
+              logoutButton.addEventListener("click", function (event) {
+                  event.stopPropagation();
+                  console.log("✅ Logout button clicked!");
+                  localStorage.removeItem("id");
+                  window.location.href = "../login/login.html";
+              });
+          } else {
+              console.error("❌ Logout button NOT found!");
+          }
+      }, 300); // Give the browser time to render the dropdown
+  });
+
+
+  // Close the dropdown if the user clicks outside of it
+  document.addEventListener("click", function (event) {
+      if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
+          dropdownMenu.classList.remove("active");
+          console.log("✅ Dropdown closed!");
+      }
+  });
   let productData = await fetchListingsData();
   let obj = JSON.parse(productData).find(item=> item.listingid = localStorage.getItem("productId"));
   const name = document.querySelector("#name");
@@ -73,7 +117,11 @@ document.addEventListener("DOMContentLoaded",async function(){
             const url = `../product/product.html?id=${productId}`;
             window.location.href = url; 
             console.log("Done")
-})
+            const subcategories = document.querySelectorAll(".subcategory");
+            subcategories.forEach(subcategory => {
+            subcategory.addEventListener("click", subCatSearch);
+    });
+});
 
 async function fetchListingsData(){
   try {
@@ -99,17 +147,9 @@ async function fetchListingsData(){
       console.error("Error fetching data:", error);
     }
 }
-const profileIcon = document.getElementById('user-container');
-    const dropdownMenu = document.getElementById('dropdown-menu');
-
-    profileIcon.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevents the click event from bubbling up
-        dropdownMenu.classList.toggle('active'); // Toggle active class correctly
-    });
-
-    // Close the dropdown if the user clicks outside of it
-    window.addEventListener('click', function(event) {
-        if (!profileIcon.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.remove('active');
-        }
-    });
+function subCatSearch(event){
+  let button = event.target;
+  localStorage.setItem("search",button.textContent);
+  const url = `../SearchResult/Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
+  window.location.href = url; 
+}
