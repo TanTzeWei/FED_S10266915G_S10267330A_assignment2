@@ -1,3 +1,4 @@
+**TAKE NOTE SOME OF THE PROBLEMS IN THE VIDEOS HAS BEEN RESOLVED BUT WE CANNOT RERECORD DUE TO CORS BLOCK. THE FUNCTIONS SOMEHOW DID NOT WORK WHEN WE DECIDED TO RECORD.**
 # MokeSell Website
 
 MokeSell is a consumer-to-consumer (C2C) marketplace designed exclusively for mobile phone sales. Whether you're looking to sell your pre-loved smartphone or find a great deal on a second-hand device, MokeSell provides a seamless and trustworthy platform for all mobile phone transactions.
