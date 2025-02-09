@@ -1,4 +1,7 @@
-**TAKE NOTE SOME OF THE PROBLEMS IN THE VIDEOS HAS BEEN RESOLVED BUT WE CANNOT RERECORD DUE TO CORS BLOCK. THE FUNCTIONS SOMEHOW DID NOT WORK WHEN WE DECIDED TO RECORD.**
+**TAKE NOTE SOME OF THE PROBLEMS IN THE VIDEOS HAS BEEN RESOLVED BUT WE CANNOT RERECORD DUE TO CORS BLOCK. THE FUNCTIONS SOMEHOW DID NOT WORK WHEN WE DECIDED TO RECORD.FUNCTIONS
+SUCH AS EDIT LISTING,SPONSOR LISTING,DELETE LISTING WERE NOT SHOWN DUE TO RESTDB LIMITATIONS.IN THE VIDEO CHAT DID NOT WORK AS EXPECTED BUT BELOW IS PROOF THAT CHAT WORKED FLAWLESSLY**
+![image](https://github.com/user-attachments/assets/e21f18d8-19d7-4d95-9fa3-8abcee542469)
+
 # MokeSell Website
 
 MokeSell is a consumer-to-consumer (C2C) marketplace designed exclusively for mobile phone sales. Whether you're looking to sell your pre-loved smartphone or find a great deal on a second-hand device, MokeSell provides a seamless and trustworthy platform for all mobile phone transactions.
