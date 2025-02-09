@@ -72,12 +72,12 @@ body {
 }
 
 .auth-buttons .sell-btn {
-  background-color: #2f80ed;
+  background-color: #5A9ED8;
   color: #ffffff;
 }
 
 .auth-buttons button:hover {
-  background-color: #2f80ed;
+  background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
     text-decoration: none;
@@ -86,35 +86,35 @@ body {
   .login-btn a:hover {
     color: #ffffff; /* Ensure the text color remains white on hover */
   }
-.categories {
+  .auth-buttons .sell-btn:hover {
+    background-color: #2F80ED;
+    color: #ffffff;
+  }
+  .categories {
     display: flex;
     justify-content: center;
     padding: 0 20px;
     background-color: #fff;
     font-size: 18px;
     position: relative;
-    flex-wrap: wrap; /* Allow categories to wrap to the next line if necessary */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-.categories .category {
-    position: relative; /* Ensure each category has relative positioning */
-}
-
-.categories a {
+  }
+  
+  .categories a {
     margin: 0 15px;
     text-decoration: none;
     color: #424242;
     font-size: 18px;
     transition: color 0.3s;
     font-weight: 500;
-}
-
-.categories a:hover {
+  }
+  
+  .categories a:hover {
     color: #2f80ed;
-}
-
-.subcategories {
+  }
+  .categories .category {
+    position: relative;
+  }
+  .subcategories {
     display: none;
     position: absolute;
     top: 100%;
@@ -124,28 +124,28 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     margin-top: -2px;
-}
-
-.subcategories li {
+  }
+  
+  .subcategories li {
     list-style: none;
-}
-
-.subcategories a {
+  }
+  
+  .subcategories a {
     display: block;
     padding: 10px 20px;
     white-space: nowrap;
     color: #424242;
     text-decoration: none;
     font-size: 16px;
-}
-
-.subcategories a:hover {
+  }
+  
+  .subcategories a:hover {
     background-color: #f8f8f8;
-}
-
-.category:hover .subcategories {
+  }
+  
+  .category:hover .subcategories {
     display: block;
-}
+  }
 /* Uer Container */
 .user-container {
     position: relative;
@@ -330,7 +330,26 @@ button.submit-button:hover {
     .categories a {
         margin: 5px 0;
     }
-
+    .user-container {
+        width: 30px;
+        height: 30px;
+      }
+    
+      .dropdown-menu {
+        right: 5px;
+        left: 5px; /* Center it more */
+        width: calc(100vw - 20px);
+      }
+    
+      .dropdown-menu a {
+        padding: 10px 12px;
+      }
+      .auth-buttons .user-actions {
+        display: flex;
+      }
+      .auth-buttons.logged-in .user-actions {
+        display: none;
+      }
     .main-container {
         flex-direction: column;
         padding: 20px;
@@ -374,7 +393,26 @@ button.submit-button:hover {
     .categories a {
         margin: 5px 0;
     }
-
+    .user-container {
+        width: 30px;
+        height: 30px;
+      }
+    
+      .dropdown-menu {
+        right: 5px;
+        left: 5px; /* Center it more */
+        width: calc(100vw - 20px);
+      }
+    
+      .dropdown-menu a {
+        padding: 10px 12px;
+      }
+      .auth-buttons .user-actions {
+        display: flex;
+      }
+      .auth-buttons.logged-in .user-actions {
+        display: none;
+      }
     .main-container {
         flex-direction: column;
         padding: 20px;
@@ -418,7 +456,26 @@ button.submit-button:hover {
     .categories a {
         margin: 5px 0;
     }
-
+    .user-container {
+        width: 30px;
+        height: 30px;
+      }
+    
+      .dropdown-menu {
+        right: 5px;
+        left: 5px; /* Center it more */
+        width: calc(100vw - 20px);
+      }
+    
+      .dropdown-menu a {
+        padding: 10px 12px;
+      }
+      .auth-buttons .user-actions {
+        display: flex;
+      }
+      .auth-buttons.logged-in .user-actions {
+        display: none;
+      }
     .main-container {
         flex-direction: column;
         padding: 10px;

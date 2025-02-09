@@ -62,12 +62,12 @@ body {
 }
 
 .auth-buttons .sell-btn {
-    background-color: #2F80ED;
+    background-color: #5A9ED8;
     color: #ffffff;
 }
 
 .auth-buttons button:hover {
-    background-color: #2F80ED;
+    background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
   text-decoration: none;
@@ -75,6 +75,10 @@ body {
 .register-btn a:hover, 
 .login-btn a:hover {
   color: #ffffff; /* Ensure the text color remains white on hover */
+}
+.auth-buttons .sell-btn:hover {
+  background-color: #2F80ED;
+  color: #ffffff;
 }
 /* Categories*/
 .categories {
@@ -367,7 +371,26 @@ h3 {
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .checkout-wrapper {
       flex-direction: column;
       padding: 20px;
@@ -418,7 +441,26 @@ h3 {
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .checkout-wrapper {
       flex-direction: column;
       padding: 20px;
@@ -469,7 +511,26 @@ h3 {
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .checkout-wrapper {
       flex-direction: column;
       padding: 10px;

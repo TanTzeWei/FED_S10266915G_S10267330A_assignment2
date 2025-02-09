@@ -69,14 +69,11 @@
 }
 
 .auth-buttons .sell-btn {
-  background-color: #2f80ed;
+  background-color: #5a9ed8;
   color: #ffffff;
 }
-.register-btn:hover, .login-btn:hover {
-  color: white;
-}
 .auth-buttons button:hover {
-  background-color: #2f80ed;
+  background-color: #5a9ed8;
 }
 .register-btn a , .login-btn a  {
   text-decoration: none;
@@ -84,6 +81,10 @@
 .register-btn a:hover, 
 .login-btn a:hover {
   color: #ffffff; /* Ensure the text color remains white on hover */
+}
+.auth-buttons .sell-btn:hover {
+  background-color: #2F80ED;
+  color: #ffffff;
 }
 /* Categories*/
 .categories {
@@ -360,7 +361,26 @@
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .edit-profile-container {
       padding: 20px;
   }
@@ -398,7 +418,26 @@
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .edit-profile-container {
       padding: 20px;
   }
@@ -436,7 +475,26 @@
   .categories a {
       margin: 5px 0;
   }
+  .user-container {
+    width: 30px;
+    height: 30px;
+  }
 
+  .dropdown-menu {
+    right: 5px;
+    left: 5px; /* Center it more */
+    width: calc(100vw - 20px);
+  }
+
+  .dropdown-menu a {
+    padding: 10px 12px;
+  }
+  .auth-buttons .user-actions {
+    display: flex;
+  }
+  .auth-buttons.logged-in .user-actions {
+    display: none;
+  }
   .edit-profile-container {
       padding: 10px;
   }
