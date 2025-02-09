@@ -26,7 +26,7 @@ body {
   }
   
   .categories a:hover {
-    color: #00796B;
+    color: #2f80ed;
   }
   .subcategories {
     display: none;
@@ -38,6 +38,7 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     margin-top: 10px;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
   
   .subcategories li {
@@ -138,7 +139,9 @@ body {
     margin-top: 20px;
     border-radius: 10px;
 }
-
+.filters-container.active {
+    display: block; /* Show the filters container when active */
+}
 .filters {
     display: flex;
     flex-direction: column;
@@ -184,7 +187,7 @@ body {
 .filter-button.active {
     background-color: #007bff;
     color: white;
-  }
+}
 .filter-button:active {
     transform: translateY(0);
 }
@@ -257,12 +260,12 @@ body {
   }
   
   .auth-buttons .sell-btn {
-    background-color: #2F80ED;
+    background-color: #3A80BA;
     color: #ffffff;
   }
   
   .auth-buttons button:hover {
-    background-color: #1C6DD0;
+    background-color:  #5A9ED8;
   }
   .register-btn a , .login-btn a  {
     text-decoration: none;

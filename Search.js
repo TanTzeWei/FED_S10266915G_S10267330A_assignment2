@@ -1,5 +1,17 @@
 let productsData = [];
 document.addEventListener("DOMContentLoaded",async function(){
+  setupFilterButton();
+  const filterToggleButton = document.querySelector(".filter-toggle-button");
+  const filtersContainer = document.querySelector(".filters-container");
+
+  filterToggleButton.addEventListener("click", function() {
+    console.log("✅ Filter button clicked!");
+  if (filtersContainer.style.display === "none" || filtersContainer.style.display === "") {
+      filtersContainer.style.display = "block";
+  } else {
+      filtersContainer.style.display = "none";
+  }
+});
   const authButtons = document.querySelector(".auth-buttons");
   if(localStorage.getItem("id") === null){
       console.log("user not logged in")
@@ -39,7 +51,7 @@ document.addEventListener("DOMContentLoaded",async function(){
           } else {
               console.error("❌ Logout button NOT found!");
           }
-      }, 1000); // Give the browser time to render the dropdown
+      }, 300); // Give the browser time to render the dropdown
   });
 
 
@@ -53,25 +65,15 @@ document.addEventListener("DOMContentLoaded",async function(){
     search();
     let data = await fetchListingsData()
     console.log(JSON.parse(data));
-    let productsData = filterJSON(JSON.parse(data),localStorage.getItem("search"));
+    productsData = filterJSON(JSON.parse(data),localStorage.getItem("search"));
     console.log(productsData);
     renderProducts(productsData);
     document.querySelectorAll(".filter-button").forEach(button => {
       button.addEventListener("click", function () {
+          button.classList.toggle("active");  
           applyFilters(productsData);
         });
       });
-
-      const filterToggleButton = document.querySelector(".filter-toggle-button");
-      const filtersContainer = document.querySelector(".filters-container");
-
-    filterToggleButton.addEventListener("click", function() {
-        if (filtersContainer.style.display === "none" || filtersContainer.style.display === "") {
-            filtersContainer.style.display = "block";
-        } else {
-            filtersContainer.style.display = "none";
-        }
-    });
     });
     let grid = document.querySelector(".product-grid")
     if(productsData.length !=0){
@@ -442,9 +444,11 @@ function applyFilters(products) {
 
   renderProducts(filteredProducts);
 }
-// Add active class to filter buttons when clicked
-document.querySelectorAll(".filter-button").forEach(button => {
-  button.addEventListener("click", function () {
-      this.classList.toggle("active");
-  });
-});
+function setupFilterButton(){
+  document.querySelectorAll(".filter-button").forEach(button => {
+    button.addEventListener("click", function () {
+        button.classList.toggle("active");  
+        applyFilters(productsData);
+      });
+    });
+}
