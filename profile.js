@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded",async function(){
     let profileData = JSON.parse(await findProfile(profileId))[0];
     console.log(profileData);
     const user = document.querySelector("#username h2");
-    const desc = document.querySelector("#username p");
+    const desc = document.querySelector(".description-section p");
     const prem = document.querySelector("#username h2 span");
     const listingBy = document.querySelector(".listings h2");
     const productExample = document.querySelector("#example");
