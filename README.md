@@ -101,7 +101,7 @@ MokeSell is designed for individuals who want to **buy or sell second-hand mobil
 ## 📜 Credits  
 
 - **ChatGPT** – Assisted in API functions for **Imgbb** and **RestDB**. And also github formatting
-- **Inspired by** – Carousell, a mobile marketplace.  
+- **Inspired by** – Carousell
 
 ---
 
