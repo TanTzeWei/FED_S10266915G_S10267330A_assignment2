@@ -64,6 +64,8 @@ body {
 }
 
 .auth-buttons .sell-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   background-color: #5A9ED8;
   color: #ffffff;
 }
@@ -72,6 +74,8 @@ body {
   background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   text-decoration: none;
 }
 .register-btn a:hover, 
@@ -84,6 +88,8 @@ body {
 }
 /* Categories */
 .categories {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -112,6 +118,8 @@ body {
 }
 
 .subcategories {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400;
   display: none;
   position: absolute;
   top: 100%;
