@@ -1,6 +1,6 @@
 /* General Page Styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
@@ -19,13 +19,6 @@ a {
   background-color: #fff;
   border-bottom: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.hamburger {
-  display: block;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
 }
 .logo img {
   max-height: 100%;
@@ -73,6 +66,8 @@ transition: background-color 0.3s;
 }
 
 .auth-buttons .sell-btn {
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
 background-color: #5A9ED8;
 color: #ffffff;
 }
@@ -81,6 +76,8 @@ color: #ffffff;
 background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   text-decoration: none;
 }
 .register-btn a:hover, 
@@ -93,6 +90,8 @@ background-color: #5A9ED8;
 }
 /* Categories*/
 .categories {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -116,6 +115,8 @@ background-color: #5A9ED8;
   color: #2F80ED;
 }
 .subcategories {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400;
   display: none;
   position: absolute;
   top: 12px;
@@ -522,16 +523,7 @@ h3 {
   align-items: center; 
   z-index: 1000;
 }
-.close-menu {
-  display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
+
 /* Lottie animation player */
 #lottiePlayer #player {
   position: relative; 

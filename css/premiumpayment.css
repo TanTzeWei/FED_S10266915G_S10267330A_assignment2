@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -52,6 +52,7 @@ body {
 }
 
 .auth-buttons button {
+  color: black;
     margin-left: 15px;
     padding: 10px 20px;
     font-size: 18px;
@@ -62,6 +63,8 @@ body {
 }
 
 .auth-buttons .sell-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     background-color: #5A9ED8;
     color: #ffffff;
 }
@@ -70,6 +73,8 @@ body {
     background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   text-decoration: none;
 }
 .register-btn a:hover, 
@@ -82,6 +87,8 @@ body {
 }
 /* Categories*/
 .categories {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -106,6 +113,8 @@ body {
   position: relative;
 }
 .subcategories {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400;
   display: none;
   position: absolute;
   top: 100%;
@@ -269,6 +278,8 @@ h3 {
   font-size: 1em;
 }
 .back-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   background: #e0e0e0;
   color: #333;
   transition: background-color 0.3s;
@@ -280,6 +291,8 @@ h3 {
 }
 
 .confirm-btn {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
   background: #4a90e2;
   color: white;
   transition: background-color 0.3s;

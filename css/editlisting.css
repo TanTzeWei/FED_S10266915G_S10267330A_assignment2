@@ -1,6 +1,6 @@
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -72,14 +72,18 @@ body {
 }
 
 .auth-buttons .sell-btn {
-  background-color: #5A9ED8;
-  color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    background-color: #5A9ED8;
+    color: #ffffff;
 }
 
 .auth-buttons button:hover {
   background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
     text-decoration: none;
   }
   .register-btn a:hover, 
@@ -91,6 +95,8 @@ body {
     color: #ffffff;
   }
   .categories {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     display: flex;
     justify-content: center;
     padding: 0 20px;
@@ -115,6 +121,8 @@ body {
     position: relative;
   }
   .subcategories {
+    font-family: 'Roboto', sans-serif; 
+    font-weight: 400;
     display: none;
     position: absolute;
     top: 100%;

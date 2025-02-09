@@ -24,7 +24,7 @@ MokeSell is designed for individuals who want to **buy or sell second-hand mobil
 
 ### **Wireframes & Mockups**
 - [Adobe XD Wireframes](#) *(Include link or attach a folder in the repository)*  
-
+- Figma Wireframe (Link: https://www.figma.com/design/tCgwGHp7NemqbUCzVIR04h/FED-ASSG2?node-id=0-1&t=OcVMvmJzIJXjp7v6-1)
 ---
 
 ## 🎯 Features  
@@ -103,6 +103,8 @@ MokeSell is designed for individuals who want to **buy or sell second-hand mobil
 
 - **ChatGPT** – Assisted in API functions for **Imgbb** and **RestDB**. And also github formatting
 - **Inspired by** – Carousell
+- Icon taken from **Font Awesome**
+- All Images are taken from **Pinterest**
 
 ---
 

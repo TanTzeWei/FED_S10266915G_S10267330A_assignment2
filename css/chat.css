@@ -128,7 +128,7 @@ body {
   color: #2f80ed;
 }
 .subcategories {
-  font-family: 'Roboto', sans-serif; /* Choose your preferred font */
+  font-family: 'Roboto', sans-serif; 
   font-weight: 400;
   display: none;
   position: absolute;

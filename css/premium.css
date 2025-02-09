@@ -2,7 +2,7 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
@@ -64,6 +64,8 @@ body {
 }
 
 .auth-buttons .sell-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
     background-color: #5A9ED8;
     color: #ffffff;
 }
@@ -72,6 +74,8 @@ body {
     background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   text-decoration: none;
 }
 .register-btn a:hover, 
@@ -84,6 +88,8 @@ body {
 }
 /* Categories*/
 .categories {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -107,6 +113,8 @@ body {
   color: #2f80ed;
 }
 .subcategories {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400;
   display: none;
   position: absolute;
   top: 100%;
@@ -115,7 +123,7 @@ body {
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 .subcategories li {
@@ -194,8 +202,10 @@ body {
   }
   
   .cta-button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
     padding: 10px 20px;
-    background: #ff7e5f;
+    background: black;
     border: none;
     color: white;
     font-size: 16px;
@@ -247,7 +257,7 @@ body {
     flex-wrap: wrap;
   }
   .cta-button:hover{
-    background-color: #e7603e;
+    background-color: grey;
   }
   .pricing-card {
     background: white;
@@ -288,6 +298,8 @@ body {
   }
   
   .pricing-card .pricing-button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
     padding: 10px 20px;
     background: black;
     border: none;

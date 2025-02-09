@@ -6,7 +6,7 @@
   }
   
   body {
-    font-family: Arial,sans-serif;
+    font-family: "Roboto", sans-serif;
     background-color: #f5f5f5;
     margin: 0;
   }
@@ -69,6 +69,8 @@
 }
 
 .auth-buttons .sell-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   background-color: #5a9ed8;
   color: #ffffff;
 }
@@ -76,6 +78,8 @@
   background-color: #5a9ed8;
 }
 .register-btn a , .login-btn a  {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
   text-decoration: none;
 }
 .register-btn a:hover, 
@@ -88,6 +92,8 @@
 }
 /* Categories*/
 .categories {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   padding: 0 20px;
@@ -112,6 +118,8 @@
   position: relative;
 }
 .subcategories {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400;
   display: none;
   position: absolute;
   top: 100%;
@@ -229,6 +237,8 @@
     color: #888;
   }
   .change-btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
     padding: 10px 20px;
     border: none;
     background: #00796B;
@@ -273,6 +283,8 @@
   outline: none;
 }
   .apply-btn {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
     width: 100%;
     padding: 10px;
     background: #00796B;
