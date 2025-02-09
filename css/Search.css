@@ -609,3 +609,128 @@ body {
     max-height: 500px; 
     opacity: 1; 
 }
+@media (max-width: 1024px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        width: 100%;
+        max-width: 150px;
+        margin-left: 0;
+    }
+
+    .nav-icons {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .categories .category {
+        width: 100%;
+    }
+
+    .categories a {
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        width: 80%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo img {
+        width: 100%;
+        max-width: 150px;
+        margin-left: 0;
+    }
+
+    .nav-icons {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .categories .category {
+        width: 100%;
+    }
+
+    .categories a {
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        width: 90%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 100%;
+        max-width: 150px;
+        margin-left: 0;
+    }
+
+    .nav-icons {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .categories .category {
+        width: 100%;
+    }
+
+    .categories a {
+        margin: 5px 0;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
