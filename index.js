@@ -526,7 +526,7 @@ function editListing(event){
 function reportListing(event){
   let productCard = event.target.parentElement
   localStorage.setItem("productId",productCard.getAttribute("productid"));
-  const url = `Report.html`;
+  const url = `report.html`;
   window.location.href = url; 
 }
 async function deleteListing(button,oldData){
