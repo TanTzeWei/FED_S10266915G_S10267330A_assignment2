@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded",async function(){
+  search();
   const authButtons = document.querySelector(".auth-buttons");
     if(localStorage.getItem("id") === null){
         console.log("user not logged in")
@@ -469,4 +470,14 @@ function subCatSearch(event){
   const url = `Search.html?item=${button.textContent}`;//yo tzewei if you are copy pasting this from here to others change the path to ../SearchResult/Search.html?item=${button.textContent} or it wont work
   window.location.href = url; 
 
+}
+function search(){
+  const searchButton = document.querySelector(".search-bar button");
+  searchButton.addEventListener("click",function(){
+    let search = document.querySelector(".search-bar input").value;
+    localStorage.setItem("search",search);
+    const url = `Search.html?item=${search}`;
+    window.location.href = url; 
+    console.log("Done")
+  })
 }

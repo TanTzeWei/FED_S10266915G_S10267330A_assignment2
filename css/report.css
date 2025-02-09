@@ -64,12 +64,12 @@ body {
 }
 
 .auth-buttons .sell-btn {
-  background-color: #2F80ED;
+  background-color: #5A9ED8;
   color: #ffffff;
 }
 
 .auth-buttons button:hover {
-  background-color: #5A9Ed8;
+  background-color: #5A9ED8;
 }
 .register-btn a , .login-btn a  {
   text-decoration: none;
@@ -77,6 +77,10 @@ body {
 .register-btn a:hover, 
 .login-btn a:hover {
   color: #ffffff; /* Ensure the text color remains white on hover */
+}
+.auth-buttons .sell-btn:hover {
+  background-color: #2F80ED;
+  color: #ffffff;
 }
 /* Categories */
 .categories {
@@ -278,7 +282,7 @@ button.submit {
 }
 
 button:hover {
-  background: #5A9Ed8;
+  background: rgb(8, 73, 129);
 }
 
 .contact-info {

@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded",async function(){
             } else {
                 console.error("❌ Logout button NOT found!");
             }
-        }, 1000); // Give the browser time to render the dropdown
+        }, 300); // Give the browser time to render the dropdown
     });
 
 
