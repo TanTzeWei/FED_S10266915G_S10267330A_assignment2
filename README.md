@@ -1,7 +1,8 @@
 # MokeSell Website
 
-MokeSell is a **consumer-to-consumer** marketplace designed exclusively for selling **mobile phones**. It simplifies the process of selling second-hand phones by providing a **dedicated** platform that removes middlemen and ensures sellers **keep 100% of their profits**.
+MokeSell is a consumer-to-consumer (C2C) marketplace designed exclusively for mobile phone sales. Whether you're looking to sell your pre-loved smartphone or find a great deal on a second-hand device, MokeSell provides a seamless and trustworthy platform for all mobile phone transactions.
 
+Unlike other marketplaces, MokeSell eliminates the middleman, ensuring that sellers keep 100% of their profits. No hidden fees, no unnecessary commissions—just direct sales between buyers and sellers for a hassle-free experience.
 ---
 
 ## 📌 Design Process  
